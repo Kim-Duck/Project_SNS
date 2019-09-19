@@ -6,10 +6,6 @@
 </head>
 <body>
 <h1>
-
-테스트컴퓨터1234
-
-
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
