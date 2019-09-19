@@ -6,10 +6,14 @@
 </head>
 <body>
 <h1>
+<<<<<<< HEAD
 	Hello world!  업뎃완료
 	
 	pull Test
 가나다라마바사아잧카탗파판ㅇㄻㄴㅇㄻㄴㄷ러ㅠㅜㄴㅇ럼눙ㄹ
+=======
+	Hello world!  업뎃완료rrrasd
+>>>>>>> branch 'master' of https://github.com/Kim-Duck/Project_SNS.git
 
 </h1>
 
