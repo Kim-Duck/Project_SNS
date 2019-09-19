@@ -8,7 +8,18 @@
 <h1>
 </h1> 
 
+<<<<<<< HEAD
 <P>  The time on the server is ${serverTime}. </P>jghjghj
 asd
+=======
+asdasdasd
+
+
+<P>  The time on the server is ${serverTime}. </P>
+
+
+
+
+>>>>>>> refs/remotes/origin/master
 </body>
 </html>
