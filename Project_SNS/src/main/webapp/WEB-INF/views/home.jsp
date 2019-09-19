@@ -15,6 +15,7 @@
 	Hello world!  업뎃완료rrrasd
 >>>>>>> branch 'master' of https://github.com/Kim-Duck/Project_SNS.git
 
+
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
