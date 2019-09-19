@@ -58,6 +58,7 @@
 									<span><img src="resources/images/icon3.png" alt=""></span>
 									Projects
 								</a>
+							
 							</li>
 							<li>
 								<a href="profiles.html" title="">
