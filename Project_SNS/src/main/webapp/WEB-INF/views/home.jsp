@@ -6,9 +6,7 @@
 </head>
 <body>
 <h1>
-성규컴퓨터ㅁㄴㅇ
-
-asdasdasd
+PUSH TEST
 
 
 </h1>
