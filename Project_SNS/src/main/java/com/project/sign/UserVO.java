@@ -3,6 +3,14 @@ package com.project.sign;
 public class UserVO {
 	private int unum, user_folloing, user_follower;
 	private String user_id, userpwd, user_photo, user_phone, user_email, user_day;
+	private String user_name;
+	
+	public String getUser_name() {
+		return user_name;
+	}
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
 	public int getUnum() {
 		return unum;
 	}
