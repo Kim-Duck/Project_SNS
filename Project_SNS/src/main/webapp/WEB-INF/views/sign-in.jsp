@@ -8,16 +8,16 @@
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
 	
-	<link rel="stylesheet" type="text/css" href="css/animate.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/line-awesome.css">
-	<link rel="stylesheet" type="text/css" href="css/line-awesome-font-awesome.min.css">
-	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="lib/slick/slick.css">
-	<link rel="stylesheet" type="text/css" href="lib/slick/slick-theme.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="css/responsive.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/animate.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/line-awesome.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/line-awesome-font-awesome.min.css">
+	<link href="resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="resources/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="resources/lib/slick/slick.css">
+	<link rel="stylesheet" type="text/css" href="resources/lib/slick/slick-theme.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/responsive.css">
 </head>
 
 
@@ -33,10 +33,10 @@
 						<div class="col-lg-6">
 							<div class="cmp-info">
 								<div class="cm-logo">
-									<img src="images/cm-logo.png" alt="">
+									<img src="resources/images/cm-logo.png" alt="">
 									<p>Workwise,  is a global freelancing platform and social networking where businesses and independent professionals connect and collaborate remotely</p>
 								</div><!--cm-logo end-->	
-								<img src="images/cm-main-img.png" alt="">			
+								<img src="resources/images/cm-main-img.png" alt="">			
 							</div><!--cmp-info end-->
 						</div>
 						<div class="col-lg-6">
@@ -216,7 +216,7 @@
 						<li><a href="#" title="">Language</a></li>
 						<li><a href="#" title="">Copyright Policy</a></li>
 					</ul>
-					<p><img src="images/copy-icon.png" alt="">Copyright 2019</p>
+					<p><img src="resources/images/copy-icon.png" alt="">Copyright 2019</p>
 				</div>
 			</div><!--footy-sec end-->
 		</div><!--sign-in-page end-->
@@ -226,10 +226,10 @@
 
 
 
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/popper.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="lib/slick/slick.min.js"></script>
-<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="resources/js/jquery.min.js"></script>
+<script type="text/javascript" src="resources/js/popper.js"></script>
+<script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="resources/lib/slick/slick.min.js"></script>
+<script type="text/javascript" src="resources/js/script.js"></script>
 </body>
 </html>

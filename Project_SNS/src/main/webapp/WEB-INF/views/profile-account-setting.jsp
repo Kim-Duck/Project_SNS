@@ -8,17 +8,17 @@
 	<meta name="description" content="" />
 	 
 	<meta name="keywords" content="" />
-	<link rel="stylesheet" type="text/css" href="css/animate.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/line-awesome.css">
-	<link rel="stylesheet" type="text/css" href="css/line-awesome-font-awesome.min.css">
-	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="css/jquery.mCustomScrollbar.min.css">
-	<link rel="stylesheet" type="text/css" href="lib/slick/slick.css">
-	<link rel="stylesheet" type="text/css" href="lib/slick/slick-theme.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="css/responsive.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/animate.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/line-awesome.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/line-awesome-font-awesome.min.css">
+	<link href="resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="resources/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" type="text/css" href="resources/lib/slick/slick.css">
+	<link rel="stylesheet" type="text/css" href="resources/lib/slick/slick-theme.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/responsive.css">
 </head>
 
 
@@ -30,7 +30,7 @@
 			<div class="container">
 				<div class="header-data">
 					<div class="logo">
-						<a href="index.html" title=""><img src="images/logo.png" alt=""></a>
+						<a href="index.html" title=""><img src="resources/images/logo.png" alt=""></a>
 					</div><!--logo end-->
 					<div class="search-bar">
 						<form>
@@ -42,13 +42,13 @@
 						<ul>
 							<li>
 								<a href="index.html" title="">
-									<span><img src="images/icon1.png" alt=""></span>
+									<span><img src="resources/images/icon1.png" alt=""></span>
 									Home
 								</a>
 							</li>
 							<li>
 								<a href="companies.html" title="">
-									<span><img src="images/icon2.png" alt=""></span>
+									<span><img src="resources/images/icon2.png" alt=""></span>
 									Companies
 								</a>
 								<ul>
@@ -58,13 +58,13 @@
 							</li>
 							<li>
 								<a href="projects.html" title="">
-									<span><img src="images/icon3.png" alt=""></span>
+									<span><img src="resources/images/icon3.png" alt=""></span>
 									Projects
 								</a>
 							</li>
 							<li>
 								<a href="profiles.html" title="">
-									<span><img src="images/icon4.png" alt=""></span>
+									<span><img src="resources/images/icon4.png" alt=""></span>
 									Profiles
 								</a>
 								<ul>
@@ -74,13 +74,13 @@
 							</li>
 							<li>
 								<a href="jobs.html" title="">
-									<span><img src="images/icon5.png" alt=""></span>
+									<span><img src="resources/images/icon5.png" alt=""></span>
 									Jobs
 								</a>
 							</li>
 							<li>
 								<a href="#" title="" class="not-box-openm">
-									<span><img src="images/icon6.png" alt=""></span>
+									<span><img src="resources/images/icon6.png" alt=""></span>
 									Messages
 								</a>
 								<div class="notification-box msg" id="message">
@@ -91,7 +91,7 @@
 									<div class="nott-list">
 										<div class="notfication-details">
 							  				<div class="noty-user-img">
-							  					<img src="images/resources/ny-img1.png" alt="">
+							  					<img src="resources/images/resources/ny-img1.png" alt="">
 							  				</div>
 							  				<div class="notification-info">
 							  					<h3><a href="messages.html" title="">Jassica William</a> </h3>
@@ -101,7 +101,7 @@
 						  				</div>
 						  				<div class="notfication-details">
 							  				<div class="noty-user-img">
-							  					<img src="images/resources/ny-img2.png" alt="">
+							  					<img src="resources/images/resources/ny-img2.png" alt="">
 							  				</div>
 							  				<div class="notification-info">
 							  					<h3><a href="messages.html" title="">Jassica William</a></h3>
@@ -111,7 +111,7 @@
 						  				</div>
 						  				<div class="notfication-details">
 							  				<div class="noty-user-img">
-							  					<img src="images/resources/ny-img3.png" alt="">
+							  					<img src="resources/images/resources/ny-img3.png" alt="">
 							  				</div>
 							  				<div class="notification-info">
 							  					<h3><a href="messages.html" title="">Jassica William</a></h3>
@@ -127,7 +127,7 @@
 							</li>
 							<li>
 								<a href="#" title="" class="not-box-open">
-									<span><img src="images/icon7.png" alt=""></span>
+									<span><img src="resources/images/icon7.png" alt=""></span>
 									Notification
 								</a>
 								<div class="notification-box noti" id="notification">
@@ -138,7 +138,7 @@
 									<div class="nott-list">
 										<div class="notfication-details">
 							  				<div class="noty-user-img">
-							  					<img src="images/resources/ny-img1.png" alt="">
+							  					<img src="resources/images/resources/ny-img1.png" alt="">
 							  				</div>
 							  				<div class="notification-info">
 							  					<h3><a href="#" title="">Jassica William</a> Comment on your project.</h3>
@@ -147,7 +147,7 @@
 						  				</div>
 						  				<div class="notfication-details">
 							  				<div class="noty-user-img">
-							  					<img src="images/resources/ny-img2.png" alt="">
+							  					<img src="resources/images/resources/ny-img2.png" alt="">
 							  				</div>
 							  				<div class="notification-info">
 							  					<h3><a href="#" title="">Jassica William</a> Comment on your project.</h3>
@@ -156,7 +156,7 @@
 						  				</div>
 						  				<div class="notfication-details">
 							  				<div class="noty-user-img">
-							  					<img src="images/resources/ny-img3.png" alt="">
+							  					<img src="resources/images/resources/ny-img3.png" alt="">
 							  				</div>
 							  				<div class="notification-info">
 							  					<h3><a href="#" title="">Jassica William</a> Comment on your project.</h3>
@@ -165,7 +165,7 @@
 						  				</div>
 						  				<div class="notfication-details">
 							  				<div class="noty-user-img">
-							  					<img src="images/resources/ny-img2.png" alt="">
+							  					<img src="resources/images/resources/ny-img2.png" alt="">
 							  				</div>
 							  				<div class="notification-info">
 							  					<h3><a href="#" title="">Jassica William</a> Comment on your project.</h3>
@@ -185,7 +185,7 @@
 					</div><!--menu-btn end-->
 					<div class="user-account">
 						<div class="user-info">
-							<img src="images/resources/user.png" alt="">
+							<img src="resources/images/resources/user.png" alt="">
 							<a href="#" title="">John</a>
 							<i class="la la-sort-down"></i>
 						</div>
@@ -305,7 +305,7 @@
 							  					<div class="col-lg-3 col-md-6 col-sm-12">
 							  						<div class="profile-bx-info">
 							  							<div class="pro-bx">
-							  								<img src="images/pro-icon1.png" alt="">
+							  								<img src="resources/images/pro-icon1.png" alt="">
 							  								<div class="bx-info">
 							  									<h3>$5,145</h3>
 							  									<h5>Total Income</h5>
@@ -317,7 +317,7 @@
 							  					<div class="col-lg-3 col-md-6 col-sm-12">
 							  						<div class="profile-bx-info">
 							  							<div class="pro-bx">
-							  								<img src="images/pro-icon2.png" alt="">
+							  								<img src="resources/images/pro-icon2.png" alt="">
 							  								<div class="bx-info">
 							  									<h3>$4,745</h3>
 							  									<h5>Widthraw</h5>
@@ -329,7 +329,7 @@
 							  					<div class="col-lg-3 col-md-6 col-sm-12">
 							  						<div class="profile-bx-info">
 							  							<div class="pro-bx">
-							  								<img src="images/pro-icon3.png" alt="">
+							  								<img src="resources/images/pro-icon3.png" alt="">
 							  								<div class="bx-info">
 							  									<h3>$1,145</h3>
 							  									<h5>Sent</h5>
@@ -341,7 +341,7 @@
 							  					<div class="col-lg-3 col-md-6 col-sm-12">
 							  						<div class="profile-bx-info">
 							  							<div class="pro-bx">
-							  								<img src="images/pro-icon4.png" alt="">
+							  								<img src="resources/images/pro-icon4.png" alt="">
 							  								<div class="bx-info">
 							  									<h3>130</h3>
 							  									<h5>Total Projects</h5>
@@ -400,7 +400,7 @@
 							  			<div class="notifications-list">
 							  				<div class="notfication-details">
 								  				<div class="noty-user-img">
-								  					<img src="images/resources/ny-img1.png" alt="">
+								  					<img src="resources/images/resources/ny-img1.png" alt="">
 								  				</div>
 								  				<div class="notification-info">
 								  					<h3><a href="#" title="">Jassica William</a> Comment on your project.</h3>
@@ -409,7 +409,7 @@
 							  				</div><!--notfication-details end-->
 							  				<div class="notfication-details">
 								  				<div class="noty-user-img">
-								  					<img src="images/resources/ny-img2.png" alt="">
+								  					<img src="resources/images/resources/ny-img2.png" alt="">
 								  				</div>
 								  				<div class="notification-info">
 								  					<h3><a href="#" title="">Poonam Verma</a> Bid on your Latest project.</h3>
@@ -418,7 +418,7 @@
 							  				</div><!--notfication-details end-->
 							  				<div class="notfication-details">
 								  				<div class="noty-user-img">
-								  					<img src="images/resources/ny-img3.png" alt="">
+								  					<img src="resources/images/resources/ny-img3.png" alt="">
 								  				</div>
 								  				<div class="notification-info">
 								  					<h3><a href="#" title="">Tonney Dhman</a> Comment on your project.</h3>
@@ -427,7 +427,7 @@
 							  				</div><!--notfication-details end-->
 							  				<div class="notfication-details">
 								  				<div class="noty-user-img">
-								  					<img src="images/resources/ny-img1.png" alt="">
+								  					<img src="resources/images/resources/ny-img1.png" alt="">
 								  				</div>
 								  				<div class="notification-info">
 								  					<h3><a href="#" title="">Jassica William</a> Comment on your project.</h3>
@@ -436,7 +436,7 @@
 							  				</div><!--notfication-details end-->
 							  				<div class="notfication-details">
 								  				<div class="noty-user-img">
-								  					<img src="images/resources/ny-img1.png" alt="">
+								  					<img src="resources/images/resources/ny-img1.png" alt="">
 								  				</div>
 								  				<div class="notification-info">
 								  					<h3><a href="#" title="">Jassica William</a> Comment on your project.</h3>
@@ -445,7 +445,7 @@
 							  				</div><!--notfication-details end-->
 							  				<div class="notfication-details">
 								  				<div class="noty-user-img">
-								  					<img src="images/resources/ny-img2.png" alt="">
+								  					<img src="resources/images/resources/ny-img2.png" alt="">
 								  				</div>
 								  				<div class="notification-info">
 								  					<h3><a href="#" title="">Poonam Verma </a> Bid on your Latest project.</h3>
@@ -454,7 +454,7 @@
 							  				</div><!--notfication-details end-->
 							  				<div class="notfication-details">
 								  				<div class="noty-user-img">
-								  					<img src="images/resources/ny-img3.png" alt="">
+								  					<img src="resources/images/resources/ny-img3.png" alt="">
 								  				</div>
 								  				<div class="notification-info">
 								  					<h3><a href="#" title="">Tonney Dhman</a> Comment on your project</h3>
@@ -463,7 +463,7 @@
 							  				</div><!--notfication-details end-->
 							  				<div class="notfication-details">
 								  				<div class="noty-user-img">
-								  					<img src="images/resources/ny-img1.png" alt="">
+								  					<img src="resources/images/resources/ny-img1.png" alt="">
 								  				</div>
 								  				<div class="notification-info">
 								  					<h3><a href="#" title="">Jassica William</a> Comment on your project.</h3>
@@ -479,7 +479,7 @@
 							  			<div class="requests-list">
 							  				<div class="request-details">
 							  					<div class="noty-user-img">
-							  						<img src="images/resources/r-img1.png" alt="">
+							  						<img src="resources/images/resources/r-img1.png" alt="">
 							  					</div>
 							  					<div class="request-info">
 							  						<h3>Jessica William</h3>
@@ -494,7 +494,7 @@
 							  				</div><!--request-detailse end-->
 							  				<div class="request-details">
 							  					<div class="noty-user-img">
-							  						<img src="images/resources/r-img2.png" alt="">
+							  						<img src="resources/images/resources/r-img2.png" alt="">
 							  					</div>
 							  					<div class="request-info">
 							  						<h3>John Doe</h3>
@@ -509,7 +509,7 @@
 							  				</div><!--request-detailse end-->
 							  				<div class="request-details">
 							  					<div class="noty-user-img">
-							  						<img src="images/resources/r-img3.png" alt="">
+							  						<img src="resources/images/resources/r-img3.png" alt="">
 							  					</div>
 							  					<div class="request-info">
 							  						<h3>Poonam</h3>
@@ -524,7 +524,7 @@
 							  				</div><!--request-detailse end-->
 							  				<div class="request-details">
 							  					<div class="noty-user-img">
-							  						<img src="images/resources/r-img4.png" alt="">
+							  						<img src="resources/images/resources/r-img4.png" alt="">
 							  					</div>
 							  					<div class="request-info">
 							  						<h3>Bill Gates</h3>
@@ -539,7 +539,7 @@
 							  				</div><!--request-detailse end-->
 							  				<div class="request-details">
 							  					<div class="noty-user-img">
-							  						<img src="images/resources/r-img5.png" alt="">
+							  						<img src="resources/images/resources/r-img5.png" alt="">
 							  					</div>
 							  					<div class="request-info">
 							  						<h3>Jessica William</h3>
@@ -554,7 +554,7 @@
 							  				</div><!--request-detailse end-->
 							  				<div class="request-details">
 							  					<div class="noty-user-img">
-							  						<img src="images/resources/r-img6.png" alt="">
+							  						<img src="resources/images/resources/r-img6.png" alt="">
 							  					</div>
 							  					<div class="request-info">
 							  						<h3>John Doe</h3>
@@ -657,7 +657,7 @@
 							  			<div class="requests-list">
 							  				<div class="request-details">
 							  					<div class="noty-user-img">
-							  						<img src="images/resources/r-img1.png" alt="">
+							  						<img src="resources/images/resources/r-img1.png" alt="">
 							  					</div>
 							  					<div class="request-info">
 							  						<h3>Jessica William</h3>
@@ -672,7 +672,7 @@
 							  				</div><!--request-detailse end-->
 							  				<div class="request-details">
 							  					<div class="noty-user-img">
-							  						<img src="images/resources/r-img2.png" alt="">
+							  						<img src="resources/images/resources/r-img2.png" alt="">
 							  					</div>
 							  					<div class="request-info">
 							  						<h3>John Doe</h3>
@@ -687,7 +687,7 @@
 							  				</div><!--request-detailse end-->
 							  				<div class="request-details">
 							  					<div class="noty-user-img">
-							  						<img src="images/resources/r-img3.png" alt="">
+							  						<img src="resources/images/resources/r-img3.png" alt="">
 							  					</div>
 							  					<div class="request-info">
 							  						<h3>Poonam</h3>
@@ -702,7 +702,7 @@
 							  				</div><!--request-detailse end-->
 							  				<div class="request-details">
 							  					<div class="noty-user-img">
-							  						<img src="images/resources/r-img4.png" alt="">
+							  						<img src="resources/images/resources/r-img4.png" alt="">
 							  					</div>
 							  					<div class="request-info">
 							  						<h3>Bill Gates</h3>
@@ -717,7 +717,7 @@
 							  				</div><!--request-detailse end-->
 							  				<div class="request-details">
 							  					<div class="noty-user-img">
-							  						<img src="images/resources/r-img5.png" alt="">
+							  						<img src="resources/images/resources/r-img5.png" alt="">
 							  					</div>
 							  					<div class="request-info">
 							  						<h3>Jessica William</h3>
@@ -732,7 +732,7 @@
 							  				</div><!--request-detailse end-->
 							  				<div class="request-details">
 							  					<div class="noty-user-img">
-							  						<img src="images/resources/r-img6.png" alt="">
+							  						<img src="resources/images/resources/r-img6.png" alt="">
 							  					</div>
 							  					<div class="request-info">
 							  						<h3>John Doe</h3>
@@ -975,7 +975,7 @@
 						<li><a href="#" title="">Language</a></li>
 						<li><a href="#" title="">Copyright Policy</a></li>
 					</ul>
-					<p><img src="images/copy-icon2.png" alt="">Copyright 2019</p>
+					<p><img src="resources/images/copy-icon2.png" alt="">Copyright 2019</p>
 					<img class="fl-rgt" src="images/logo2.png" alt="">
 				</div>
 			</div>
@@ -985,12 +985,12 @@
 
 
 
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/popper.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/jquery.mCustomScrollbar.js"></script>
-<script type="text/javascript" src="lib/slick/slick.min.js"></script>
-<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="resources/js/jquery.min.js"></script>
+<script type="text/javascript" src="resources/js/popper.js"></script>
+<script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="resources/js/jquery.mCustomScrollbar.js"></script>
+<script type="text/javascript" src="resources/lib/slick/slick.min.js"></script>
+<script type="text/javascript" src="resources/js/script.js"></script>
 
 
 </body>

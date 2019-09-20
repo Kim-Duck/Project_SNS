@@ -8,17 +8,17 @@
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
 	
-	<link rel="stylesheet" type="text/css" href="css/animate.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/jquery.range.css">
-	<link rel="stylesheet" type="text/css" href="css/line-awesome.css">
-	<link rel="stylesheet" type="text/css" href="css/line-awesome-font-awesome.min.css">
-	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="lib/slick/slick.css">
-	<link rel="stylesheet" type="text/css" href="lib/slick/slick-theme.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="css/responsive.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/animate.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/jquery.range.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/line-awesome.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/line-awesome-font-awesome.min.css">
+	<link href="resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="resources/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="resources/lib/slick/slick.css">
+	<link rel="stylesheet" type="text/css" href="resources/lib/slick/slick-theme.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/responsive.css">
 </head>
 
 
@@ -30,7 +30,7 @@
 			<div class="container">
 				<div class="header-data">
 					<div class="logo">
-						<a href="index.html" title=""><img src="images/logo.png" alt=""></a>
+						<a href="index.html" title=""><img src="resources/images/logo.png" alt=""></a>
 					</div><!--logo end-->
 					<div class="search-bar">
 						<form>
@@ -42,13 +42,13 @@
 						<ul>
 							<li>
 								<a href="index.html" title="">
-									<span><img src="images/icon1.png" alt=""></span>
+									<span><img src="resources/images/icon1.png" alt=""></span>
 									Home
 								</a>
 							</li>
 							<li>
 								<a href="companies.html" title="">
-									<span><img src="images/icon2.png" alt=""></span>
+									<span><img src="resources/images/icon2.png" alt=""></span>
 									Companies
 								</a>
 								<ul>
@@ -58,13 +58,13 @@
 							</li>
 							<li>
 								<a href="projects.html" title="">
-									<span><img src="images/icon3.png" alt=""></span>
+									<span><img src="resources/images/icon3.png" alt=""></span>
 									Projects
 								</a>
 							</li>
 							<li>
 								<a href="profiles.html" title="">
-									<span><img src="images/icon4.png" alt=""></span>
+									<span><img src="resources/images/icon4.png" alt=""></span>
 									Profiles
 								</a>
 								<ul>
@@ -74,13 +74,13 @@
 							</li>
 							<li>
 								<a href="jobs.html" title="">
-									<span><img src="images/icon5.png" alt=""></span>
+									<span><img src="resources/images/icon5.png" alt=""></span>
 									Jobs
 								</a>
 							</li>
 							<li>
 								<a href="#" title="" class="not-box-openm">
-									<span><img src="images/icon6.png" alt=""></span>
+									<span><img src="resources/images/icon6.png" alt=""></span>
 									Messages
 								</a>
 								<div class="notification-box msg" id="message">
@@ -91,7 +91,7 @@
 									<div class="nott-list">
 										<div class="notfication-details">
 							  				<div class="noty-user-img">
-							  					<img src="images/resources/ny-img1.png" alt="">
+							  					<img src="resources/images/resources/ny-img1.png" alt="">
 							  				</div>
 							  				<div class="notification-info">
 							  					<h3><a href="messages.html" title="">Jassica William</a> </h3>
@@ -101,7 +101,7 @@
 						  				</div>
 						  				<div class="notfication-details">
 							  				<div class="noty-user-img">
-							  					<img src="images/resources/ny-img2.png" alt="">
+							  					<img src="resources/images/resources/ny-img2.png" alt="">
 							  				</div>
 							  				<div class="notification-info">
 							  					<h3><a href="messages.html" title="">Jassica William</a></h3>
@@ -111,7 +111,7 @@
 						  				</div>
 						  				<div class="notfication-details">
 							  				<div class="noty-user-img">
-							  					<img src="images/resources/ny-img3.png" alt="">
+							  					<img src="resources/images/resources/ny-img3.png" alt="">
 							  				</div>
 							  				<div class="notification-info">
 							  					<h3><a href="messages.html" title="">Jassica William</a></h3>
@@ -127,7 +127,7 @@
 							</li>
 							<li>
 								<a href="#" title="" class="not-box-open">
-									<span><img src="images/icon7.png" alt=""></span>
+									<span><img src="resources/images/icon7.png" alt=""></span>
 									Notification
 								</a>
 								<div class="notification-box noti" id="notification">
@@ -138,7 +138,7 @@
 									<div class="nott-list">
 										<div class="notfication-details">
 							  				<div class="noty-user-img">
-							  					<img src="images/resources/ny-img1.png" alt="">
+							  					<img src="resources/images/resources/ny-img1.png" alt="">
 							  				</div>
 							  				<div class="notification-info">
 							  					<h3><a href="#" title="">Jassica William</a> Comment on your project.</h3>
@@ -147,7 +147,7 @@
 						  				</div>
 						  				<div class="notfication-details">
 							  				<div class="noty-user-img">
-							  					<img src="images/resources/ny-img2.png" alt="">
+							  					<img src="resources/images/resources/ny-img2.png" alt="">
 							  				</div>
 							  				<div class="notification-info">
 							  					<h3><a href="#" title="">Jassica William</a> Comment on your project.</h3>
@@ -156,7 +156,7 @@
 						  				</div>
 						  				<div class="notfication-details">
 							  				<div class="noty-user-img">
-							  					<img src="images/resources/ny-img3.png" alt="">
+							  					<img src="resources/images/resources/ny-img3.png" alt="">
 							  				</div>
 							  				<div class="notification-info">
 							  					<h3><a href="#" title="">Jassica William</a> Comment on your project.</h3>
@@ -165,7 +165,7 @@
 						  				</div>
 						  				<div class="notfication-details">
 							  				<div class="noty-user-img">
-							  					<img src="images/resources/ny-img2.png" alt="">
+							  					<img src="resources/images/resources/ny-img2.png" alt="">
 							  				</div>
 							  				<div class="notification-info">
 							  					<h3><a href="#" title="">Jassica William</a> Comment on your project.</h3>
@@ -185,7 +185,7 @@
 					</div><!--menu-btn end-->
 					<div class="user-account">
 						<div class="user-info">
-							<img src="images/resources/user.png" alt="">
+							<img src="resources/images/resources/user.png" alt="">
 							<a href="#" title="">John</a>
 							<i class="la la-sort-down"></i>
 						</div>
@@ -361,7 +361,7 @@
 										<div class="post-bar">
 											<div class="post_topbar">
 												<div class="usy-dt">
-													<img src="images/resources/us-pic.png" alt="">
+													<img src="resources/images/resources/us-pic.png" alt="">
 													<div class="usy-name">
 														<h3>John Doe</h3>
 														<span><img src="images/clock.png" alt="">3 min ago</span>
@@ -380,8 +380,8 @@
 											</div>
 											<div class="epi-sec">
 												<ul class="descp">
-													<li><img src="images/icon8.png" alt=""><span>Front End Developer</span></li>
-													<li><img src="images/icon9.png" alt=""><span>India</span></li>
+													<li><img src="resources/images/icon8.png" alt=""><span>Front End Developer</span></li>
+													<li><img src="resources/images/icon9.png" alt=""><span>India</span></li>
 												</ul>
 												<ul class="bk-links">
 													<li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
@@ -421,10 +421,10 @@
 										<div class="post-bar">
 											<div class="post_topbar">
 												<div class="usy-dt">
-													<img src="images/resources/us-pic.png" alt="">
+													<img src="resources/images/resources/us-pic.png" alt="">
 													<div class="usy-name">
 														<h3>John Doe</h3>
-														<span><img src="images/clock.png" alt="">3 min ago</span>
+														<span><img src="resources/images/clock.png" alt="">3 min ago</span>
 													</div>
 												</div>
 												<div class="ed-opts">
@@ -440,8 +440,8 @@
 											</div>
 											<div class="epi-sec">
 												<ul class="descp">
-													<li><img src="images/icon8.png" alt=""><span>Front End Developer</span></li>
-													<li><img src="images/icon9.png" alt=""><span>India</span></li>
+													<li><img src="resources/images/icon8.png" alt=""><span>Front End Developer</span></li>
+													<li><img src="resources/images/icon9.png" alt=""><span>India</span></li>
 												</ul>
 												<ul class="bk-links">
 													<li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
@@ -470,7 +470,7 @@
 												<ul class="like-com">
 													<li>
 														<a href="#" class="active"><i class="fas fa-heart"></i> Like</a>
-														<img src="images/liked-img.png" alt="">
+														<img src="resources/images/liked-img.png" alt="">
 														<span>25</span>
 													</li>
 													<li><a href="#" class="com"><i class="fas fa-comment-alt"></i> Comments 15</a></li>
@@ -481,10 +481,10 @@
 										<div class="post-bar">
 											<div class="post_topbar">
 												<div class="usy-dt">
-													<img src="images/resources/us-pic.png" alt="">
+													<img src="resources/images/resources/us-pic.png" alt="">
 													<div class="usy-name">
 														<h3>John Doe</h3>
-														<span><img src="images/clock.png" alt="">3 min ago</span>
+														<span><img src="resources/images/clock.png" alt="">3 min ago</span>
 													</div>
 												</div>
 												<div class="ed-opts">
@@ -500,8 +500,8 @@
 											</div>
 											<div class="epi-sec">
 												<ul class="descp">
-													<li><img src="images/icon8.png" alt=""><span>Front End Developer</span></li>
-													<li><img src="images/icon9.png" alt=""><span>India</span></li>
+													<li><img src="resources/images/icon8.png" alt=""><span>Front End Developer</span></li>
+													<li><img src="resources/images/icon9.png" alt=""><span>India</span></li>
 												</ul>
 												<ul class="bk-links">
 													<li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
@@ -530,7 +530,7 @@
 												<ul class="like-com">
 													<li>
 														<a href="#" class="active"><i class="fas fa-heart"></i> Like</a>
-														<img src="images/liked-img.png" alt="">
+														<img src="resources/images/liked-img.png" alt="">
 														<span>25</span>
 													</li>
 													<li><a href="#" class="com"><i class="fas fa-comment-alt"></i> Comments 15</a></li>
@@ -541,10 +541,10 @@
 										<div class="post-bar">
 											<div class="post_topbar">
 												<div class="usy-dt">
-													<img src="images/resources/us-pic.png" alt="">
+													<img src="resources/images/resources/us-pic.png" alt="">
 													<div class="usy-name">
 														<h3>John Doe</h3>
-														<span><img src="images/clock.png" alt="">3 min ago</span>
+														<span><img src="resources/images/clock.png" alt="">3 min ago</span>
 													</div>
 												</div>
 												<div class="ed-opts">
@@ -560,8 +560,8 @@
 											</div>
 											<div class="epi-sec">
 												<ul class="descp">
-													<li><img src="images/icon8.png" alt=""><span>Front End Developer</span></li>
-													<li><img src="images/icon9.png" alt=""><span>India</span></li>
+													<li><img src="resources/images/icon8.png" alt=""><span>Front End Developer</span></li>
+													<li><img src="resources/images/icon9.png" alt=""><span>India</span></li>
 												</ul>
 												<ul class="bk-links">
 													<li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
@@ -590,7 +590,7 @@
 												<ul class="like-com">
 													<li>
 														<a href="#" class="active"><i class="fas fa-heart"></i> Like</a>
-														<img src="images/liked-img.png" alt="">
+														<img src="resources/images/liked-img.png" alt="">
 														<span>25</span>
 													</li>
 													<li><a href="#" class="com"><i class="fas fa-comment-alt"></i> Comments 15</a></li>
@@ -611,7 +611,7 @@
 							<div class="col-lg-3">
 								<div class="right-sidebar">
 									<div class="widget widget-about">
-										<img src="images/wd-logo.png" alt="">
+										<img src="resources/images/wd-logo.png" alt="">
 										<h3>Track Time on Workwise</h3>
 										<span>Pay only for the Hours worked</span>
 										<div class="sign_link">
@@ -729,8 +729,8 @@
 						<li><a href="#" title="">Language</a></li>
 						<li><a href="#" title="">Copyright Policy</a></li>
 					</ul>
-					<p><img src="images/copy-icon2.png" alt="">Copyright 2019</p>
-					<img class="fl-rgt" src="images/logo2.png" alt="">
+					<p><img src="resources/images/copy-icon2.png" alt="">Copyright 2019</p>
+					<img class="fl-rgt" src="resources/images/logo2.png" alt="">
 				</div>
 			</div>
 		</footer>		
@@ -739,11 +739,11 @@
 
 
 
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/popper.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/jquery.range-min.js"></script>
-<script type="text/javascript" src="lib/slick/slick.min.js"></script>
-<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="resources/js/jquery.min.js"></script>
+<script type="text/javascript" src="resources/js/popper.js"></script>
+<script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="resources/js/jquery.range-min.js"></script>
+<script type="text/javascript" src="resources/lib/slick/slick.min.js"></script>
+<script type="text/javascript" src="resources/js/script.js"></script>
 </body>
 </html>

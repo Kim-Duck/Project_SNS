@@ -6,17 +6,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="" />
 	<meta name="keywords" content="" /> 
-	<link rel="stylesheet" type="text/css" href="css/animate.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/line-awesome.css">
-	<link rel="stylesheet" type="text/css" href="css/line-awesome-font-awesome.min.css">
-	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="css/jquery.mCustomScrollbar.min.css">
-	<link rel="stylesheet" type="text/css" href="lib/slick/slick.css">
-	<link rel="stylesheet" type="text/css" href="lib/slick/slick-theme.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="css/responsive.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/animate.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/line-awesome.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/line-awesome-font-awesome.min.css">
+	<link href="resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="resources/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" type="text/css" href="resources/lib/slick/slick.css">
+	<link rel="stylesheet" type="text/css" href="resources/lib/slick/slick-theme.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/responsive.css">
 </head>
 
 
@@ -28,7 +28,7 @@
 			<div class="container">
 				<div class="header-data">
 					<div class="logo">
-						<a href="index.html" title=""><img src="images/logo.png" alt=""></a>
+						<a href="index.html" title=""><img src="resources/images/logo.png" alt=""></a>
 					</div><!--logo end-->
 					<div class="search-bar">
 						<form>
@@ -40,13 +40,13 @@
 						<ul>
 							<li>
 								<a href="index.html" title="">
-									<span><img src="images/icon1.png" alt=""></span>
+									<span><img src="resources/images/icon1.png" alt=""></span>
 									Home
 								</a>
 							</li>
 							<li>
 								<a href="companies.html" title="">
-									<span><img src="images/icon2.png" alt=""></span>
+									<span><img src="resources/images/icon2.png" alt=""></span>
 									Companies
 								</a>
 								<ul>
@@ -56,13 +56,13 @@
 							</li>
 							<li>
 								<a href="projects.html" title="">
-									<span><img src="images/icon3.png" alt=""></span>
+									<span><img src="resources/images/icon3.png" alt=""></span>
 									Projects
 								</a>
 							</li>
 							<li>
 								<a href="profiles.html" title="">
-									<span><img src="images/icon4.png" alt=""></span>
+									<span><img src="resources/images/icon4.png" alt=""></span>
 									Profiles
 								</a>
 								<ul>
@@ -72,13 +72,13 @@
 							</li>
 							<li>
 								<a href="jobs.html" title="">
-									<span><img src="images/icon5.png" alt=""></span>
+									<span><img src="resources/images/icon5.png" alt=""></span>
 									Jobs
 								</a>
 							</li>
 							<li>
 								<a href="#" title="" class="not-box-openm">
-									<span><img src="images/icon6.png" alt=""></span>
+									<span><img src="resources/images/icon6.png" alt=""></span>
 									Messages
 								</a>
 								<div class="notification-box msg" id="message">
@@ -89,7 +89,7 @@
 									<div class="nott-list">
 										<div class="notfication-details">
 							  				<div class="noty-user-img">
-							  					<img src="images/resources/ny-img1.png" alt="">
+							  					<img src="resources/images/resources/ny-img1.png" alt="">
 							  				</div>
 							  				<div class="notification-info">
 							  					<h3><a href="messages.html" title="">Jassica William</a> </h3>
@@ -99,7 +99,7 @@
 						  				</div>
 						  				<div class="notfication-details">
 							  				<div class="noty-user-img">
-							  					<img src="images/resources/ny-img2.png" alt="">
+							  					<img src="resources/images/resources/ny-img2.png" alt="">
 							  				</div>
 							  				<div class="notification-info">
 							  					<h3><a href="messages.html" title="">Jassica William</a></h3>
@@ -109,7 +109,7 @@
 						  				</div>
 						  				<div class="notfication-details">
 							  				<div class="noty-user-img">
-							  					<img src="images/resources/ny-img3.png" alt="">
+							  					<img src="resources/images/resources/ny-img3.png" alt="">
 							  				</div>
 							  				<div class="notification-info">
 							  					<h3><a href="messages.html" title="">Jassica William</a></h3>
@@ -125,7 +125,7 @@
 							</li>
 							<li>
 								<a href="#" title="" class="not-box-open">
-									<span><img src="images/icon7.png" alt=""></span>
+									<span><img src="resources/images/icon7.png" alt=""></span>
 									Notification
 								</a>
 								<div class="notification-box noti" id="notification">
@@ -136,7 +136,7 @@
 									<div class="nott-list">
 										<div class="notfication-details">
 							  				<div class="noty-user-img">
-							  					<img src="images/resources/ny-img1.png" alt="">
+							  					<img src="resources/images/resources/ny-img1.png" alt="">
 							  				</div>
 							  				<div class="notification-info">
 							  					<h3><a href="#" title="">Jassica William</a> Comment on your project.</h3>
@@ -145,7 +145,7 @@
 						  				</div>
 						  				<div class="notfication-details">
 							  				<div class="noty-user-img">
-							  					<img src="images/resources/ny-img2.png" alt="">
+							  					<img src="resources/images/resources/ny-img2.png" alt="">
 							  				</div>
 							  				<div class="notification-info">
 							  					<h3><a href="#" title="">Jassica William</a> Comment on your project.</h3>
@@ -154,7 +154,7 @@
 						  				</div>
 						  				<div class="notfication-details">
 							  				<div class="noty-user-img">
-							  					<img src="images/resources/ny-img3.png" alt="">
+							  					<img src="resources/images/resources/ny-img3.png" alt="">
 							  				</div>
 							  				<div class="notification-info">
 							  					<h3><a href="#" title="">Jassica William</a> Comment on your project.</h3>
@@ -163,7 +163,7 @@
 						  				</div>
 						  				<div class="notfication-details">
 							  				<div class="noty-user-img">
-							  					<img src="images/resources/ny-img2.png" alt="">
+							  					<img src="resources/images/resources/ny-img2.png" alt="">
 							  				</div>
 							  				<div class="notification-info">
 							  					<h3><a href="#" title="">Jassica William</a> Comment on your project.</h3>
@@ -183,7 +183,7 @@
 					</div><!--menu-btn end-->
 					<div class="user-account">
 						<div class="user-info">
-							<img src="images/resources/user.png" alt="">
+							<img src="resources/images/resources/user.png" alt="">
 							<a href="#" title="">John</a>
 							<i class="la la-sort-down"></i>
 						</div>
@@ -250,12 +250,12 @@
 										<li class="active">
 											<div class="usr-msg-details">
 												<div class="usr-ms-img">
-													<img src="images/resources/m-img1.png" alt="">
+													<img src="resources/images/resources/m-img1.png" alt="">
 													<span class="msg-status"></span>
 												</div>
 												<div class="usr-mg-info">
 													<h3>John Doe</h3>
-													<p>Lorem ipsum dolor <img src="images/smley.png" alt=""></p>
+													<p>Lorem ipsum dolor <img src="resources/images/smley.png" alt=""></p>
 												</div><!--usr-mg-info end-->
 												<span class="posted_time">1:55 PM</span>
 												<span class="msg-notifc">1</span>
@@ -264,7 +264,7 @@
 										<li>
 											<div class="usr-msg-details">
 												<div class="usr-ms-img">
-													<img src="images/resources/m-img2.png" alt="">
+													<img src="resources/images/resources/m-img2.png" alt="">
 												</div>
 												<div class="usr-mg-info">
 													<h3>David Vane</h3>
@@ -276,7 +276,7 @@
 										<li>
 											<div class="usr-msg-details">
 												<div class="usr-ms-img">
-													<img src="images/resources/m-img3.png" alt="">
+													<img src="resources/images/resources/m-img3.png" alt="">
 												</div>
 												<div class="usr-mg-info">
 													<h3>Nancy Dilan</h3>
@@ -288,7 +288,7 @@
 										<li>
 											<div class="usr-msg-details">
 												<div class="usr-ms-img">
-													<img src="images/resources/m-img4.png" alt="">
+													<img src="resources/images/resources/m-img4.png" alt="">
 													<span class="msg-status"></span>
 												</div>
 												<div class="usr-mg-info">
@@ -301,7 +301,7 @@
 										<li>
 											<div class="usr-msg-details">
 												<div class="usr-ms-img">
-													<img src="images/resources/m-img5.png" alt="">
+													<img src="resources/images/resources/m-img5.png" alt="">
 													<span class="msg-status"></span>
 												</div>
 												<div class="usr-mg-info">
@@ -314,7 +314,7 @@
 										<li>
 											<div class="usr-msg-details">
 												<div class="usr-ms-img">
-													<img src="images/resources/m-img6.png" alt="">
+													<img src="resources/images/resources/m-img6.png" alt="">
 												</div>
 												<div class="usr-mg-info">
 													<h3>Mike Dorn</h3>
@@ -326,7 +326,7 @@
 										<li>
 											<div class="usr-msg-details">
 												<div class="usr-ms-img">
-													<img src="images/resources/m-img7.png" alt="">
+													<img src="resources/images/resources/m-img7.png" alt="">
 												</div>
 												<div class="usr-mg-info">
 													<h3>Patrick Morison</h3>
@@ -344,7 +344,7 @@
 								<div class="message-bar-head">
 									<div class="usr-msg-details">
 										<div class="usr-ms-img">
-											<img src="images/resources/m-img1.png" alt="">
+											<img src="resources/images/resources/m-img1.png" alt="">
 										</div>
 										<div class="usr-mg-info">
 											<h3>John Doe</h3>
@@ -356,13 +356,13 @@
 								<div class="messages-line">
 									<div class="main-message-box">
 										<div class="messg-usr-img">
-											<img src="images/resources/m-img1.png" alt="">
+											<img src="resources/images/resources/m-img1.png" alt="">
 										</div><!--messg-usr-img end-->
 										<div class="message-dt">
 											<div class="message-inner-dt img-bx">
-												<img src="images/resources/mt-img1.png" alt="">
-												<img src="images/resources/mt-img2.png" alt="">
-												<img src="images/resources/mt-img3.png" alt="">
+												<img src="resources/images/resources/mt-img1.png" alt="">
+												<img src="resources/images/resources/mt-img2.png" alt="">
+												<img src="resources/images/resources/mt-img3.png" alt="">
 											</div><!--message-inner-dt end-->
 											<span>Sat, Aug 23, 1:08 PM</span>
 										</div><!--message-dt end-->
@@ -375,18 +375,18 @@
 											<span>Sat, Aug 23, 1:08 PM</span>
 										</div><!--message-dt end-->
 										<div class="messg-usr-img">
-											<img src="images/resources/m-img2.png" alt="">
+											<img src="resources/images/resources/m-img2.png" alt="">
 										</div><!--messg-usr-img end-->
 									</div><!--main-message-box end-->
 									<div class="main-message-box st3">
 										<div class="message-dt st3">
 											<div class="message-inner-dt">
-												<p>Cras ultricies ligula.<img src="images/smley.png" alt=""></p>
+												<p>Cras ultricies ligula.<img src="resources/images/smley.png" alt=""></p>
 											</div><!--message-inner-dt end-->
 											<span>5 minutes ago</span>
 										</div><!--message-dt end-->
 										<div class="messg-usr-img">
-											<img src="images/resources/m-img1.png" alt="">
+											<img src="resources/images/resources/m-img1.png" alt="">
 										</div><!--messg-usr-img end-->
 									</div><!--main-message-box end-->
 									<div class="main-message-box ta-right">
@@ -397,7 +397,7 @@
 											<span>Sat, Aug 23, 1:08 PM</span>
 										</div><!--message-dt end-->
 										<div class="messg-usr-img">
-											<img src="images/resources/m-img2.png" alt="">
+											<img src="resources/images/resources/m-img2.png" alt="">
 										</div><!--messg-usr-img end-->
 									</div><!--main-message-box end-->
 									<div class="main-message-box st3">
@@ -408,7 +408,7 @@
 											<span>2 minutes ago</span>
 										</div><!--message-dt end-->
 										<div class="messg-usr-img">
-											<img src="images/resources/m-img1.png" alt="">
+											<img src="resources/images/resources/m-img1.png" alt="">
 										</div><!--messg-usr-img end-->
 									</div><!--main-message-box end-->
 									<div class="main-message-box ta-right">
@@ -419,7 +419,7 @@
 											<span>Sat, Aug 23, 1:08 PM</span>
 										</div><!--message-dt end-->
 										<div class="messg-usr-img">
-											<img src="images/resources/m-img2.png" alt="">
+											<img src="resources/images/resources/m-img2.png" alt="">
 										</div><!--messg-usr-img end-->
 									</div><!--main-message-box end-->
 									<div class="main-message-box st3">
@@ -430,7 +430,7 @@
 											<span>Typing...</span>
 										</div><!--message-dt end-->
 										<div class="messg-usr-img">
-											<img src="images/resources/m-img1.png" alt="">
+											<img src="resources/images/resources/m-img1.png" alt="">
 										</div><!--messg-usr-img end-->
 									</div><!--main-message-box end-->
 								</div><!--messages-line end-->
@@ -480,13 +480,13 @@
 
 
 
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/popper.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/jquery.mCustomScrollbar.js"></script>
-<script type="text/javascript" src="lib/slick/slick.min.js"></script>
-<script type="text/javascript" src="js/scrollbar.js"></script>
-<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="resources/js/jquery.min.js"></script>
+<script type="text/javascript" src="resources/js/popper.js"></script>
+<script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="resources/js/jquery.mCustomScrollbar.js"></script>
+<script type="text/javascript" src="resources/lib/slick/slick.min.js"></script>
+<script type="text/javascript" src="resources/js/scrollbar.js"></script>
+<script type="text/javascript" src="resources/js/script.js"></script>
 
 </body>
 </html>
