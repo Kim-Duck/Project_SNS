@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="UTF-8">
 	<title>WorkWise Html Template</title>
@@ -98,7 +99,7 @@
 									</div>signup-tab end	 -->
 									
 									<div class="dff-tab current" id="tab-3">
-										<form action="/sns/signup" method="post">
+										<form id="SubmitSignUp">
 											<div class="row">
 												<div class="col-lg-12 no-pdd">
 													<div class="sn-field">													
@@ -155,7 +156,7 @@
 													</div>
 												</div>
 												<div class="col-lg-12 no-pdd">
-													<button type="submit" value="submit">Get Started</button>
+													<button type="button" value="reset" id="btnSubmit">Get Started</button>
 												</div>
 											</div>
 										</form>
@@ -196,5 +197,15 @@
 <script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="resources/lib/slick/slick.min.js"></script>
 <script type="text/javascript" src="resources/js/script.js"></script>
+<script>
+$(function () {
+	$("#btnSubmit").click(function () {
+		var SubmitSignUp = $("#SubmitSignUp");
+		SubmitSignUp.attr("action","/sns/signup");
+		SubmitSignUp.attr("method","POST");
+		SubmitSignUp.submit();
+	});	
+})
+</script>
 </body>
 </html>
