@@ -170,7 +170,7 @@
 						<a href="#" title=""><i class="fa fa-bars"></i></a>
 					</div><!--menu-btn end-->
 					<div class="user-account">
-						<div class="user-info">
+						<div class="user-info">  
 							<img src="resources/images/resources/user.png" alt="">
 							<a href="#" title="">John</a>
 							<i class="la la-sort-down"></i>
