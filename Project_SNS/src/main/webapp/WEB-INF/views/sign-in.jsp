@@ -203,6 +203,7 @@
 					</div>		
 				</div><!--signin-pop end-->
 			</div><!--signin-popup end-->
+		
 			<div class="footy-sec">
 				<div class="container">
 					<ul>
