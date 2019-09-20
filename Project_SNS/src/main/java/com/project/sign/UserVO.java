@@ -2,7 +2,7 @@ package com.project.sign;
 
 public class UserVO {
 	private int unum, user_folloing, user_follower;
-	private String user_id, userpwd, user_photo, user_phone, user_email, user_day;
+	private String user_id, user_pwd, user_photo, user_phone, user_email, user_day;
 	private String user_name;
 	
 	public String getUser_name() {
@@ -35,12 +35,7 @@ public class UserVO {
 	public void setUser_id(String user_id) {
 		this.user_id = user_id;
 	}
-	public String getUserpwd() {
-		return userpwd;
-	}
-	public void setUserpwd(String userpwd) {
-		this.userpwd = userpwd;
-	}
+
 	public String getUser_photo() {
 		return user_photo;
 	}
@@ -64,6 +59,12 @@ public class UserVO {
 	}
 	public void setUser_day(String user_day) {
 		this.user_day = user_day;
+	}
+	public String getUser_pwd() {
+		return user_pwd;
+	}
+	public void setUser_pwd(String user_pwd) {
+		this.user_pwd = user_pwd;
 	}
 	
 	

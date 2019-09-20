@@ -1,4 +1,5 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -97,7 +98,7 @@
 									</div>signup-tab end	 -->
 									
 									<div class="dff-tab current" id="tab-3">
-										<form action="/signup" method="post">
+										<form action="/sns/signup" method="post">
 											<div class="row">
 												<div class="col-lg-12 no-pdd">
 													<div class="sn-field">													
@@ -138,7 +139,7 @@
 												</div>
 												<div class="col-lg-12 no-pdd">
 													<div class="sn-field">
-														<input type="password" name="repeat-password" placeholder="Repeat Password">
+														<input type="password" placeholder="Repeat Password">
 														<i class="la la-lock"></i>
 													</div>
 												</div>												
