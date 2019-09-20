@@ -3,6 +3,7 @@ package com.project.controller;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.project.sign.SignServiceImpl;
@@ -15,8 +16,14 @@ public class SignController {
 	private SignServiceImpl service;	
 	
 	@PostMapping("/signup")
-	public void User_signUp(UserVO user) {
+	public String User_signUp(UserVO user) {
 		service.User_SignUp(user);
+		return "sign-in";
+	}
+	
+	@GetMapping("/index")
+	public String LoginTest() {		
+		return "index";
 	}
 
 }

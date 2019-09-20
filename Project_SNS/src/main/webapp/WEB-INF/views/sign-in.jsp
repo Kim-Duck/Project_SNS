@@ -49,17 +49,17 @@
 								<div class="sign_in_sec current" id="tab-1">
 									
 									<h3>Sign in</h3>
-									<form>
+									<form id="LoginTest">
 										<div class="row">
 											<div class="col-lg-12 no-pdd">
 												<div class="sn-field">
-													<input type="text" name="username" placeholder="Username">
+													<input type="text" name="user_id" placeholder="Username">
 													<i class="la la-user"></i>
 												</div><!--sn-field end-->
 											</div>
 											<div class="col-lg-12 no-pdd">
 												<div class="sn-field">
-													<input type="password" name="password" placeholder="Password">
+													<input type="password" name="user_pwd" placeholder="Password">
 													<i class="la la-lock"></i>
 												</div>
 											</div>
@@ -76,7 +76,7 @@
 												</div>
 											</div>
 											<div class="col-lg-12 no-pdd">
-												<button type="submit" value="submit">Sign in</button>
+												<button type="button" id="btnLogin">로그인</button>
 											</div>
 										</div>
 									</form>
@@ -197,15 +197,6 @@
 <script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="resources/lib/slick/slick.min.js"></script>
 <script type="text/javascript" src="resources/js/script.js"></script>
-<script>
-$(function () {
-	$("#btnSubmit").click(function () {
-		var SubmitSignUp = $("#SubmitSignUp");
-		SubmitSignUp.attr("action","/sns/signup");
-		SubmitSignUp.attr("method","POST");
-		SubmitSignUp.submit();
-	});	
-})
-</script>
+<script type="text/javascript" src="resources/sns_js/sign_in.js"></script>
 </body>
 </html>

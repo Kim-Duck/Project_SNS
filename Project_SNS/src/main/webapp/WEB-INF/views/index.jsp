@@ -227,7 +227,7 @@
 													<a href="#" title="">View Profile</a>
 												</div><!--user-profy end-->
 												<div class="user-profy">
-													<img src="images/resources/user2.png" alt="">
+													<img src="resources/images/resources/user2.png" alt="">
 													<h3>John Doe</h3>
 													<span>Graphic Designer</span>
 													<ul>
