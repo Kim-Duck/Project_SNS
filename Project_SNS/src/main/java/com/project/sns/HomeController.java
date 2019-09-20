@@ -33,7 +33,11 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
+<<<<<<< HEAD
 		return "about";
+=======
+		return "sign-in";
+>>>>>>> refs/remotes/origin/master
 	}
 	
 }
