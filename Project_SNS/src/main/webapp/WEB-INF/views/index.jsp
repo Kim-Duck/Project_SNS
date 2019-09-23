@@ -744,25 +744,25 @@
 
 		<div class="post-popup job_post">
 			<div class="post-project">
-				<h3>Post a job</h3>
+				<h3>게시글 쓰기</h3>
 				<div class="post-project-fields">
 					<form>
 						<div class="row">
-							<div class="col-lg-12">
-								<input type="text" name="title" placeholder="제목">
-							</div>
+						 
+							
 							 
+							 
+							<div class="col-lg-12">
+								<textarea name="description" placeholder="나의 생각을 적어주세요^^"></textarea>
+							</div>
+							
 							<div class="col-lg-12">
 								<input type="text" name="skills" placeholder="첨부하기">
 							</div>
-							 
-							 
-							<div class="col-lg-12">
-								<textarea name="description" placeholder="내용"></textarea>
-							</div>
+							
 							<div class="col-lg-12">
 								<ul>
-									<li><button class="active" type="submit" value="post">글 쓰기</button></li>
+									<li><button class="active" type="submit" value="post">게시</button></li>
 									<li><a href="#" title="">취소</a></li>
 								</ul>
 							</div>
