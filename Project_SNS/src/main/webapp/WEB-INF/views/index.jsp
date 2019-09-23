@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,22 +41,22 @@
 										<div class="user-profile">
 											<div class="username-dt">
 												<div class="usr-pic">
-													<img src="resources/images/resources/user-pic.png" alt="">
+													<img src="resources/images/test/${sessionScope.user.user_photo}" alt="">
 												</div>
 											</div><!--username-dt end-->
 											<div class="user-specs">
-												<h3>John Doe</h3>
+												<h3>${sessionScope.user.user_name }</h3>
 												<span>Graphic Designer at Self Employed</span>
 											</div>
 										</div><!--user-profile end-->
 										<ul class="user-fw-status">
 											<li>
 												<h4>Following</h4>
-												<span>34</span>
+												<span>${sessionScope.user.user_following }</span>
 											</li>
 											<li>
 												<h4>Followers</h4>
-												<span>155</span>
+												<span>${sessionScope.user.user_follower }</span>
 											</li>
 											<li>
 												<a href="my-profile.html" title="">View Profile</a>
@@ -142,7 +144,7 @@
 								<div class="main-ws-sec">
 									<div class="post-topbar">
 										<div class="user-picy">
-											<img src="resources/images/resources/user-pic.png" alt="">
+											<img src="E://upload//tmp//"+${sessionScope.user.user_photo} alt="">
 										</div>
 										<div class="post-st">
 											<ul>
@@ -904,6 +906,7 @@
 <script type="text/javascript" src="resources/lib/slick/slick.min.js"></script>
 <script type="text/javascript" src="resources/js/scrollbar.js"></script>
 <script type="text/javascript" src="resources/js/script.js"></script>
+<script type="text/javascript" src="resources/sns_js/index.js"></script>
 
 </body>
 </html>

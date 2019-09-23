@@ -49,17 +49,17 @@
 								<div class="sign_in_sec current" id="tab-1">
 									
 									<h3>Sign in</h3>
-									<form id="LoginTest">
+									<form id="LoginForm">
 										<div class="row">
 											<div class="col-lg-12 no-pdd">
 												<div class="sn-field">
-													<input type="text" name="user_id" placeholder="Username">
+													<input type="text" name="login_user_id" id="login_user_id" placeholder="Username">
 													<i class="la la-user"></i>
 												</div><!--sn-field end-->
 											</div>
 											<div class="col-lg-12 no-pdd">
 												<div class="sn-field">
-													<input type="password" name="user_pwd" placeholder="Password">
+													<input type="password" name="login_user_pwd" id="login_user_pwd" placeholder="Password">
 													<i class="la la-lock"></i>
 												</div>
 											</div>
@@ -99,64 +99,56 @@
 									</div>signup-tab end	 -->
 									
 									<div class="dff-tab current" id="tab-3">
-										<form id="SubmitSignUp">
+										<form id="SubmitSignUp" enctype="multipart/form-data">
 											<div class="row">
 												<div class="col-lg-12 no-pdd">
 													<div class="sn-field">													
-														<input type="text" name="user_id" placeholder="ID">
+														<input type="text" name="user_id" placeholder="ID" id="signup_user_id">
 														<i class="la la-user"></i>
 													</div>
 												</div>
 												<div class="col-lg-12 no-pdd">
 													<div class="sn-field">
-														<input type="text" name="user_name" placeholder="Name">
+														<input type="text" name="user_name" placeholder="Name" id="signup_user_name">
 														<i class="la la-globe"></i>
 													</div>
 												</div>
 												<div class="col-lg-12 no-pdd">
 													<div class="sn-field">
-														<input type="text" name="user_photo" placeholder="Photo">
+													<input type="file" name ="user_photo" class="form-control" accept=".gif, .jpg, .png, .jpeg, .bmp" id="signup_user_photo" placeholder="Photo">													
 														<i class="la la-globe"></i>
 													</div>
 												</div>
 												<div class="col-lg-12 no-pdd">
 													<div class="sn-field">
-														<input type="text" name="user_phone" placeholder="Phone">
+														<input type="text" name="user_phone" placeholder="Phone" id="signup_user_phone">
 														<i class="la la-globe"></i>
 													</div>
 												</div>
 												<div class="col-lg-12 no-pdd">
 													<div class="sn-field">
-														<input type="text" name="user_email" placeholder="E-mail">
+														<input type="text" name="user_email" placeholder="E-mail" id="signup_user_email">
 														<i class="la la-globe"></i>
 													</div>
 												</div>
 								
 												<div class="col-lg-12 no-pdd">
 													<div class="sn-field">
-														<input type="password" name="user_pwd" placeholder="Password">
+														<input type="password" name="user_pwd" placeholder="Password" id="signup_user_pwd">
 														<i class="la la-lock"></i>
 													</div>
 												</div>
 												<div class="col-lg-12 no-pdd">
 													<div class="sn-field">
-														<input type="password" placeholder="Repeat Password">
+														<input type="password" placeholder="Repeat Password" id="signup_user_pwd_2">
 														<i class="la la-lock"></i>
 													</div>
 												</div>												
-												<div class="col-lg-12 no-pdd">
-													<div class="checky-sec st2">
-														<div class="fgt-sec">
-															<input type="checkbox" name="cc" id="c2">
-															<label for="c2">
-																<span></span>
-															</label>
-															<small>Yes, I understand and agree to the workwise Terms & Conditions.</small>
-														</div><!--fgt-sec end-->
-													</div>
+												<div class="col-lg-6 no-pdd">
+													<button type="button" id="btnOverLabId">ID중복확인</button>
 												</div>
-												<div class="col-lg-12 no-pdd">
-													<button type="button" value="reset" id="btnSubmit">Get Started</button>
+												<div class="col-lg-6 no-pdd">
+													<button type="button" id="btnSubmitSignUp">회원가입</button>
 												</div>
 											</div>
 										</form>
@@ -197,6 +189,6 @@
 <script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="resources/lib/slick/slick.min.js"></script>
 <script type="text/javascript" src="resources/js/script.js"></script>
-<script type="text/javascript" src="resources/sns_js/sign_in.js"></script>
+<script type="text/javascript" src="resources/sns_js/sign_in.js?ver=123"></script>
 </body>
 </html>

@@ -5,11 +5,13 @@
 <mapper namespace="com.project.sign.SignMapper">
 <!-- p.338 -->
 <insert id="User_SignUp" parameterType="com.project.sign.UserVO">
-insert into SNS_USER(UNUM,USER_ID,USER_PWD,USER_PHOTO,USER_PHONE,USER_EMAIL,USER_DAY,USER_FOLLOING,USER_FOLLOWER,USER_NAME) values(SNS_USER_SEQ.NEXTVAL,#{user_id},#{user_pwd},#{user_photo},#{user_phone},#{user_email},sysdate,0,0,#{user_name})
+insert into SNS_USER(UNUM,USER_ID,USER_PWD,USER_PHOTO,USER_PHONE,USER_EMAIL,USER_DAY,USER_FOLLOWING,USER_FOLLOWER,USER_NAME) values(SNS_USER_SEQ.NEXTVAL,#{user_id},#{user_pwd},#{user_photo},#{user_phone},#{user_email},sysdate,0,0,#{user_name})
 
 
 </insert>
-
+<select id="User_Login" parameterType="String" resultType="com.project.sign.UserVO">
+select * from SNS_USER where user_id = #{user_id}
+</select>
 
 </mapper>
     

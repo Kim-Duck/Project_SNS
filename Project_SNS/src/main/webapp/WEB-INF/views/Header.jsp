@@ -171,8 +171,8 @@
 					</div><!--menu-btn end-->
 					<div class="user-account">
 						<div class="user-info">  
-							<img src="resources/images/resources/user.png" alt="">
-							<a href="#" title="">John</a>
+							<img src="resources/images/test/${sessionScope.user.user_photo}" alt="">
+							<a href="#" title="">${sessionScope.user.user_name }</a>
 							<i class="la la-sort-down"></i>
 						</div>
 						<div class="user-account-settingss" id="users">
@@ -211,7 +211,7 @@
 								<li><a href="#" title="">Faqs</a></li>
 								<li><a href="#" title="">Terms & Conditions</a></li>
 							</ul>
-							<h3 class="tc"><a href="sign-in.html" title="">Logout</a></h3>
+							<h3 class="tc"><a href="/sns/Logout">Logout</a></h3>
 						</div><!--user-account-settingss end-->
 					</div>
 				</div><!--header-data end-->

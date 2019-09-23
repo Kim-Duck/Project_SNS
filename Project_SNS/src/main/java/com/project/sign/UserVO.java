@@ -1,10 +1,16 @@
 package com.project.sign;
 
 public class UserVO {
-	private int unum, user_folloing, user_follower;
+	private int unum, user_following, user_follower;
 	private String user_id, user_pwd, user_photo, user_phone, user_email, user_day;
 	private String user_name;
 	
+	public int getUser_following() {
+		return user_following;
+	}
+	public void setUser_following(int user_following) {
+		this.user_following = user_following;
+	}
 	public String getUser_name() {
 		return user_name;
 	}
@@ -17,12 +23,7 @@ public class UserVO {
 	public void setUnum(int unum) {
 		this.unum = unum;
 	}
-	public int getUser_folloing() {
-		return user_folloing;
-	}
-	public void setUser_folloing(int user_folloing) {
-		this.user_folloing = user_folloing;
-	}
+
 	public int getUser_follower() {
 		return user_follower;
 	}

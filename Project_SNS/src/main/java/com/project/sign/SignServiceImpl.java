@@ -13,5 +13,11 @@ public class SignServiceImpl implements SignService{
 	public void User_SignUp(UserVO user) {
 		mapper.User_SignUp(user);	
 	}
+
+	@Override
+	public UserVO User_Login(String LoginID) {
+		return mapper.User_Login(LoginID);		
+	}
+
 	
 }
