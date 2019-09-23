@@ -753,7 +753,7 @@
 							</div>
 							 
 							<div class="col-lg-12">
-								<input type="file" name="skills" placeholder="첨부">
+								<input type="text" name="skills" placeholder="첨부하기">
 							</div>
 							 
 							 
