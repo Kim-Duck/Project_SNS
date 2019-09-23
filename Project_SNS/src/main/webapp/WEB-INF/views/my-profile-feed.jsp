@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,14 +30,10 @@
 	href="resources/css/responsive.css">
 </head>
 
-
 <body>
-
-
 	<div class="wrapper">
 
 		<%@ include file="Header.jsp"%>
-
 
 		<section class="cover-sec">
 			<img src="resources/images/resources/cover-img.jpg" alt="">
@@ -52,7 +48,6 @@
 				</div>
 			</div>
 		</section>
-
 
 		<main>
 		<div class="main-section">
@@ -77,27 +72,7 @@
 										</ul>
 									</div>
 									<!--user_pro_status end-->
-									<ul class="social_links">
-										<li><a href="#" title=""><i class="la la-globe"></i>
-												www.example.com</a></li>
-										<li><a href="#" title=""><i
-												class="fa fa-facebook-square"></i>
-												Http://www.facebook.com/john...</a></li>
-										<li><a href="#" title=""><i class="fa fa-twitter"></i>
-												Http://www.Twitter.com/john...</a></li>
-										<li><a href="#" title=""><i
-												class="fa fa-google-plus-square"></i>
-												Http://www.googleplus.com/john...</a></li>
-										<li><a href="#" title=""><i
-												class="fa fa-behance-square"></i>
-												Http://www.behance.com/john...</a></li>
-										<li><a href="#" title=""><i class="fa fa-pinterest"></i>
-												Http://www.pinterest.com/john...</a></li>
-										<li><a href="#" title=""><i class="fa fa-instagram"></i>
-												Http://www.instagram.com/john...</a></li>
-										<li><a href="#" title=""><i class="fa fa-youtube"></i>
-												Http://www.youtube.com/john...</a></li>
-									</ul>
+
 								</div>
 								<!--user_profile end-->
 								<div class="suggestions full-width">
@@ -167,49 +142,7 @@
 						</div>
 						<div class="col-lg-6">
 							<div class="main-ws-sec">
-								<div class="user-tab-sec rewivew">
-									<h3>John Doe</h3>
-									<div class="star-descp">
-										<span>Graphic Designer at Self Employed</span>
-										<ul>
-											<li><i class="fa fa-star"></i></li>
-											<li><i class="fa fa-star"></i></li>
-											<li><i class="fa fa-star"></i></li>
-											<li><i class="fa fa-star"></i></li>
-											<li><i class="fa fa-star-half-o"></i></li>
-										</ul>
-										<a href="#" title="">Status</a>
-									</div>
-									<!--star-descp end-->
-									<div class="tab-feed st2 settingjb">
-										<ul>
-											<li data-tab="feed-dd" class="active"><a href="#"
-												title=""> <img src="resources/images/ic1.png" alt="">
-													<span>Feed</span>
-											</a></li>
-											<li data-tab="info-dd"><a href="#" title=""> <img
-													src="resources/images/ic2.png" alt=""> <span>Info</span>
-											</a></li>
-											<li data-tab="saved-jobs"><a href="#" title=""> <img
-													src="resources/images/ic4.png" alt=""> <span>Jobs</span>
-											</a></li>
-											<li data-tab="my-bids"><a href="#" title=""> <img
-													src="resources/images/ic5.png" alt=""> <span>Bids</span>
-											</a></li>
-											<li data-tab="portfolio-dd"><a href="#" title=""> <img
-													src="resources/images/ic3.png" alt=""> <span>Portfolio</span>
-											</a></li>
-											<li data-tab="rewivewdata"><a href="#" title=""> <img
-													src="resources/images/review.png" alt=""> <span>Reviews</span>
-											</a></li>
-											<li data-tab="payment-dd"><a href="#" title=""> <img
-													src="resources/images/ic6.png" alt=""> <span>Payment</span>
-											</a></li>
 
-										</ul>
-									</div>
-									<!-- tab-feed end-->
-								</div>
 								<!--user-tab-sec end-->
 								<div class="product-feed-tab" id="saved-jobs">
 									<ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -770,71 +703,7 @@
 								</div>
 								<div class="product-feed-tab current" id="feed-dd">
 									<div class="posts-section">
-										<div class="post-bar">
-											<div class="post_topbar">
-												<div class="usy-dt">
-													<img src="resources/images/resources/us-pic.png" alt="">
-													<div class="usy-name">
-														<h3>John Doe</h3>
-														<span><img src="resources/images/clock.png" alt="">3
-															min ago</span>
-													</div>
-												</div>
-												<div class="ed-opts">
-													<a href="#" title="" class="ed-opts-open"><i
-														class="la la-ellipsis-v"></i></a>
-													<ul class="ed-options">
-														<li><a href="#" title="">Edit Post</a></li>
-														<li><a href="#" title="">Unsaved</a></li>
-														<li><a href="#" title="">Unbid</a></li>
-														<li><a href="#" title="">Close</a></li>
-														<li><a href="#" title="">Hide</a></li>
-													</ul>
-												</div>
-											</div>
-											<div class="epi-sec">
-												<ul class="descp">
-													<li><img src="resources/images/icon8.png" alt=""><span>Epic
-															Coder</span></li>
-													<li><img src="resources/images/icon9.png" alt=""><span>India</span></li>
-												</ul>
-												<ul class="bk-links">
-													<li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
-													<li><a href="#" title=""><i class="la la-envelope"></i></a></li>
-												</ul>
-											</div>
-											<div class="job_descp">
-												<h3>Senior Wordpress Developer</h3>
-												<ul class="job-dt">
-													<li><a href="#" title="">Full Time</a></li>
-													<li><span>$30 / hr</span></li>
-												</ul>
-												<p>
-													Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-													Aliquam luctus hendrerit metus, ut ullamcorper quam finibus
-													at. Etiam id magna sit amet... <a href="#" title="">view
-														more</a>
-												</p>
-												<ul class="skill-tags">
-													<li><a href="#" title="">HTML</a></li>
-													<li><a href="#" title="">PHP</a></li>
-													<li><a href="#" title="">CSS</a></li>
-													<li><a href="#" title="">Javascript</a></li>
-													<li><a href="#" title="">Wordpress</a></li>
-												</ul>
-											</div>
-											<div class="job-status-bar">
-												<ul class="like-com">
-													<li><a href="#"><i class="fas fa-heart"></i> Like</a>
-														<img src="resources/images/liked-img.png" alt=""> <span>25</span>
-													</li>
-													<li><a href="#" class="com"><i
-															class="fas fa-comment-alt"></i> Comment 15</a></li>
-												</ul>
-												<a href="#"><i class="fas fa-eye"></i>Views 50</a>
-											</div>
-										</div>
-										<!--post-bar end-->
+
 										<div class="post-bar">
 											<div class="post_topbar">
 												<div class="usy-dt">
@@ -900,136 +769,7 @@
 											</div>
 										</div>
 										<!--post-bar end-->
-										<div class="post-bar">
-											<div class="post_topbar">
-												<div class="usy-dt">
-													<img src="resources/images/resources/us-pc2.png" alt="">
-													<div class="usy-name">
-														<h3>John Doe</h3>
-														<span><img src="resources/images/clock.png" alt="">3
-															min ago</span>
-													</div>
-												</div>
-												<div class="ed-opts">
-													<a href="#" title="" class="ed-opts-open"><i
-														class="la la-ellipsis-v"></i></a>
-													<ul class="ed-options">
-														<li><a href="#" title="">Edit Post</a></li>
-														<li><a href="#" title="">Unsaved</a></li>
-														<li><a href="#" title="">Unbid</a></li>
-														<li><a href="#" title="">Close</a></li>
-														<li><a href="#" title="">Hide</a></li>
-													</ul>
-												</div>
-											</div>
-											<div class="epi-sec">
-												<ul class="descp">
-													<li><img src="resources/images/icon8.png" alt=""><span>Epic
-															Coder</span></li>
-													<li><img src="resources/images/icon9.png" alt=""><span>India</span></li>
-												</ul>
-												<ul class="bk-links">
-													<li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
-													<li><a href="#" title=""><i class="la la-envelope"></i></a></li>
-												</ul>
-											</div>
-											<div class="job_descp">
-												<h3>Senior UI / UX designer</h3>
-												<ul class="job-dt">
-													<li><a href="#" title="">Par Time</a></li>
-													<li><span>$10 / hr</span></li>
-												</ul>
-												<p>
-													Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-													Aliquam luctus hendrerit metus, ut ullamcorper quam finibus
-													at. Etiam id magna sit amet... <a href="#" title="">view
-														more</a>
-												</p>
-												<ul class="skill-tags">
-													<li><a href="#" title="">HTML</a></li>
-													<li><a href="#" title="">PHP</a></li>
-													<li><a href="#" title="">CSS</a></li>
-													<li><a href="#" title="">Javascript</a></li>
-													<li><a href="#" title="">Wordpress</a></li>
-												</ul>
-											</div>
-											<div class="job-status-bar">
-												<ul class="like-com">
-													<li><a href="#"><i class="fas fa-heart"></i> Like</a>
-														<img src="resources/images/liked-img.png" alt=""> <span>25</span>
-													</li>
-													<li><a href="#" class="com"><i
-															class="fas fa-comment-alt"></i> Comment 15</a></li>
-												</ul>
-												<a href="#"><i class="fas fa-eye"></i>Views 50</a>
-											</div>
-										</div>
-										<!--post-bar end-->
-										<div class="post-bar">
-											<div class="post_topbar">
-												<div class="usy-dt">
-													<img src="resources/images/resources/us-pic.png" alt="">
-													<div class="usy-name">
-														<h3>John Doe</h3>
-														<span><img src="resources/images/clock.png" alt="">3
-															min ago</span>
-													</div>
-												</div>
-												<div class="ed-opts">
-													<a href="#" title="" class="ed-opts-open"><i
-														class="la la-ellipsis-v"></i></a>
-													<ul class="ed-options">
-														<li><a href="#" title="">Edit Post</a></li>
-														<li><a href="#" title="">Unsaved</a></li>
-														<li><a href="#" title="">Unbid</a></li>
-														<li><a href="#" title="">Close</a></li>
-														<li><a href="#" title="">Hide</a></li>
-													</ul>
-												</div>
-											</div>
-											<div class="epi-sec">
-												<ul class="descp">
-													<li><img src="resources/images/icon8.png" alt=""><span>Epic
-															Coder</span></li>
-													<li><img src="resources/images/icon9.png" alt=""><span>India</span></li>
-												</ul>
-												<ul class="bk-links">
-													<li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
-													<li><a href="#" title=""><i class="la la-envelope"></i></a></li>
-													<li><a href="#" title="" class="bid_now">Bid Now</a></li>
-												</ul>
-											</div>
-											<div class="job_descp">
-												<h3>Ios Shopping mobile app</h3>
-												<ul class="job-dt">
-													<li><span>$300 - $350</span></li>
-												</ul>
-												<p>
-													Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-													Aliquam luctus hendrerit metus, ut ullamcorper quam finibus
-													at. Etiam id magna sit amet... <a href="#" title="">view
-														more</a>
-												</p>
-												<ul class="skill-tags">
-													<li><a href="#" title="">HTML</a></li>
-													<li><a href="#" title="">PHP</a></li>
-													<li><a href="#" title="">CSS</a></li>
-													<li><a href="#" title="">Javascript</a></li>
-													<li><a href="#" title="">Wordpress</a></li>
-												</ul>
-											</div>
-											<div class="job-status-bar">
-												<ul class="like-com">
-													<li><a href="#"><i class="fas fa-heart"></i> Like</a>
-														<img src="resources/images/liked-img.png" alt=""> <span>25</span>
-													</li>
-													<li><a href="#" class="com"><i
-															class="fas fa-comment-alt"></i> Comment 15</a></li>
-												</ul>
-												<a href="#"><i class="fas fa-eye"></i>Views 50</a>
-											</div>
-										</div>
-										<!--post-bar end-->
+
 										<div class="process-comm">
 											<div class="spinner">
 												<div class="bounce1"></div>
@@ -1786,8 +1526,7 @@
 														<li><i class="fa fa-star"></i></li>
 														<li><i class="fa fa-star-half-o"></i></li>
 													</ul>
-													<a href="#" title="">5.0 of 5 Reviews</a><br>
-													<br>
+													<a href="#" title="">5.0 of 5 Reviews</a><br> <br>
 													<p>Awesome Work, Thanks John!</p>
 													<hr>
 												</div>
@@ -2303,42 +2042,7 @@
 									<a href="profile-account-setting.html" title=""><i
 										class="fas fa-cog"></i> Setting</a>
 								</div>
-								<div class="widget widget-portfolio">
-									<div class="wd-heady">
-										<h3>Portfolio</h3>
-										<img src="images/photo-icon.png" alt="">
-									</div>
-									<div class="pf-gallery">
-										<ul>
-											<li><a href="#" title=""><img
-													src="resources/images/resources/pf-gallery1.png" alt=""></a></li>
-											<li><a href="#" title=""><img
-													src="resources/images/resources/pf-gallery2.png" alt=""></a></li>
-											<li><a href="#" title=""><img
-													src="resources/images/resources/pf-gallery3.png" alt=""></a></li>
-											<li><a href="#" title=""><img
-													src="resources/images/resources/pf-gallery4.png" alt=""></a></li>
-											<li><a href="#" title=""><img
-													src="resources/images/resources/pf-gallery5.png" alt=""></a></li>
-											<li><a href="#" title=""><img
-													src="resources/images/resources/pf-gallery6.png" alt=""></a></li>
-											<li><a href="#" title=""><img
-													src="resources/images/resources/pf-gallery7.png" alt=""></a></li>
-											<li><a href="#" title=""><img
-													src="resources/images/resources/pf-gallery8.png" alt=""></a></li>
-											<li><a href="#" title=""><img
-													src="resources/images/resources/pf-gallery9.png" alt=""></a></li>
-											<li><a href="#" title=""><img
-													src="resources/images/resources/pf-gallery10.png" alt=""></a></li>
-											<li><a href="#" title=""><img
-													src="resources/images/resources/pf-gallery11.png" alt=""></a></li>
-											<li><a href="#" title=""><img
-													src="resources/images/resources/pf-gallery12.png" alt=""></a></li>
-										</ul>
-									</div>
-									<!--pf-gallery end-->
-								</div>
-								<!--widget-portfolio end-->
+
 							</div>
 							<!--right-sidebar end-->
 						</div>
