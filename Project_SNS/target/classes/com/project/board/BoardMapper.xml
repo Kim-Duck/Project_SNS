@@ -13,6 +13,7 @@ select * from  ( select /*+ index_desc(sns_board sns_board_pk) */ ROWNUM rnum, b
 </mapper>
 
 
+
     
     
     
