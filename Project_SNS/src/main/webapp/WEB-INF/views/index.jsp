@@ -1,11 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-<<<<<<< HEAD
-    pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-=======
 	pageEncoding="UTF-8"%>
->>>>>>> refs/remotes/origin/master
+	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,24 +39,6 @@
 
 
 		<main>
-<<<<<<< HEAD
-			<div class="main-section">
-				<div class="container">
-					<div class="main-section-data">
-						<div class="row">
-							<div class="col-lg-3 col-md-4 pd-left-none no-pd">
-								<div class="main-left-sidebar no-margin">
-									<div class="user-data full-width">
-										<div class="user-profile">
-											<div class="username-dt">
-												<div class="usr-pic">
-													<img src="resources/images/test/${sessionScope.user.user_photo}" alt="">
-												</div>
-											</div><!--username-dt end-->
-											<div class="user-specs">
-												<h3>${sessionScope.user.user_name }</h3>
-												<span>Graphic Designer at Self Employed</span>
-=======
 		<div class="main-section">
 			<div class="container">
 				<div class="main-section-data">
@@ -72,116 +49,13 @@
 									<div class="user-profile">
 										<div class="username-dt">
 											<div class="usr-pic">
-												<img src="resources/images/resources/user-pic.png" alt="">
->>>>>>> refs/remotes/origin/master
+												<img src="resources/images/test/${sessionScope.user.user_photo}" alt="">
 											</div>
-<<<<<<< HEAD
-										</div><!--user-profile end-->
-										<ul class="user-fw-status">
-											<li>
-												<h4>Following</h4>
-												<span>${sessionScope.user.user_following }</span>
-											</li>
-											<li>
-												<h4>Followers</h4>
-												<span>${sessionScope.user.user_follower }</span>
-											</li>
-											<li>
-												<a href="my-profile.html" title="">View Profile</a>
-											</li>
-										</ul>
-									</div><!--user-data end-->
-									<div class="suggestions full-width">
-										<div class="sd-title">
-											<h3>Suggestions</h3>
-											<i class="la la-ellipsis-v"></i>
-										</div><!--sd-title end-->
-										<div class="suggestions-list">
-											<div class="suggestion-usd">
-												<img src="resources/images/resources/s1.png" alt="">
-												<div class="sgt-text">
-													<h4>Jessica William</h4>
-													<span>Graphic Designer</span>
-												</div>
-												<span><i class="la la-plus"></i></span>
-											</div>
-											<div class="suggestion-usd">
-												<img src="resources/images/resources/s2.png" alt="">
-												<div class="sgt-text">
-													<h4>John Doe</h4>
-													<span>PHP Developer</span>
-												</div>
-												<span><i class="la la-plus"></i></span>
-											</div>
-											<div class="suggestion-usd">
-												<img src="resources/images/resources/s3.png" alt="">
-												<div class="sgt-text">
-													<h4>Poonam</h4>
-													<span>Wordpress Developer</span>
-												</div>
-												<span><i class="la la-plus"></i></span>
-											</div>
-											<div class="suggestion-usd">
-												<img src="resources/images/resources/s4.png" alt="">
-												<div class="sgt-text">
-													<h4>Bill Gates</h4>
-													<span>C & C++ Developer</span>
-												</div>
-												<span><i class="la la-plus"></i></span>
-											</div>
-											<div class="suggestion-usd">
-												<img src="resources/images/resources/s5.png" alt="">
-												<div class="sgt-text">
-													<h4>Jessica William</h4>
-													<span>Graphic Designer</span>
-												</div>
-												<span><i class="la la-plus"></i></span>
-											</div>
-											<div class="suggestion-usd">
-												<img src="resources/images/resources/s6.png" alt="">
-												<div class="sgt-text">
-													<h4>John Doe</h4>
-													<span>PHP Developer</span>
-												</div>
-												<span><i class="la la-plus"></i></span>
-											</div>
-											<div class="view-more">
-												<a href="#" title="">View More</a>
-											</div>
-										</div><!--suggestions-list end-->
-									</div><!--suggestions end-->
-									<div class="tags-sec full-width">
-										<ul>
-											<li><a href="#" title="">Help Center</a></li>
-											<li><a href="#" title="">About</a></li>
-											<li><a href="#" title="">Privacy Policy</a></li>
-											<li><a href="#" title="">Community Guidelines</a></li>
-											<li><a href="#" title="">Cookies Policy</a></li>
-											<li><a href="#" title="">Career</a></li>
-											<li><a href="#" title="">Language</a></li>
-											<li><a href="#" title="">Copyright Policy</a></li>
-										</ul>
-										<div class="cp-sec">
-											<img src="resources/images/logo2.png" alt="">
-											<p><img src="resources/images/cp.png" alt="">Copyright 2019</p>
-=======
->>>>>>> refs/remotes/origin/master
 										</div>
-<<<<<<< HEAD
-									</div><!--tags-sec end-->
-								</div><!--main-left-sidebar end-->
-							</div>
-							<div class="col-lg-6 col-md-8 no-pd">
-								<div class="main-ws-sec">
-									<div class="post-topbar">
-										<div class="user-picy">
-											<img src="E://upload//tmp//"+${sessionScope.user.user_photo} alt="">
-=======
 										<!--username-dt end-->
 										<div class="user-specs">
 											<h3>John Doe</h3>
 											<span>Graphic Designer at Self Employed</span>
->>>>>>> refs/remotes/origin/master
 										</div>
 									</div>
 									<!--user-profile end-->
@@ -298,6 +172,7 @@
 								</div>
 								<!--post-topbar end-->
 								<div class="posts-section">
+								<c:forEach var="board_list" items="${board_list}" varStatus="status">
 									<div class="post-bar">
 										<div class="post_topbar">
 											<div class="usy-dt">
@@ -362,6 +237,7 @@
 											<a href="#"><i class="fas fa-eye"></i>Views 50</a>
 										</div>
 									</div>
+									</c:forEach>
 									<!--post-bar end-->
 									<div class="top-profiles">
 										<div class="pf-hd">
@@ -867,30 +743,88 @@
 
 
 
-		
+
+		<div class="post-popup pst-pj">
+			<div class="post-project">
+				<h3>Post a project</h3>
+				<div class="post-project-fields">
+					<form >
+						<div class="row">
+							<div class="col-lg-12">
+								<input type="text" name="title" placeholder="Title">
+							</div>
+							<div class="col-lg-12">
+								<div class="inp-field">
+									<select>
+										<option>Category</option>
+										<option>Category 1</option>
+										<option>Category 2</option>
+										<option>Category 3</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-lg-12">
+								<input type="text" name="skills" placeholder="Skills">
+							</div>
+							<div class="col-lg-12">
+								<div class="price-sec">
+									<div class="price-br">
+										<input type="text" name="price1" placeholder="Price">
+										<i class="la la-dollar"></i>
+									</div>
+									<span>To</span>
+									<div class="price-br">
+										<input type="text" name="price1" placeholder="Price">
+										<i class="la la-dollar"></i>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-12">
+								<textarea name="description" placeholder="Description"></textarea>
+							</div>
+							
+							<div class="col-lg-12">
+							
+								<ul>
+									<li><button class="active" type="submit" value="post">Post</button></li>
+									<li><a href="#" title="">Cancel</a></li>
+								</ul>
+							</div>
+							
+						</div>
+					</form>
+				</div><!--post-project-fields end-->
+				<a href="#" title=""><i class="la la-times-circle-o"></i></a>
+			</div><!--post-project end-->
+		</div><!--post-project-popup end-->
+
 
 		<div class="post-popup job_post">
 			<div class="post-project">
 				<h3>게시글 쓰기</h3>
 				<div class="post-project-fields">
-					<form>
+					<form id="SubmitInsert">
 						<div class="row">
-						 
-							
-							 
+
 							 
 							<div class="col-lg-12">
-								<textarea name="description" placeholder="나의 생각을 적어주세요^^"></textarea>
+
+								<textarea name="content" placeholder="나의 생각을 적어주세요^^"></textarea>
+
 							</div>
 							
 							<div class="col-lg-12">
-								<input type="text" name="skills" placeholder="첨부하기">
+								<input type="text" name="photo" placeholder="첨부하기">
 							</div>
 							
 							<div class="col-lg-12">
 								<ul>
-									<li><button class="active" type="submit" value="post">게시</button></li>
+
+
+									<li><button class="active" type="button" value="post" id="btnInsert">게시</button></li>
+
 									<li><a href="#" title="">취소</a></li>
+
 								</ul>
 							</div>
 						</div>
@@ -1090,16 +1024,6 @@
 
 
 
-<<<<<<< HEAD
-<script type="text/javascript" src="resources/js/jquery.min.js"></script>
-<script type="text/javascript" src="resources/js/popper.js"></script>
-<script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="resources/js/jquery.mCustomScrollbar.js"></script>
-<script type="text/javascript" src="resources/lib/slick/slick.min.js"></script>
-<script type="text/javascript" src="resources/js/scrollbar.js"></script>
-<script type="text/javascript" src="resources/js/script.js"></script>
-<script type="text/javascript" src="resources/sns_js/index.js"></script>
-=======
 	<script type="text/javascript" src="resources/js/jquery.min.js"></script>
 	<script type="text/javascript" src="resources/js/popper.js"></script>
 	<script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
@@ -1108,7 +1032,8 @@
 	<script type="text/javascript" src="resources/lib/slick/slick.min.js"></script>
 	<script type="text/javascript" src="resources/js/scrollbar.js"></script>
 	<script type="text/javascript" src="resources/js/script.js"></script>
->>>>>>> refs/remotes/origin/master
+	<script type="text/javascript" src="resources/sns_js/insert.js"></script>
 
 </body>
 </html>
+

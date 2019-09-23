@@ -71,7 +71,7 @@
 										</div>
 										<!--notification-info -->
 									</div>
-<<<<<<< HEAD
+
 									<div class="nott-list">
 										<div class="notfication-details">
 							  				<div class="noty-user-img">
@@ -136,27 +136,11 @@
 											<span></span>
 										</label>
 										<small>Online</small>
-=======
-									<div class="notfication-details">
-										<div class="noty-user-img">
-											<img src="resources/images/resources/ny-img3.png" alt="">
-										</div>
-										<div class="notification-info">
-											<h3>
-												<a href="messages.html" title="">Jassica William</a>
-											</h3>
-											<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-												elit, sed do eiusmod tempo incididunt ut labore et dolore
-												magna aliqua.</p>
-											<span>2 min ago</span>
-										</div>
-										<!--notification-info -->
->>>>>>> refs/remotes/origin/master
 									</div>
 									<div class="view-all-nots">
 										<a href="messages.html" title="">View All Messsages</a>
 									</div>
-<<<<<<< HEAD
+
 								</li>
 							</ul>
 							<h3>Custom Status</h3>
@@ -175,91 +159,7 @@
 							</ul>
 							<h3 class="tc"><a href="/sns/Logout">Logout</a></h3>
 						</div><!--user-account-settingss end-->
-=======
-								</div>
-								<!--nott-list end-->
-							</div>
-							<!--notification-box end--></li>
-						<li><a href="#" title="" class="not-box-open"> <span><img
-									src="resources/images/icon7.png" alt=""></span> Notification
-						</a>
-							<div class="notification-box noti" id="notification">
-								<div class="nt-title">
-									<h4>Setting</h4>
-									<a href="#" title="">Clear all</a>
-								</div>
-								<div class="nott-list">
-									<div class="notfication-details">
-										<div class="noty-user-img">
-											<img src="resources/images/resources/ny-img1.png" alt="">
-										</div>
-										<div class="notification-info">
-											<h3>
-												<a href="#" title="">Jassica William</a> Comment on your
-												project.
-											</h3>
-											<span>2 min ago</span>
-										</div>
-										<!--notification-info -->
-									</div>
-									<div class="notfication-details">
-										<div class="noty-user-img">
-											<img src="resources/images/resources/ny-img2.png" alt="">
-										</div>
-										<div class="notification-info">
-											<h3>
-												<a href="#" title="">Jassica William</a> Comment on your
-												project.
-											</h3>
-											<span>2 min ago</span>
-										</div>
-										<!--notification-info -->
-									</div>
-									<div class="notfication-details">
-										<div class="noty-user-img">
-											<img src="resources/images/resources/ny-img3.png" alt="">
-										</div>
-										<div class="notification-info">
-											<h3>
-												<a href="#" title="">Jassica William</a> Comment on your
-												project.
-											</h3>
-											<span>2 min ago</span>
-										</div>
-										<!--notification-info -->
-									</div>
-									<div class="notfication-details">
-										<div class="noty-user-img">
-											<img src="resources/images/resources/ny-img2.png" alt="">
-										</div>
-										<div class="notification-info">
-											<h3>
-												<a href="#" title="">Jassica William</a> Comment on your
-												project.
-											</h3>
-											<span>2 min ago</span>
-										</div>
-										<!--notification-info -->
-									</div>
-									<div class="view-all-nots">
-										<a href="#" title="">View All Notification</a>
-									</div>
-								</div>
-								<!--nott-list end-->
-							</div>
-							<!--notification-box end--></li>
-					</ul>
-				</nav>
-				<!--nav end-->
-				<div class="menu-btn">
-					<a href="#" title=""><i class="fa fa-bars"></i></a>
-				</div>
-				<!--menu-btn end-->
-				<div class="user-account">
-					<div class="user-info">
-						<img src="resources/images/resources/user.png" alt=""> <a
-							href="#" title="">John</a> <i class="la la-sort-down"></i>
->>>>>>> refs/remotes/origin/master
+
 					</div>
 					<div class="user-account-settingss" id="users">
 						<h3>계정 정보</h3>
