@@ -49,22 +49,24 @@
 									<div class="user-profile">
 										<div class="username-dt">
 											<div class="usr-pic">
-												<img src="resources/images/test/${sessionScope.user.user_photo}" alt="">
+												<img
+													src="resources/images/test/${sessionScope.user.user_photo}"
+													alt=""
+													width="110px" height="110px">
 											</div>
 										</div>
 										<!--username-dt end-->
 										<div class="user-specs">
-											<h3>John Doe</h3>
-											<span>Graphic Designer at Self Employed</span>
+											<h3>${sessionScope.user.user_name }</h3>											
 										</div>
 									</div>
 									<!--user-profile end-->
 									<ul class="user-fw-status">
 										<li>
-											<h4>Following</h4> <span>34</span>
+											<h4>Following</h4> <span>${sessionScope.user.user_following }</span>
 										</li>
 										<li>
-											<h4>Followers</h4> <span>155</span>
+											<h4>Followers</h4> <span>${sessionScope.user.user_follower }</span>
 										</li>
 										<li><a href="my-profile.html" title="">View Profile</a></li>
 									</ul>
@@ -157,14 +159,9 @@
 						</div>
 						<div class="col-lg-6 col-md-8 no-pd">
 							<div class="main-ws-sec">
-								<div class="post-topbar">
-									<div class="user-picy">
-										<img src="resources/images/resources/user-pic.png" alt="">
-									</div>
-								 
+								<div class="post-topbar">									
 									<div class="post-st">
-										<ul>
-										 
+										<ul>										 
 											<li><a class="post-jb active" href="#" title="">나의 생각은?</a></li>
 										</ul>
 									</div>
@@ -172,72 +169,7 @@
 								</div>
 								<!--post-topbar end-->
 								<div class="posts-section">
-								<c:forEach var="board_list" items="${board_list}" varStatus="status">
-									<div class="post-bar">
-										<div class="post_topbar">
-											<div class="usy-dt">
-												<img src="resources/images/resources/us-pic.png" alt="">
-												<div class="usy-name">
-													<h3>John Doe</h3>
-													<span><img src="resources/images/clock.png" alt="">3
-														min ago</span>
-												</div>
-											</div>
-											<div class="ed-opts">
-												<a href="#" title="" class="ed-opts-open"><i
-													class="la la-ellipsis-v"></i></a>
-												<ul class="ed-options">
-													<li><a href="#" title="">Edit Post</a></li>
-													<li><a href="#" title="">Unsaved</a></li>
-													<li><a href="#" title="">Unbid</a></li>
-													<li><a href="#" title="">Close</a></li>
-													<li><a href="#" title="">Hide</a></li>
-												</ul>
-											</div>
-										</div>
-										<div class="epi-sec">
-											<ul class="descp">
-												<li><img src="resources/images/icon8.png" alt=""><span>Epic
-														Coder</span></li>
-												<li><img src="resources/images/icon9.png" alt=""><span>India</span></li>
-											</ul>
-											<ul class="bk-links">
-												<li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
-												<li><a href="#" title=""><i class="la la-envelope"></i></a></li>
-											</ul>
-										</div>
-										<div class="job_descp">
-											<h3>Senior Wordpress Developer</h3>
-											<ul class="job-dt">
-												<li><a href="#" title="">Full Time</a></li>
-												<li><span>$30 / hr</span></li>
-											</ul>
-											<p>
-												Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-												Aliquam luctus hendrerit metus, ut ullamcorper quam finibus
-												at. Etiam id magna sit amet... <a href="#" title="">view
-													more</a>
-											</p>
-											<ul class="skill-tags">
-												<li><a href="#" title="">HTML</a></li>
-												<li><a href="#" title="">PHP</a></li>
-												<li><a href="#" title="">CSS</a></li>
-												<li><a href="#" title="">Javascript</a></li>
-												<li><a href="#" title="">Wordpress</a></li>
-											</ul>
-										</div>
-										<div class="job-status-bar">
-											<ul class="like-com">
-												<li><a href="#"><i class="fas fa-heart"></i> Like</a> <img
-													src="resources/images/liked-img.png" alt=""> <span>25</span>
-												</li>
-												<li><a href="#" class="com"><i
-														class="fas fa-comment-alt"></i> Comment 15</a></li>
-											</ul>
-											<a href="#"><i class="fas fa-eye"></i>Views 50</a>
-										</div>
-									</div>
-									</c:forEach>
+							
 									<!--post-bar end-->
 									<div class="top-profiles">
 										<div class="pf-hd">
@@ -326,73 +258,48 @@
 										</div>
 										<!--profiles-slider end-->
 									</div>
-									<!--top-profiles end-->
+								<!--top-profiles end-->
+								<!-- 게시글 시작  -->
+								<c:forEach items="${board_list }" var="board_list">
 									<div class="post-bar">
 										<div class="post_topbar">
 											<div class="usy-dt">
-												<img src="resources/images/resources/us-pic.png" alt="">
+												<img src="resources/images/test/${board_list.user_photo }" alt="" width="50px" height="50px">
 												<div class="usy-name">
-													<h3>John Doe</h3>
-													<span><img src="resources/images/clock.png" alt="">3
-														min ago</span>
+													<h3>${board_list.writer }</h3>
+													<span><img src="resources/images/clock.png" alt="">${board_list.day }</span>
 												</div>
 											</div>
 											<div class="ed-opts">
 												<a href="#" title="" class="ed-opts-open"><i
 													class="la la-ellipsis-v"></i></a>
 												<ul class="ed-options">
-													<li><a href="#" title="">Edit Post</a></li>
-													<li><a href="#" title="">Unsaved</a></li>
-													<li><a href="#" title="">Unbid</a></li>
-													<li><a href="#" title="">Close</a></li>
-													<li><a href="#" title="">Hide</a></li>
+													<li><a href="#" title="">글수정</a></li>
+													<li><a href="#" title="">글삭제</a></li>													
 												</ul>
 											</div>
 										</div>
 										<div class="epi-sec">
-											<ul class="descp">
-												<li><img src="resources/images/icon8.png" alt=""><span>Epic
-														Coder</span></li>
-												<li><img src="resources/images/icon9.png" alt=""><span>India</span></li>
-											</ul>
-											<ul class="bk-links">
-												<li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
-												<li><a href="#" title=""><i class="la la-envelope"></i></a></li>
-												<li><a href="#" title="" class="bid_now">Bid Now</a></li>
-											</ul>
+										　<img src="resources/images/test/test.png">
 										</div>
-										<div class="job_descp">
-											<h3>Senior Wordpress Developer</h3>
-											<ul class="job-dt">
-												<li><a href="#" title="">Full Time</a></li>
-												<li><span>$30 / hr</span></li>
-											</ul>
-											<p>
-												Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-												Aliquam luctus hendrerit metus, ut ullamcorper quam finibus
-												at. Etiam id magna sit amet... <a href="#" title="">view
-													more</a>
-											</p>
-											<ul class="skill-tags">
-												<li><a href="#" title="">HTML</a></li>
-												<li><a href="#" title="">PHP</a></li>
-												<li><a href="#" title="">CSS</a></li>
-												<li><a href="#" title="">Javascript</a></li>
-												<li><a href="#" title="">Wordpress</a></li>
-											</ul>
+										<div class="job_descp">										
+											<p>${board_list.content }</p>
+											
 										</div>
 										<div class="job-status-bar">
-											<ul class="like-com">
-												<li><a href="#"><i class="fas fa-heart"></i> Like</a> <img
-													src="resources/images/liked-img.png" alt=""> <span>25</span>
-												</li>
-												<li><a href="#" class="com"><i
-														class="fas fa-comment-alt"></i> Comment 15</a></li>
+											<ul class="like-com" style="margin-top: 29px">												
+												<li><a href="#" class="com"><i class="fas fa-comment-alt"></i>댓글 갯수</a></li>												
+												
 											</ul>
-											<a href="#"><i class="fas fa-eye"></i>Views 50</a>
+											<a href="#" class="com"><i class="fas fa-heart"></i> FOLLOW!</a>
 										</div>
+										<div class="job-status-bar" style="margin-top: 16px"></div>
 									</div>
+									</c:forEach>
+								<!-- 게시글 끝  -->	
+													
 									<!--post-bar end-->
+
 									<div class="posty">
 										<div class="post-bar no-margin">
 											<div class="post_topbar">
@@ -542,6 +449,7 @@
 										</div>
 									</div>
 									<!--process-comm end-->
+										<div id="scrolltest"></div>	
 								</div>
 								<!--posts-section end-->
 							</div>
@@ -803,25 +711,27 @@
 			<div class="post-project">
 				<h3>게시글 쓰기</h3>
 				<div class="post-project-fields">
-					<form id="SubmitInsert">
+					<form id="SubmitBoardInsert">
 						<div class="row">
 
 							 
 							<div class="col-lg-12">
 
 								<textarea name="content" placeholder="나의 생각을 적어주세요^^"></textarea>
-
+								
 							</div>
 							
 							<div class="col-lg-12">
 								<input type="text" name="photo" placeholder="첨부하기">
+								<input type="hidden" name="writer" value="${sessionScope.user.user_name }">
+								<input type="hidden" name="unum" value="${sessionScope.user.unum }">
 							</div>
 							
 							<div class="col-lg-12">
 								<ul>
 
 
-									<li><button class="active" type="button" value="post" id="btnInsert">게시</button></li>
+									<li><button class="active" type="button" id="btnBoardInsert">게시</button></li>
 
 									<li><a href="#" title="">취소</a></li>
 
@@ -1031,9 +941,8 @@
 		src="resources/js/jquery.mCustomScrollbar.js"></script>
 	<script type="text/javascript" src="resources/lib/slick/slick.min.js"></script>
 	<script type="text/javascript" src="resources/js/scrollbar.js"></script>
-	<script type="text/javascript" src="resources/js/script.js"></script>
-	<script type="text/javascript" src="resources/sns_js/insert.js"></script>
+	<script type="text/javascript" src="resources/js/script.js"></script>	
+	<script type="text/javascript" src="resources/sns_js/index.js?ver=123"></script>
 
 </body>
 </html>
-

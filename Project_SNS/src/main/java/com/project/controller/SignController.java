@@ -41,8 +41,7 @@ public class SignController {
 			@RequestParam("user_pwd") String user_pwd,
 			@RequestParam("user_name") String user_name,
 			@RequestParam("user_phone") String user_phone,
-			@RequestParam("user_email") String user_email			
-			)
+			@RequestParam("user_email") String user_email)
 			throws Exception {
 		String savedName = file.getOriginalFilename();
 		savedName = uploadFile(savedName, file.getBytes());
@@ -62,7 +61,7 @@ public class SignController {
 
 	@PostMapping("/index")
 	public String LoginTest() {		
-		return "index";
+		return "redirect:/mainIndex";
 	}
 
 	// 로그인 체크

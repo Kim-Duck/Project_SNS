@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.board.BoardMapper">
+<!-- p.338 -->
+<insert id="Board_Insert" parameterType="com.project.board.BoardVO">
+insert into SNS_BOARD(BNUM,PHOTO,CONTENT,WRITER,DAY,UNUM) values(SNS_BOARD_SEQ.NEXTVAL,#{photo},#{content},#{writer},sysdate,#{unum})
+</insert>
+<select id="Board_List" resultType="com.project.board.BoardVO" parameterType="Integer">
+select * from  ( select /*+ index_desc(sns_board sns_board_pk) */ ROWNUM rnum, bnum, photo, content, writer, day, unum from sns_board  )  where rnum<![CDATA[  >=  ]]> #{start} and rnum <![CDATA[  <=  ]]> #{end}
+</select>
+</mapper>
+
+
+    
+    
+    
+    

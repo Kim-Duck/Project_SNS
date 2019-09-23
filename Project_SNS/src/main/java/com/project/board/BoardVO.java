@@ -1,8 +1,24 @@
 package com.project.board;
 
 public class BoardVO {
-	private int bnum;
+	private int bnum, unum;
 	private String photo, content, writer, day;
+	private String user_photo;
+	
+	
+	public String getUser_photo() {
+		return user_photo;
+	}
+	public void setUser_photo(String user_photo) {
+		this.user_photo = user_photo;
+	}
+	
+	public int getUnum() {
+		return unum;
+	}
+	public void setUnum(int unum) {
+		this.unum = unum;
+	}
 	public int getBnum() {
 		return bnum;
 	}
