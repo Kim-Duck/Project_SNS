@@ -20,5 +20,21 @@ public class BoardServiceImpl implements BoardService{
 	public List<BoardVO> Board_List(int start,int end) {		
 		return mapper.Board_List(start,end);
 	}
+	
+	@Override
+	public List<BoardVO> Board_Data(int bnum) {
+		return mapper.Board_Data(bnum);
+	}
+	
+	@Override
+	public void Board_Update(BoardVO vo) {
+		mapper.Board_Update(vo);
+	}
+
+	@Override
+	public void Board_Delete(int bnum) {
+		mapper.Board_Delete(bnum);
+	}
+
 
 }

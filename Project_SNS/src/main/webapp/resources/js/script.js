@@ -13,6 +13,7 @@ $(window).on("load", function() {
     $(".post-project > a").on("click", function(){
         $(".post-popup.pst-pj").removeClass("active");
         $(".wrapper").removeClass("overlay");
+        
         return false;
     });
 
@@ -25,9 +26,10 @@ $(window).on("load", function() {
     });
     $(".post-project > a").on("click", function(){
         $(".post-popup.job_post").removeClass("active");
-        $(".wrapper").removeClass("overlay");
+        $(".wrapper").removeClass("overlay");        
         return false;
     });
+
 
     //  ============= SIGNIN CONTROL FUNCTION =========
 

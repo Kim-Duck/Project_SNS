@@ -3,13 +3,25 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.project.board.BoardMapper">
-<!-- p.338 -->
+
 <insert id="Board_Insert" parameterType="com.project.board.BoardVO">
-insert into SNS_BOARD(BNUM,PHOTO,CONTENT,WRITER,DAY,UNUM) values(SNS_BOARD_SEQ.NEXTVAL,#{photo},#{content},#{writer},sysdate,#{unum})
+insert into SNS_BOARD(BNUM,PHOTO,CONTENT,WRITER,DAY,UNUM) values(SNS_BOARD_SEQ.NEXTVAL,#{photo, jdbcType=VARCHAR},#{content},#{writer},sysdate,#{unum})
 </insert>
 <select id="Board_List" resultType="com.project.board.BoardVO" parameterType="Integer">
-select * from  ( select /*+ index_desc(sns_board sns_board_pk) */ ROWNUM rnum, bnum, photo, content, writer, day, unum from sns_board  )  where rnum<![CDATA[  >=  ]]> #{start} and rnum <![CDATA[  <=  ]]> #{end}
+select * from (select /*+ index_desc(sns_board sns_board_pk) */ ROWNUM rnum, sns_board.bnum, sns_board.photo, sns_board.content, sns_board.writer, sns_board.day, sns_board.unum, sns_user.user_photo FROM sns_board INNER JOIN sns_user ON sns_board.unum = sns_user.unum where ROWNUM <![CDATA[ >=  ]]>1) where rnum <![CDATA[ >=  ]]>#{start}and rnum <![CDATA[<= ]]> #{end}
 </select>
+
+<select id="Board_Data" resultType="com.project.board.BoardVO" parameterType="Integer">
+select * from sns_board where bnum = #{bnum}
+</select>
+
+<update id="Board_Update" parameterType="com.project.board.BoardVO">
+update sns_board set photo = #{photo, jdbcType=VARCHAR}, content = #{content}, day = sysdate where bnum = #{bnum} and unum = #{unum}
+</update>
+
+<delete id="Board_Delete" parameterType="Integer">
+delete from sns_board where bnum = #{bnum}
+</delete>
 </mapper>
 
 

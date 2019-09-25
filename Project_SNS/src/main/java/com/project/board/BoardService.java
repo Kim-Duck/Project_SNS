@@ -12,4 +12,11 @@ public interface BoardService {
 	
 	public List<BoardVO> Board_List(int start,int end);
 	
+	public List<BoardVO> Board_Data(int bnum);
+	
+	public void Board_Update(BoardVO vo);
+	
+	public void Board_Delete(int bnum);
+	
+	
 }

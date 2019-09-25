@@ -25,7 +25,7 @@
 						<li><a href="#" title="">Copyright Policy</a></li>
 					</ul>
 					<p><img src="resources/images/copy-icon2.png" alt="">Copyright 2019</p>
-					<img class="fl-rgt" src="images/logo2.png" alt="">
+					<img class="fl-rgt" src="resources/images/logo2.png" alt="">
 				</div>
 			</div>
 		</footer><!--footer end-->

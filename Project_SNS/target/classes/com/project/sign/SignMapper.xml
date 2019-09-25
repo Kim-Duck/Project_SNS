@@ -13,6 +13,10 @@ insert into SNS_USER(UNUM,USER_ID,USER_PWD,USER_PHOTO,USER_PHONE,USER_EMAIL,USER
 select * from SNS_USER where user_id = #{user_id}
 </select>
 
+<update id="User_Update" parameterType="com.project.sign.UserVO">
+update SNS_USER set user_name=#{user_name} ,user_phone=#{user_phone}, user_email=#{user_email}, user_pwd=#{user_pwd} where unum=#{unum}
+</update>
+
 </mapper>
     
     

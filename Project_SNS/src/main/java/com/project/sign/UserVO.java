@@ -1,10 +1,20 @@
 package com.project.sign;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class UserVO {
 	private int unum, user_following, user_follower;
 	private String user_id, user_pwd, user_photo, user_phone, user_email, user_day;
 	private String user_name;
+	private MultipartFile user_photoFile;
 	
+
+	public MultipartFile getUser_photoFile() {
+		return user_photoFile;
+	}
+	public void setUser_photoFile(MultipartFile user_photoFile) {
+		this.user_photoFile = user_photoFile;
+	}
 	public int getUser_following() {
 		return user_following;
 	}
