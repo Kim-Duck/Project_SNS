@@ -31,7 +31,8 @@ public class HomeController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-		return "sign-in";		
+		return "sign-in";
+		
 	}
 	
 	// 마이페이지
