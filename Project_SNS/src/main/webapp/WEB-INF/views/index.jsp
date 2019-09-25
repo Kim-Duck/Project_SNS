@@ -274,13 +274,18 @@
 												<a href="#" title="" class="ed-opts-open"><i
 													class="la la-ellipsis-v"></i></a>
 												<ul class="ed-options">
-													<li><a href="#" title="">글수정</a></li>
-													<li><a href="#" title="">글삭제</a></li>													
+													<li><Button type="Button" class="post-job" onclick="BoardUpdate(${board_list.bnum },${board_list.unum },${user.unum })">글수정</Button></li>
+													<li><Button type="Button" class="post-job" onclick="BoardDelete(${board_list.bnum },${board_list.unum },${user.unum })">글삭제</Button></li>
 												</ul>
 											</div>
 										</div>
 										<div class="epi-sec">
-										　<img src="resources/images/test/test.png">
+										<c:if test="${board_list.photo!=null }">
+										　<img src="resources/images/test/${board_list.photo }">
+										</c:if>
+										<c:if test="${board_list.photo==null }">
+										　<img src="resources/images/test/null.png">
+										</c:if>
 										</div>
 										<div class="job_descp">										
 											<p>${board_list.content }</p>
@@ -442,11 +447,11 @@
 									</div>
 									<!--posty end-->
 									<div class="process-comm">
-										<div class="spinner">
+<!-- 										<div class="spinner">
 											<div class="bounce1"></div>
 											<div class="bounce2"></div>
 											<div class="bounce3"></div>
-										</div>
+										</div> -->
 									</div>
 									<!--process-comm end-->
 										<div id="scrolltest"></div>	
@@ -707,13 +712,50 @@
 		</div><!--post-project-popup end-->
 
 
+		
+		<div class="post-popup job_post boardupdate">
+			<div class="post-project">
+				<h3>게시글 수정</h3>
+				<div class="post-project-fields">
+					<form id="SubmitBoardUpdate" enctype="multipart/form-data">
+						<div class="row">
+							<div class="col-lg-12">
+							<img id="BoardImgPreview">
+							</div>							 
+							<div class="col-lg-12">
+								<textarea name="content" id="updateContent">원래게시글데이터</textarea>								
+							</div>
+							
+							<div class="col-lg-12">
+								<input type="file" name="photo" placeholder="첨부하기" id="boardinputImg">
+								<input type="hidden" name="bnum" id="updateBnum">
+								<input type="hidden" name="writer" id="updateWriter">
+								<input type="hidden" name="unum" id="updateUnum">
+							</div>
+							
+							<div class="col-lg-12">
+								<ul>
+									<li><button class="active" type="button" id="btnBoardUpdate">수정</button></li>
+									<li><a id="btnUpdatePostClose">취소</a></li>
+								</ul>
+							</div>
+						</div>
+					</form>
+				</div>
+				<!--post-project-fields end-->
+				<a href="#" title=""><i class="la la-times-circle-o"></i></a>
+			</div>
+			<!--post-project end-->
+		</div>
 		<div class="post-popup job_post">
 			<div class="post-project">
 				<h3>게시글 쓰기</h3>
 				<div class="post-project-fields">
-					<form id="SubmitBoardInsert">
+					<form id="SubmitBoardInsert" enctype="multipart/form-data">
 						<div class="row">
-
+							<div class="col-lg-12">
+							<img id="BoardImgPreview">
+							</div>
 							 
 							<div class="col-lg-12">
 
@@ -722,19 +764,15 @@
 							</div>
 							
 							<div class="col-lg-12">
-								<input type="text" name="photo" placeholder="첨부하기">
+								<input type="file" name="photo" placeholder="첨부하기" id="boardinputImg">
 								<input type="hidden" name="writer" value="${sessionScope.user.user_name }">
 								<input type="hidden" name="unum" value="${sessionScope.user.unum }">
 							</div>
 							
 							<div class="col-lg-12">
 								<ul>
-
-
 									<li><button class="active" type="button" id="btnBoardInsert">게시</button></li>
-
-									<li><a href="#" title="">취소</a></li>
-
+									<li><a id="btnPostClose">취소</a></li>
 								</ul>
 							</div>
 						</div>

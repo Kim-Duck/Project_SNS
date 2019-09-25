@@ -1,18 +1,20 @@
 package com.project.board;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class BoardVO {
 	private int bnum, unum;
-	private String photo, content, writer, day;
-	private String user_photo;
+	private String content, writer, day,photo;	
 	
+
 	
-	public String getUser_photo() {
-		return user_photo;
+
+	public String getPhoto() {
+		return photo;
 	}
-	public void setUser_photo(String user_photo) {
-		this.user_photo = user_photo;
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
-	
 	public int getUnum() {
 		return unum;
 	}
@@ -25,12 +27,7 @@ public class BoardVO {
 	public void setBnum(int bnum) {
 		this.bnum = bnum;
 	}
-	public String getPhoto() {
-		return photo;
-	}
-	public void setPhoto(String photo) {
-		this.photo = photo;
-	}
+
 	public String getContent() {
 		return content;
 	}
