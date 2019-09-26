@@ -1,5 +1,5 @@
 
-var userIdCheck = RegExp(/^[A-Za-z0-9_\-]{5,15}$/);
+var userIdCheck = RegExp(/^((?=.*[a-zA-Z])(?=.*[0-9])).{5,15}$/);
 
 var nameCheck = RegExp(/^[가-힣]{2,6}$/);
 
@@ -40,21 +40,25 @@ $(function () {
 		
 		if(!userIdCheck.test($("#signup_user_id").val())){
 			alert("아이디는 영문+숫자로 5~15자 입니다.");
+			$("#signup_user_id").val("");
 			$("#signup_user_id").focus();
 			return;
 		}
 		if(!nameCheck.test($("#signup_user_name").val())){			
 			alert("이름은 한글로 2~6자 입니다.");
+			$("#signup_user_name").val("");
 			$("#signup_user_name").focus();
 			return;
 		}
 		if(!phoneCheck.test($("#signup_user_phone").val())){			
 			alert("ex) 010-1111-1111 방식으로 입력해주세요.");
+			$("#signup_user_phone").val("");
 			$("#signup_user_phone").focus();
 			return;
 		}
 		if(!emailCheck.test($("#signup_user_email").val())){			
 			alert("올바른 이메일 형식으로 입력해주세요.");
+			$("#signup_user_email").val("");
 			$("#signup_user_email").focus();
 			return;
 		}
@@ -83,13 +87,14 @@ $(function () {
 	
 	
 	//로그인
-	$("#btnLogin").click(function () {
-		
+	$("#btnLogin").click(function () {		
 		var LoginID = $("#login_user_id").val();
 		var LoginPWD = $("#login_user_pwd").val();
 		
 		if(LoginID == "" || LoginPWD == ""){
 			alert("로그인 정보를 입력해주세요.");
+			$("#login_user_id").val("");
+			$("#login_user_pwd").val("");
 			return
 		};
 		
@@ -97,16 +102,20 @@ $(function () {
 			type:'post',
 			url:'/sns/LoginCheck/'+LoginID+'/'+LoginPWD,
 			data:{"user_id":LoginID,"user_pwd":LoginPWD},
-			success:function(d){
+			success:function(d){				
 				if(d.trim() == "0"){
 					alert("아이디 비밀번호를 확인해주세요.");
+					$("#login_user_id").val("");
+					$("#login_user_pwd").val("");
+					$("#login_user_id").focus();
 					return;
-				}else if(d.trim() == "1"){
+				}else{
 					alert("로그인 성공");
 					var Login = $("#LoginForm");
 					Login.attr("action","/sns/index");
 					Login.attr("method","POST");
-					Login.submit();
+					Login.submit();					
+					sessionStorage.setItem("user_num",d.trim());
 				}
 			},
 			error:function(e){	

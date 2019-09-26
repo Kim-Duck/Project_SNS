@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,13 +51,12 @@
 											<div class="usr-pic">
 												<img
 													src="resources/images/test/${sessionScope.user.user_photo}"
-													alt=""
-													width="110px" height="110px">
+													alt="" width="110px" height="110px">
 											</div>
 										</div>
 										<!--username-dt end-->
 										<div class="user-specs">
-											<h3>${sessionScope.user.user_name }</h3>											
+											<h3>${sessionScope.user.user_name }</h3>
 										</div>
 									</div>
 									<!--user-profile end-->
@@ -68,7 +67,7 @@
 										<li>
 											<h4>Followers</h4> <span>${sessionScope.user.user_follower }</span>
 										</li>
-										<li><a href="my-profile.html" title="">View Profile</a></li>
+										<li><a href="/sns/Mypage" title="">View Profile</a></li>
 									</ul>
 								</div>
 								<!--user-data end-->
@@ -76,7 +75,7 @@
 									<div class="sd-title">
 										<h3>Suggestions</h3>
 										<i class="la la-ellipsis-v"></i>
-									</div>
+								</div>
 									<!--sd-title end-->
 									<div class="suggestions-list">
 										<div class="suggestion-usd">
@@ -159,17 +158,18 @@
 						</div>
 						<div class="col-lg-6 col-md-8 no-pd">
 							<div class="main-ws-sec">
-								<div class="post-topbar">									
+								<div class="post-topbar">
 									<div class="post-st">
-										<ul>										 
-											<li><a class="post-jb active" href="#" title="">나의 생각은?</a></li>
+										<ul>
+											<li><a class="post-jb active" href="#" title="">나의
+													생각은?</a></li>
 										</ul>
 									</div>
 									<!--post-st end-->
 								</div>
 								<!--post-topbar end-->
 								<div class="posts-section">
-							
+
 									<!--post-bar end-->
 									<div class="top-profiles">
 										<div class="pf-hd">
@@ -258,51 +258,56 @@
 										</div>
 										<!--profiles-slider end-->
 									</div>
-								<!--top-profiles end-->
-								<!-- 게시글 시작  -->
-								<c:forEach items="${board_list }" var="board_list">
-									<div class="post-bar">
-										<div class="post_topbar">
-											<div class="usy-dt">
-												<img src="resources/images/test/${board_list.user_photo }" alt="" width="50px" height="50px">
-												<div class="usy-name">
-													<h3>${board_list.writer }</h3>
-													<span><img src="resources/images/clock.png" alt="">${board_list.day }</span>
+									<!--top-profiles end-->
+									<!-- 게시글 시작  -->
+									<c:forEach items="${board_list }" var="board_list">
+										<div class="post-bar">
+											<div class="post_topbar">
+												<div class="usy-dt">
+													<img src="resources/images/test/${board_list.user_photo }"
+														alt="" width="50px" height="50px">
+													<div class="usy-name">
+														<h3>${board_list.writer }</h3>
+														<span><img src="resources/images/clock.png" alt="">${board_list.day }</span>
+													</div>
+												</div>
+												<div class="ed-opts">
+													<a href="#" title="" class="ed-opts-open"><i
+														class="la la-ellipsis-v"></i></a>
+													<ul class="ed-options">
+														<li><Button type="Button" class="post-job"
+																onclick="BoardUpdate(${board_list.bnum },${board_list.unum },${user.unum })">글수정</Button></li>
+														<li><Button type="Button" class="post-job"
+																onclick="BoardDelete(${board_list.bnum },${board_list.unum },${user.unum })">글삭제</Button></li>
+													</ul>
 												</div>
 											</div>
-											<div class="ed-opts">
-												<a href="#" title="" class="ed-opts-open"><i
-													class="la la-ellipsis-v"></i></a>
-												<ul class="ed-options">
-													<li><Button type="Button" class="post-job" onclick="BoardUpdate(${board_list.bnum },${board_list.unum },${user.unum })">글수정</Button></li>
-													<li><Button type="Button" class="post-job" onclick="BoardDelete(${board_list.bnum },${board_list.unum },${user.unum })">글삭제</Button></li>
-												</ul>
+											<div class="epi-sec">
+												<c:if test="${board_list.photo!=null }">
+													<img src="resources/images/test/${board_list.photo }">
+												</c:if>
+												<c:if test="${board_list.photo==null }">
+													<img src="resources/images/test/null.png">
+												</c:if>
 											</div>
+											<div class="job_descp">
+												<p>${board_list.content }</p>
+
+											</div>
+											<div class="job-status-bar">
+												<ul class="like-com" style="margin-top: 29px">
+													<li><a href="#" class="com"><i
+															class="fas fa-comment-alt"></i>댓글 갯수</a></li>
+
+												</ul>
+												<a href="#" class="com"><i class="fas fa-heart"></i>
+													FOLLOW!</a>
+											</div>
+											<div class="job-status-bar" style="margin-top: 16px"></div>
 										</div>
-										<div class="epi-sec">
-										<c:if test="${board_list.photo!=null }">
-										　<img src="resources/images/test/${board_list.photo }">
-										</c:if>
-										<c:if test="${board_list.photo==null }">
-										　<img src="resources/images/test/null.png">
-										</c:if>
-										</div>
-										<div class="job_descp">										
-											<p>${board_list.content }</p>
-											
-										</div>
-										<div class="job-status-bar">
-											<ul class="like-com" style="margin-top: 29px">												
-												<li><a href="#" class="com"><i class="fas fa-comment-alt"></i>댓글 갯수</a></li>												
-												
-											</ul>
-											<a href="#" class="com"><i class="fas fa-heart"></i> FOLLOW!</a>
-										</div>
-										<div class="job-status-bar" style="margin-top: 16px"></div>
-									</div>
 									</c:forEach>
-								<!-- 게시글 끝  -->	
-													
+									<!-- 게시글 끝  -->
+
 									<!--post-bar end-->
 
 									<div class="posty">
@@ -389,8 +394,7 @@
 																<a href="#" title="" class="active"><i
 																	class="fa fa-reply-all"></i>Reply</a>
 															</div>
-														</div>
-														<!--comment-list end-->
+														</div> <!--comment-list end-->
 														<ul>
 															<li>
 																<div class="comment-list">
@@ -405,8 +409,7 @@
 																		<p>Hi John</p>
 																		<a href="#" title=""><i class="fa fa-reply-all"></i>Reply</a>
 																	</div>
-																</div>
-																<!--comment-list end-->
+																</div> <!--comment-list end-->
 															</li>
 														</ul>
 													</li>
@@ -424,8 +427,7 @@
 																	ullamcorper quam finibus at.</p>
 																<a href="#" title=""><i class="fa fa-reply-all"></i>Reply</a>
 															</div>
-														</div>
-														<!--comment-list end-->
+														</div> <!--comment-list end-->
 													</li>
 												</ul>
 											</div>
@@ -447,14 +449,15 @@
 									</div>
 									<!--posty end-->
 									<div class="process-comm">
-<!-- 										<div class="spinner">
+										<!-- 										<div class="spinner">
 											<div class="bounce1"></div>
 											<div class="bounce2"></div>
 											<div class="bounce3"></div>
 										</div> -->
 									</div>
 									<!--process-comm end-->
-										<div id="scrolltest"></div>	
+									<div id="scrolltest"></div>
+									<div id="scrollscripttest"></div>
 								</div>
 								<!--posts-section end-->
 							</div>
@@ -661,7 +664,7 @@
 			<div class="post-project">
 				<h3>Post a project</h3>
 				<div class="post-project-fields">
-					<form >
+					<form>
 						<div class="row">
 							<div class="col-lg-12">
 								<input type="text" name="title" placeholder="Title">
@@ -695,24 +698,27 @@
 							<div class="col-lg-12">
 								<textarea name="description" placeholder="Description"></textarea>
 							</div>
-							
+
 							<div class="col-lg-12">
-							
+
 								<ul>
 									<li><button class="active" type="submit" value="post">Post</button></li>
 									<li><a href="#" title="">Cancel</a></li>
 								</ul>
 							</div>
-							
+
 						</div>
 					</form>
-				</div><!--post-project-fields end-->
+				</div>
+				<!--post-project-fields end-->
 				<a href="#" title=""><i class="la la-times-circle-o"></i></a>
-			</div><!--post-project end-->
-		</div><!--post-project-popup end-->
+			</div>
+			<!--post-project end-->
+		</div>
+		<!--post-project-popup end-->
 
 
-		
+
 		<div class="post-popup job_post boardupdate">
 			<div class="post-project">
 				<h3>게시글 수정</h3>
@@ -720,22 +726,24 @@
 					<form id="SubmitBoardUpdate" enctype="multipart/form-data">
 						<div class="row">
 							<div class="col-lg-12">
-							<img id="BoardImgPreview">
-							</div>							 
-							<div class="col-lg-12">
-								<textarea name="content" id="updateContent">원래게시글데이터</textarea>								
+								<img id="BoardImgPreview2">
 							</div>
-							
 							<div class="col-lg-12">
-								<input type="file" name="photo" placeholder="첨부하기" id="boardinputImg">
-								<input type="hidden" name="bnum" id="updateBnum">
-								<input type="hidden" name="writer" id="updateWriter">
-								<input type="hidden" name="unum" id="updateUnum">
+								<textarea name="content" id="updateContent"></textarea>
 							</div>
-							
+
+							<div class="col-lg-12">
+								<input type="file" name="photoFile" placeholder="첨부하기"
+									id="boardinputImg2" accept=".gif, .jpg, .png, .jpeg, .bmp">
+								<input type="hidden" name="bnum" id="updateBnum"> <input
+									type="hidden" name="writer" id="updateWriter"> <input
+									type="hidden" name="unum" id="updateUnum">
+							</div>
+
 							<div class="col-lg-12">
 								<ul>
-									<li><button class="active" type="button" id="btnBoardUpdate">수정</button></li>
+									<li><button class="active" type="button"
+											id="btnBoardUpdate">수정</button></li>
 									<li><a id="btnUpdatePostClose">취소</a></li>
 								</ul>
 							</div>
@@ -754,24 +762,27 @@
 					<form id="SubmitBoardInsert" enctype="multipart/form-data">
 						<div class="row">
 							<div class="col-lg-12">
-							<img id="BoardImgPreview">
+								<img id="BoardImgPreview">
 							</div>
-							 
+
 							<div class="col-lg-12">
 
 								<textarea name="content" placeholder="나의 생각을 적어주세요^^"></textarea>
-								
+
 							</div>
-							
+
 							<div class="col-lg-12">
-								<input type="file" name="photo" placeholder="첨부하기" id="boardinputImg">
-								<input type="hidden" name="writer" value="${sessionScope.user.user_name }">
-								<input type="hidden" name="unum" value="${sessionScope.user.unum }">
+								<input type="file" name="photoFile" placeholder="첨부하기"
+									id="boardinputImg" accept=".gif, .jpg, .png, .jpeg, .bmp">
+								<input type="hidden" name="writer"
+									value="${sessionScope.user.user_name }"> <input
+									type="hidden" name="unum" value="${sessionScope.user.unum }">
 							</div>
-							
+
 							<div class="col-lg-12">
 								<ul>
-									<li><button class="active" type="button" id="btnBoardInsert">게시</button></li>
+									<li><button class="active" type="button"
+											id="btnBoardInsert">게시</button></li>
 									<li><a id="btnPostClose">취소</a></li>
 								</ul>
 							</div>
@@ -979,8 +990,9 @@
 		src="resources/js/jquery.mCustomScrollbar.js"></script>
 	<script type="text/javascript" src="resources/lib/slick/slick.min.js"></script>
 	<script type="text/javascript" src="resources/js/scrollbar.js"></script>
-	<script type="text/javascript" src="resources/js/script.js"></script>	
-	<script type="text/javascript" src="resources/sns_js/index.js?ver=123"></script>
+	<script type="text/javascript" src="resources/js/script.js"></script>
+	<script type="text/javascript" src="resources/sns_js/index.js"></script>
+
 
 </body>
 </html>

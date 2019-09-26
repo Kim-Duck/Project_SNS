@@ -15,8 +15,7 @@
 		<div class="container">
 			<div class="header-data">
 				<div class="logo">
-					<a href="index.html" title=""><img
-						src="resources/images/logo.png" alt=""></a>
+					<a href="/sns/index"><img src="resources/images/logo.png" alt=""></a>
 				</div>
 				<!--logo end-->
 				<div class="search-bar">
@@ -30,7 +29,7 @@
 				<!--search-bar end-->
 				<nav>
 					<ul>
-						<li><a href="index.jsp" title=""> <span><img
+						<li><a href="/sns/index" title=""> <span><img
 									src="resources/images/icon1.png" alt=""></span> Home
 						</a></li>
 
@@ -122,20 +121,16 @@
 					</div><!--menu-btn end-->
 					<div class="user-account">
 						<div class="user-info">  
-							<img src="resources/images/test/${sessionScope.user.user_photo}" alt="" width="30px" height="30px">
+							<img src="resources/images/test/${sessionScope.user.user_photo }" alt="" width="30px" height="30px">
 							<a href="#" title="">${sessionScope.user.user_name }</a>
 							<i class="la la-sort-down"></i>
 						</div>
 						<div class="user-account-settingss" id="users">
-							<h3>계정 정보</h3>
-						<h3>설 정</h3>
-						<ul class="us-links">
-							 
-							<li><a href="#" title="">개인정보 수정</a></li>
-							<li><a href="#" title="">계 정 탈 퇴</a></li>
-						</ul>
+							<h3 class="tc"><a href="/sns/Mypage">마이페이지</a></h3>
+						<h3 class="tc"><a href="/sns/Setting">설 정</a></h3>
+						 
 						<h3 class="tc">
-							<a href="/sns/Logout" title="">로그아웃</a>
+							<a href="#" title="" id="userLogout">로그아웃</a>
 						</h3>
 						</div><!--user-account-settingss end-->
 
@@ -149,6 +144,7 @@
 		</div>
 	</header>
 	<!--header end-->
-
+	<script type="text/javascript" src="resources/js/jquery.min.js"></script>
+<script type="text/javascript" src="resources/sns_js/header.js"></script>
 </body>
 </html>

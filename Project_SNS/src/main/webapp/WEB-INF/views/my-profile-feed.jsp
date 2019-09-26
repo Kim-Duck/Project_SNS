@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,7 +59,7 @@
 							<div class="main-left-sidebar">
 								<div class="user_profile">
 									<div class="user-pro-img">
-										<img src="resources/images/resources/user-pro-img.png" alt="">
+										<img src="resources/images/test/${sessionScope.user.user_photo }" alt="">
 										<div class="add-dp" id="OpenImgUpload">
 											<input type="file" id="file"> <label for="file"><i
 												class="fas fa-camera"></i></label>
@@ -563,7 +564,7 @@
 											<div class="post-bar">
 												<div class="post_topbar applied-post">
 													<div class="usy-dt">
-														<img src="images/resources/us-pic.png" alt="">
+														<img src="resources/images/resources/us-pic.png" alt="">
 														<div class="usy-name">
 															<h3>John Doe</h3>
 															<div class="epi-sec epi2">
@@ -705,58 +706,12 @@
 									<div class="posts-section">
 
 										<div class="post-bar">
-											<div class="post_topbar">
-												<div class="usy-dt">
-													<img src="resources/images/resources/us-pic.png" alt="">
-													<div class="usy-name">
-														<h3>John Doe</h3>
-														<span><img src="resources/images/clock.png" alt="">3
-															min ago</span>
-													</div>
-												</div>
-												<div class="ed-opts">
-													<a href="#" title="" class="ed-opts-open"><i
-														class="la la-ellipsis-v"></i></a>
-													<ul class="ed-options">
-														<li><a href="#" title="">Edit Post</a></li>
-														<li><a href="#" title="">Unsaved</a></li>
-														<li><a href="#" title="">Unbid</a></li>
-														<li><a href="#" title="">Close</a></li>
-														<li><a href="#" title="">Hide</a></li>
-													</ul>
-												</div>
-											</div>
-											<div class="epi-sec">
-												<ul class="descp">
-													<li><img src="resources/images/icon8.png" alt=""><span>Front
-															End Developer</span></li>
-													<li><img src="resources/images/icon9.png" alt=""><span>India</span></li>
-												</ul>
-												<ul class="bk-links">
-													<li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
-													<li><a href="#" title=""><i class="la la-envelope"></i></a></li>
-													<li><a href="#" title="" class="bid_now">Bid Now</a></li>
-												</ul>
-											</div>
-											<div class="job_descp">
-												<h3>Simple Classified Site</h3>
-												<ul class="job-dt">
-													<li><span>$300 - $350</span></li>
-												</ul>
-												<p>
-													Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-													Aliquam luctus hendrerit metus, ut ullamcorper quam finibus
-													at. Etiam id magna sit amet... <a href="#" title="">view
-														more</a>
-												</p>
-												<ul class="skill-tags">
-													<li><a href="#" title="">HTML</a></li>
-													<li><a href="#" title="">PHP</a></li>
-													<li><a href="#" title="">CSS</a></li>
-													<li><a href="#" title="">Javascript</a></li>
-													<li><a href="#" title="">Wordpress</a></li>
-												</ul>
-											</div>
+
+											<!-- 게시글 시작  -->
+											
+											<!-- 게시글 끝  -->
+
+
 											<div class="job-status-bar">
 												<ul class="like-com">
 													<li><a href="#"><i class="fas fa-heart"></i> Like</a>

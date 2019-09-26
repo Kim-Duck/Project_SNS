@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.project.board.BoardMapper">
-<!-- p.338 -->
+
 <insert id="Board_Insert" parameterType="com.project.board.BoardVO">
 insert into SNS_BOARD(BNUM,PHOTO,CONTENT,WRITER,DAY,UNUM) values(SNS_BOARD_SEQ.NEXTVAL,#{photo, jdbcType=VARCHAR},#{content},#{writer},sysdate,#{unum})
 </insert>

@@ -53,7 +53,7 @@
 										<div class="row">
 											<div class="col-lg-12 no-pdd">
 												<div class="sn-field">
-													<input type="text" name="login_user_id" id="login_user_id" placeholder="Username">
+													<input type="text" name="login_user_id" id="login_user_id" placeholder="UserID">
 													<i class="la la-user"></i>
 												</div><!--sn-field end-->
 											</div>
@@ -115,7 +115,7 @@
 												</div>
 												<div class="col-lg-12 no-pdd">
 													<div class="sn-field">
-													<input type="file" name ="user_photo" class="form-control" accept=".gif, .jpg, .png, .jpeg, .bmp" id="signup_user_photo" placeholder="Photo">													
+													<input type="file" name ="user_photoFile" class="form-control" accept=".gif, .jpg, .png, .jpeg, .bmp" id="signup_user_photo" placeholder="Photo">													
 														<i class="la la-globe"></i>
 													</div>
 												</div>
@@ -189,6 +189,6 @@
 <script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="resources/lib/slick/slick.min.js"></script>
 <script type="text/javascript" src="resources/js/script.js"></script>
-<script type="text/javascript" src="resources/sns_js/sign_in.js?ver=123"></script>
+<script type="text/javascript" src="resources/sns_js/sign_in.js"></script>
 </body>
 </html>

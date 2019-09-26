@@ -4,17 +4,30 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class BoardVO {
 	private int bnum, unum;
-	private String content, writer, day,photo;	
+	private String content, writer, day,user_photo,photo;	
+	private MultipartFile photoFile;
 	
 
-	
-
+	public MultipartFile getPhotoFile() {
+		return photoFile;
+	}
+	public void setPhotoFile(MultipartFile photoFile) {
+		this.photoFile = photoFile;
+	}
 	public String getPhoto() {
 		return photo;
 	}
 	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
+
+	public String getUser_photo() {
+		return user_photo;
+	}
+	public void setUser_photo(String user_photo) {
+		this.user_photo = user_photo;
+	}
+
 	public int getUnum() {
 		return unum;
 	}
