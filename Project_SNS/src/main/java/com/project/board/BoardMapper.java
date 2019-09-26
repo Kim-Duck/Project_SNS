@@ -8,7 +8,7 @@ public interface BoardMapper {
 	
 	public void Board_Insert(BoardVO vo);
 	
-	public List<BoardVO> Board_List(@Param("start")int start,@Param("end") int end);
+	public List<BoardVO> Board_List(@Param("start")int start,@Param("end") int end,@Param("user_id") String user_id);
 	
 	public List<BoardVO> Board_Data(@Param("bnum") int bnum);
 	

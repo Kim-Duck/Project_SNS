@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,252 +34,116 @@
 
 
 <body>
-
-
 	<div class="wrapper">
-
-
-
-
 		<%@ include file="Header.jsp"%>
-
-
-
 		<section class="companies-info">
 			<div class="container">
 				<div class="company-title">
-					<h3>All Companies</h3>
+					<h3>Friend List</h3>
 				</div>
 				<!--company-title end-->
 				<div class="companies-list">
 					<div class="row">
-						<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-							<div class="company_profile_info">
-								<div class="company-up-info">
-									<img src="resources/images/resources/pf-icon1.png" alt="">
-									<h3>John Doe</h3>
-									<h4>Graphic Designer</h4>
-									<ul>
-										<li><a href="#" title="" class="follow">Follow</a></li>
-										<li><a href="#" title="" class="message-us"><i
-												class="fa fa-envelope"></i></a></li>
-										<li><a href="#" title="" class="hire-us">Hire</a></li>
-									</ul>
+						<c:forEach items="${Friend_List }" var="Friend_List">
+							<div class="col-lg-3 col-md-4 col-sm-6 col-12">
+								<div class="company_profile_info">
+									<div class="company-up-info">
+										<img src="resources/images/test/${Friend_List.user_photo }"
+											alt=""> <input type="hidden" id=""
+											value="${Friend_List.unum }">
+										<h3>${Friend_List.user_name }</h3>
+										<ul>
+											<li><a href="#" title="" class="follow">Follow</a></li>
+											<li><a href="#" title="" class="message-us"><i
+													class="fa fa-envelope"></i></a></li>
+										</ul>
+									</div>
+									<a href="user-profile.html" title="" class="view-more-pro">View
+										Profile</a>
 								</div>
-								<a href="user-profile.html" title="" class="view-more-pro">View
-									Profile</a>
+								<!--company_profile_info end-->
 							</div>
-							<!--company_profile_info end-->
-						</div>
-						<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-							<div class="company_profile_info">
-								<div class="company-up-info">
-									<img src="resources/images/resources/pf-icon2.png" alt="">
-									<h3>John Doe</h3>
-									<h4>Graphic Designer</h4>
-									<ul>
-										<li><a href="#" title="" class="follow">Follow</a></li>
-										<li><a href="#" title="" class="message-us"><i
-												class="fa fa-envelope"></i></a></li>
-										<li><a href="#" title="" class="hire-us">Hire</a></li>
-									</ul>
+						</c:forEach>
+						<c:if test="${!Friend_Request_Ing.isEmpty() }">
+							<div class="company-title">
+								<h3>친구요청중</h3>
+							</div>
+						</c:if>
+						<c:forEach items="${Friend_Request_Ing }" var="Friend_Request_Ing">
+							<div class="col-lg-3 col-md-4 col-sm-6 col-12">
+								<div class="company_profile_info">
+									<div class="company-up-info">
+										<img
+											src="resources/images/test/${Friend_Request_Ing.user_photo }"
+											alt="">
+										<h3>${Friend_Request_Ing.user_name }</h3>
+										<ul>
+											<li><a href="javascript:void(0)" onclick="FriendRequestIng()"class="follow">FriendRequestIng...</a></li>
+											<li><a href="#" title="" class="message-us"><i
+													class="fa fa-envelope"></i></a></li>
+										</ul>
+									</div>
+									<a href="user-profile.html" title="" class="view-more-pro">View
+										Profile</a>
 								</div>
-								<a href="user-profile.html" title="" class="view-more-pro">View
-									Profile</a>
+								<!--company_profile_info end-->
 							</div>
-							<!--company_profile_info end-->
-						</div>
-						<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-							<div class="company_profile_info">
-								<div class="company-up-info">
-									<img src="resources/images/resources/pf-icon3.png" alt="">
-									<h3>John Doe</h3>
-									<h4>Graphic Designer</h4>
-									<ul>
-										<li><a href="#" title="" class="follow">Follow</a></li>
-										<li><a href="#" title="" class="message-us"><i
-												class="fa fa-envelope"></i></a></li>
-										<li><a href="#" title="" class="hire-us">Hire</a></li>
-									</ul>
+						</c:forEach>
+						<c:if test="${!Friend_Request_List.isEmpty() }">
+							<div class="company-title">
+								<h3>친구요청옴!!</h3>
+							</div>
+						</c:if>
+						<c:forEach items="${Friend_Request_List }"
+							var="Friend_Request_List">
+
+							<div class="col-lg-3 col-md-4 col-sm-6 col-12">
+								<div class="company_profile_info">
+									<div class="company-up-info">
+										<img
+											src="resources/images/test/${Friend_Request_List.user_photo }"
+											alt="">
+										<h3>${Friend_Request_List.user_name }</h3>
+										<ul>
+											<li><a href="javascript:void(0)" onclick="FriendAgree(${sessionScope.user.user_id },${Friend_Request_List.user_id})"
+												class="follow">FriendAgree</a></li>
+											<li><a href="#" title="" class="message-us"><i
+													class="fa fa-envelope"></i></a></li>
+										</ul>
+									</div>
+									<a href="user-profile.html" title="" class="view-more-pro">View
+										Profile</a>
 								</div>
-								<a href="user-profile.html" title="" class="view-more-pro">View
-									Profile</a>
+								<!--company_profile_info end-->
 							</div>
-							<!--company_profile_info end-->
+						</c:forEach>
+						<div class="company-title">
+							<h3>모든유저</h3>
 						</div>
-						<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-							<div class="company_profile_info">
-								<div class="company-up-info">
-									<img src="resources/images/resources/pf-icon4.png" alt="">
-									<h3>John Doe</h3>
-									<h4>Graphic Designer</h4>
-									<ul>
-										<li><a href="#" title="" class="follow">Follow</a></li>
-										<li><a href="#" title="" class="message-us"><i
-												class="fa fa-envelope"></i></a></li>
-										<li><a href="#" title="" class="hire-us">Hire</a></li>
-									</ul>
+						<c:forEach items="${User_List }" var="User_List">
+							<div class="col-lg-3 col-md-4 col-sm-6 col-12">
+								<div class="company_profile_info">
+									<div class="company-up-info">
+										<img src="resources/images/test/${User_List.user_photo }"
+											alt="">
+										<h3>${User_List.user_name }</h3>
+										<ul>
+											<li><a href="javascript:void(0)"
+												onclick="FriendRequest(${sessionScope.user.user_id },${User_List.user_id})"
+												class="follow">FriendButton</a></li>
+											<li><a href="#" title="" class="message-us"><i
+													class="fa fa-envelope"></i></a></li>
+										</ul>
+									</div>
+									<a href="user-profile.html" title="" class="view-more-pro">View
+										Profile</a>
 								</div>
-								<a href="user-profile.html" title="" class="view-more-pro">View
-									Profile</a>
+								<!--company_profile_info end-->
 							</div>
-							<!--company_profile_info end-->
-						</div>
-						<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-							<div class="company_profile_info">
-								<div class="company-up-info">
-									<img src="resources/images/resources/pf-icon5.png" alt="">
-									<h3>John Doe</h3>
-									<h4>Graphic Designer</h4>
-									<ul>
-										<li><a href="#" title="" class="follow">Follow</a></li>
-										<li><a href="#" title="" class="message-us"><i
-												class="fa fa-envelope"></i></a></li>
-										<li><a href="#" title="" class="hire-us">Hire</a></li>
-									</ul>
-								</div>
-								<a href="user-profile.html" title="" class="view-more-pro">View
-									Profile</a>
-							</div>
-							<!--company_profile_info end-->
-						</div>
-						<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-							<div class="company_profile_info">
-								<div class="company-up-info">
-									<img src="resources/images/resources/pf-icon6.png" alt="">
-									<h3>John Doe</h3>
-									<h4>Graphic Designer</h4>
-									<ul>
-										<li><a href="#" title="" class="follow">Follow</a></li>
-										<li><a href="#" title="" class="message-us"><i
-												class="fa fa-envelope"></i></a></li>
-										<li><a href="#" title="" class="hire-us">Hire</a></li>
-									</ul>
-								</div>
-								<a href="user-profile.html" title="" class="view-more-pro">View
-									Profile</a>
-							</div>
-							<!--company_profile_info end-->
-						</div>
-						<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-							<div class="company_profile_info">
-								<div class="company-up-info">
-									<img src="resources/images/resources/pf-icon7.png" alt="">
-									<h3>John Doe</h3>
-									<h4>Graphic Designer</h4>
-									<ul>
-										<li><a href="#" title="" class="follow">Follow</a></li>
-										<li><a href="#" title="" class="message-us"><i
-												class="fa fa-envelope"></i></a></li>
-										<li><a href="#" title="" class="hire-us">Hire</a></li>
-									</ul>
-								</div>
-								<a href="user-profile.html" title="" class="view-more-pro">View
-									Profile</a>
-							</div>
-							<!--company_profile_info end-->
-						</div>
-						<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-							<div class="company_profile_info">
-								<div class="company-up-info">
-									<img src="resources/images/resources/pf-icon8.png" alt="">
-									<h3>John Doe</h3>
-									<h4>Graphic Designer</h4>
-									<ul>
-										<li><a href="#" title="" class="follow">Follow</a></li>
-										<li><a href="#" title="" class="message-us"><i
-												class="fa fa-envelope"></i></a></li>
-										<li><a href="#" title="" class="hire-us">Hire</a></li>
-									</ul>
-								</div>
-								<a href="user-profile.html" title="" class="view-more-pro">View
-									Profile</a>
-							</div>
-							<!--company_profile_info end-->
-						</div>
-						<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-							<div class="company_profile_info">
-								<div class="company-up-info">
-									<img src="resources/images/resources/pf-icon9.png" alt="">
-									<h3>John Doe</h3>
-									<h4>Graphic Designer</h4>
-									<ul>
-										<li><a href="#" title="" class="follow">Follow</a></li>
-										<li><a href="#" title="" class="message-us"><i
-												class="fa fa-envelope"></i></a></li>
-										<li><a href="#" title="" class="hire-us">Hire</a></li>
-									</ul>
-								</div>
-								<a href="user-profile.html" title="" class="view-more-pro">View
-									Profile</a>
-							</div>
-							<!--company_profile_info end-->
-						</div>
-						<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-							<div class="company_profile_info">
-								<div class="company-up-info">
-									<img src="resources/images/resources/pf-icon10.png" alt="">
-									<h3>John Doe</h3>
-									<h4>Graphic Designer</h4>
-									<ul>
-										<li><a href="#" title="" class="follow">Follow</a></li>
-										<li><a href="#" title="" class="message-us"><i
-												class="fa fa-envelope"></i></a></li>
-										<li><a href="#" title="" class="hire-us">Hire</a></li>
-									</ul>
-								</div>
-								<a href="user-profile.html" title="" class="view-more-pro">View
-									Profile</a>
-							</div>
-							<!--company_profile_info end-->
-						</div>
-						<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-							<div class="company_profile_info">
-								<div class="company-up-info">
-									<img src="resources/images/resources/pf-icon11.png" alt="">
-									<h3>John Doe</h3>
-									<h4>Graphic Designer</h4>
-									<ul>
-										<li><a href="#" title="" class="follow">Follow</a></li>
-										<li><a href="#" title="" class="message-us"><i
-												class="fa fa-envelope"></i></a></li>
-										<li><a href="#" title="" class="hire-us">Hire</a></li>
-									</ul>
-								</div>
-								<a href="user-profile.html" title="" class="view-more-pro">View
-									Profile</a>
-							</div>
-							<!--company_profile_info end-->
-						</div>
-						<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-							<div class="company_profile_info">
-								<div class="company-up-info">
-									<img src="resources/images/resources/pf-icon12.png" alt="">
-									<h3>John Doe</h3>
-									<h4>Graphic Designer</h4>
-									<ul>
-										<li><a href="#" title="" class="follow">Follow</a></li>
-										<li><a href="#" title="" class="message-us"><i
-												class="fa fa-envelope"></i></a></li>
-										<li><a href="#" title="" class="hire-us">Hire</a></li>
-									</ul>
-								</div>
-								<a href="user-profile.html" title="" class="view-more-pro">View
-									Profile</a>
-							</div>
-							<!--company_profile_info end-->
-						</div>
+						</c:forEach>
 					</div>
 				</div>
 				<!--companies-list end-->
-				<div class="process-comm">
-					<div class="spinner">
-						<div class="bounce1"></div>
-						<div class="bounce2"></div>
-						<div class="bounce3"></div>
-					</div>
-				</div>
-				<!--process-comm end-->
 			</div>
 		</section>
 		<!--companies-info end-->
@@ -286,14 +151,12 @@
 
 	</div>
 	<!--theme-layout end-->
-
-
-
 	<script type="text/javascript" src="resources/js/jquery.min.js"></script>
 	<script type="text/javascript" src="resources/js/popper.js"></script>
 	<script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="resources/js/flatpickr.min.js"></script>
 	<script type="text/javascript" src="resources/lib/slick/slick.min.js"></script>
 	<script type="text/javascript" src="resources/js/script.js"></script>
+	<script type="text/javascript" src="resources/sns_js/profiles.js"></script>
 </body>
 </html>

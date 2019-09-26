@@ -6,7 +6,10 @@ import java.util.UUID;
 
 import javax.annotation.Resource;
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.project.board.BoardServiceImpl;
 import com.project.board.BoardVO;
+import com.project.sign.UserVO;
 
 @Controller
 public class BoardController {
@@ -82,9 +86,11 @@ public class BoardController {
 //	
 
 	@GetMapping("/mainIndex")
-	public ModelAndView Board_List() {
+	public ModelAndView Board_List(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		UserVO vo = (UserVO)session.getAttribute("user");		
 		ModelAndView mv = new ModelAndView();
-		List<BoardVO> board_list = service.Board_List(1, 3);
+		List<BoardVO> board_list = service.Board_List(1, 3,vo.getUser_id());		
 		mv.addObject("board_list", board_list);
 		mv.setViewName("index");
 		return mv;
@@ -93,8 +99,10 @@ public class BoardController {
 	// 스크롤용
 	@ResponseBody
 	@PostMapping("/mainIndextest")
-	public List<BoardVO> Board_List2(@RequestParam("start") int start, @RequestParam("end") int end) {
-		List<BoardVO> board_list = service.Board_List(start, end);
+	public List<BoardVO> Board_List2(HttpServletRequest request,@RequestParam("start") int start, @RequestParam("end") int end) {
+		HttpSession session = request.getSession();
+		UserVO vo = (UserVO)session.getAttribute("user");		
+		List<BoardVO> board_list = service.Board_List(start, end,vo.getUser_id());
 		return board_list;
 	}
 

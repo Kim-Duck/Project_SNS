@@ -7,8 +7,9 @@
 <insert id="Board_Insert" parameterType="com.project.board.BoardVO">
 insert into SNS_BOARD(BNUM,PHOTO,CONTENT,WRITER,DAY,UNUM) values(SNS_BOARD_SEQ.NEXTVAL,#{photo, jdbcType=VARCHAR},#{content},#{writer},sysdate,#{unum})
 </insert>
-<select id="Board_List" resultType="com.project.board.BoardVO" parameterType="Integer">
-select * from (select /*+ index_desc(sns_board sns_board_pk) */ ROWNUM rnum, sns_board.bnum, sns_board.photo, sns_board.content, sns_board.writer, sns_board.day, sns_board.unum, sns_user.user_photo FROM sns_board INNER JOIN sns_user ON sns_board.unum = sns_user.unum where ROWNUM <![CDATA[ >=  ]]>1) where rnum <![CDATA[ >=  ]]>#{start}and rnum <![CDATA[<= ]]> #{end}
+
+<select id="Board_List" resultType="com.project.board.BoardVO">
+select * from ( select ROWNUM rnum,ab.* from ( select sns_board.bnum, sns_board.photo, sns_board.content, sns_board.writer, sns_board.day, sns_board.unum, sns_user.user_photo from ( select friend_id from sns_friend where main_id = #{user_id} ) aa, sns_board, sns_user where sns_board.writer = friend_id and sns_user.user_id = friend_id order by sns_board.day desc ) ab where ROWNUM <![CDATA[ >=  ]]> 1 )  where rnum <![CDATA[ >=  ]]>#{start}and rnum <![CDATA[<= ]]> #{end}
 </select>
 
 <select id="Board_Data" resultType="com.project.board.BoardVO" parameterType="Integer">

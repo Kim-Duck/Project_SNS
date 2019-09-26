@@ -17,8 +17,8 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public List<BoardVO> Board_List(int start,int end) {		
-		return mapper.Board_List(start,end);
+	public List<BoardVO> Board_List(int start,int end,String user_id) {		
+		return mapper.Board_List(start,end,user_id);
 	}
 	
 	@Override

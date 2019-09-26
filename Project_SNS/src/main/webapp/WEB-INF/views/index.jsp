@@ -473,7 +473,10 @@
 										<h3>
 											<a href="sign-in.html" title="">Sign up</a>
 										</h3>
-										<a href="#" title="">Learn More</a>
+										<form action="/sns/Friend" method="post">
+										<input type="hidden" name="user_id" value="${sessionScope.user.user_id }">
+										<Button type="submit" onclick="">친구페이지</Button>
+										</form>
 									</div>
 								</div>
 								<!--widget-about end-->
@@ -989,9 +992,10 @@
 	<script type="text/javascript"
 		src="resources/js/jquery.mCustomScrollbar.js"></script>
 	<script type="text/javascript" src="resources/lib/slick/slick.min.js"></script>
-	<script type="text/javascript" src="resources/js/scrollbar.js"></script>
+	<script type="text/javascript" src="resources/js/scrollbar.js"></script>	
 	<script type="text/javascript" src="resources/js/script.js"></script>
 	<script type="text/javascript" src="resources/sns_js/index.js"></script>
+	
 
 
 </body>

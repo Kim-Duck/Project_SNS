@@ -79,6 +79,8 @@ $(function () {
 		}else if(overlapIdCheck==1){
 			overlapIdCheck=0;
 		}
+		
+		alert("가입이 완료되었습니다!");
 		var SubmitSignUp = $("#SubmitSignUp");
 		SubmitSignUp.attr("action","/sns/signup");
 		SubmitSignUp.attr("method","POST");
@@ -111,11 +113,11 @@ $(function () {
 					return;
 				}else{
 					alert("로그인 성공");
+					sessionStorage.setItem("user_num",d.trim());
 					var Login = $("#LoginForm");
 					Login.attr("action","/sns/index");
 					Login.attr("method","POST");
 					Login.submit();					
-					sessionStorage.setItem("user_num",d.trim());
 				}
 			},
 			error:function(e){	
