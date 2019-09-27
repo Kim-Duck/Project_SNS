@@ -62,22 +62,6 @@ public class BoardController {
 		return "redirect:/mainIndex";
 	}
 
-//	@PostMapping("/update")
-//	public String User_update(UserVO vo){
-//		service.User_update(vo);
-//		
-//		return "index";
-//		
-//	}
-//	
-//	@PostMapping("/delete")
-//	public String Board_delete(int bnum) {
-//		service.Board_delete(bnum);
-//		
-//		return "index";
-//		
-//	}
-//	
 
 	@GetMapping("/mainIndex")
 	public ModelAndView Board_List() {
