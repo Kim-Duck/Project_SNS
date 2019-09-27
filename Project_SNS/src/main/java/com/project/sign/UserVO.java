@@ -7,8 +7,17 @@ public class UserVO {
 	private String user_id, user_pwd, user_photo, user_phone, user_email, user_day;
 	private String user_name;
 	private MultipartFile user_photoFile;
+	private String friend_check;
+	
+	
 	
 
+	public String getFriend_check() {
+		return friend_check;
+	}
+	public void setFriend_check(String friend_check) {
+		this.friend_check = friend_check;
+	}
 	public MultipartFile getUser_photoFile() {
 		return user_photoFile;
 	}

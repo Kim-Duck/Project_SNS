@@ -116,11 +116,12 @@ function handleImgFileSelect2(e) {
 }
 
 
+
+
 var scroll = 1;
 var start = 4;
 var end = 6;
-$(window).scroll(function() {
-	
+$(window).scroll(function() {	
 	if ($(window).scrollTop()+$(window).height() + 30 > $(document).height()) {
 	/*if ($(window).scrollTop() == $(document).height() - $(window).height()) {*/
 		$.ajax({

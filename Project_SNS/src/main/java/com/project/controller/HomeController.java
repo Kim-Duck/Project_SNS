@@ -24,18 +24,13 @@ import com.project.sign.UserVO;
 @Controller
 public class HomeController {
 	
-	@Inject
-	private SignServiceImpl service;
-	
-	//private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		return "sign-in";
 		
 	}
 	
-	// 마이페이지
+	// 마이페이지 테스트 ㅎ
 	@GetMapping("/Mypage")
 	public String Logout1(HttpServletRequest request) {		
 		return "my-profile-feed";
@@ -46,13 +41,7 @@ public class HomeController {
 	public String Logout2(HttpServletRequest request) {		
 		return "profile-account-setting";
 	}
-//	// 마이페이지에서 수정?
-//	@PostMapping("/update")
-//	public String User_update(UserVO vo){
-//		service.User_update(vo);
-//		return "sign-in";		
-//	}
-	
+
 
 
 }

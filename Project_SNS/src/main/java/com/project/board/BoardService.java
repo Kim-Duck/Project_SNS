@@ -10,7 +10,9 @@ public interface BoardService {
 	
 	public void Board_Insert(BoardVO vo);
 	
-	public List<BoardVO> Board_List(int start,int end);
+	public List<BoardVO> Board_List(int start,int end,String user_id);
+	
+	public List<BoardVO> Board_List_Self(int start,int end,String user_id);
 	
 	public List<BoardVO> Board_Data(int bnum);
 	

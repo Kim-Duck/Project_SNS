@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.ff.FfMapper">
+<select id="Friend_List" parameterType="String" resultType="com.project.sign.UserVO"> 
+ select sns_user.* from ( select friend_id from sns_friend where main_id = #{user_id} ) aa, sns_user where friend_id = sns_user.user_id
+</select>
+
+<select id="User_List" parameterType="String"  resultType="com.project.sign.UserVO"> 
+ <!-- select sns_user.*, cc.friend_check from ( select aa.*, bb.friend_id as friend_check from ( select user_id from sns_user MINUS select #{user_id} as user_id from dual ) aa, (select friend_id from sns_friend where main_id = #{user_id}) bb ) cc, sns_user where cc.user_id = sns_user.user_id --> 
+ select sns_user.* from ( select user_id from sns_user MINUS select #{user_id} as user_id from dual ) aa, sns_user where aa.user_id = sns_user.user_id
+</select>
+<select id="User_List_Friend" parameterType="String" resultType="String">
+select friend_id from sns_friend where main_id = #{user_id}
+</select>
+
+<insert id="Friend_Request" parameterType="String">
+insert into sns_friendrequest(main_id,friend_id,day) values(#{main_id},#{friend_id},sysdate)
+</insert>
+
+<select id="Friend_Request_List" parameterType="String" resultType="com.project.sign.UserVO">
+select sns_user.* from (select main_id from sns_friendrequest where friend_id = #{user_id} ) aa, sns_user where main_id = sns_user.user_id
+</select>
+
+
+<select id="Friend_Request_Ing" parameterType="String" resultType="com.project.sign.UserVO">
+select sns_user.* from (select friend_id from sns_friendrequest where main_id=#{user_id}) aa, sns_user where friend_id = sns_user.user_id
+
+</select>
+
+<delete id="Friend_Agree" parameterType="String">
+delete from sns_friendrequest where main_id = #{friend_id} and friend_id = #{user_id}
+</delete>
+
+
+</mapper>
+
+
+
+    
+    
+    
+    

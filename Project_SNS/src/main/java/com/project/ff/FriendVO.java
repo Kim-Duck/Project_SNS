@@ -1,14 +1,9 @@
 package com.project.ff;
 
 public class FriendVO {
-	private int fnum;
-	private String main_id, friend_id, day;
-	public int getFnum() {
-		return fnum;
-	}
-	public void setFnum(int fnum) {
-		this.fnum = fnum;
-	}
+	
+	private String main_id, friend_id, day;	
+	
 	public String getMain_id() {
 		return main_id;
 	}
