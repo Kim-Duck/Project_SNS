@@ -52,4 +52,19 @@ $(function () {
 		}
 	});
 	
+	$("#btnUserDelete").click(function () {
+		if(confirm("탈퇴하시겠습니까?")){	
+			
+			var SubmitUserDelete = $("#SubmitUserDelete");
+			SubmitUserDelete.attr("action","/sns/UserDelete");
+			SubmitUserDelete.attr("method","POST");
+			SubmitUserDelete.submit();
+			
+			
+			alert("탈퇴되었습니다.");
+			location.href="/sns/Logout";
+			sessionStorage.clear();
+		}
+	});
+	
 })

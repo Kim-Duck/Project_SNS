@@ -34,8 +34,8 @@
 						<div class="col-lg-6">
 							<div class="cmp-info">
 								<div class="cm-logo">
-									<img src="resources/images/cm-logo.png" alt="">
-									<p>Workwise,  is a global freelancing platform and social networking where businesses and independent professionals connect and collaborate remotely</p>
+									<img src="resources/images/Sign-inLOGO.png" alt="">
+									<p>Welcome To The Space</p>
 								</div><!--cm-logo end-->	
 								<img src="resources/images/cm-main-img.png" alt="">			
 							</div><!--cmp-info end-->
@@ -43,9 +43,9 @@
 						<div class="col-lg-6">
 							<div class="login-sec">
 								<ul class="sign-control">
-									<li data-tab="tab-1" class="current"><a href="#" title="">Sign in</a></li>				
-									<li data-tab="tab-2"><a href="#" title="">Sign up</a></li>				
-								</ul>			
+									<li data-tab="tab-1" class="current"><a href="#" title="">로그인</a></li>				
+									<li data-tab="tab-2"><a href="#" title="">회원가입</a></li>				
+								</ul>			 
 								<div class="sign_in_sec current" id="tab-1">
 									
 									<h3>Sign in</h3>
@@ -64,16 +64,7 @@
 												</div>
 											</div>
 											<div class="col-lg-12 no-pdd">
-												<div class="checky-sec">
-													<div class="fgt-sec">
-														<input type="checkbox" name="cc" id="c1">
-														<label for="c1">
-															<span></span>
-														</label>
-														<small>Remember me</small>
-													</div><!--fgt-sec end-->
-													<a href="#" title="">Forgot Password?</a>
-												</div>
+											
 											</div>
 											<div class="col-lg-12 no-pdd">
 												<button type="button" id="btnLogin">로그인</button>
@@ -99,6 +90,7 @@
 									</div>signup-tab end	 -->
 									
 									<div class="dff-tab current" id="tab-3">
+									<h3>Sign up</h3>
 										<form id="SubmitSignUp" enctype="multipart/form-data">
 											<div class="row">
 												<div class="col-lg-12 no-pdd">

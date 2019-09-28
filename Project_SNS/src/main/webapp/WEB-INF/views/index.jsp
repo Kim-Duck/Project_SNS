@@ -67,7 +67,7 @@
 										<li>
 											<h4>Followers</h4> <span>${sessionScope.user.user_follower }</span>
 										</li>
-										<li><a href="/sns/Mypage" title="">View Profile</a></li>
+										<li><a href="/sns/Mypage">View Profile</a></li>
 									</ul>
 								</div>
 								<!--user-data end-->
@@ -466,19 +466,15 @@
 						<div class="col-lg-3 pd-right-none no-pd">
 							<div class="right-sidebar">
 								<div class="widget widget-about">
-									<img src="resources/images/wd-logo.png" alt="">
-									<h3>Track Time on Workwise</h3>
-									<span>Pay only for the Hours worked</span>
+									<img src="resources/images/index(rightROGO).png" alt="">
+                  					<span>자신의 친구를 찾아보세요~</span>
 									<div class="sign_link">
-										<h3>
-											<a href="sign-in.html" title="">Sign up</a>
-										</h3>
 										<form action="/sns/Friend" method="post">
-										<input type="hidden" name="user_id" value="${sessionScope.user.user_id }">
-										<Button type="submit" onclick="">친구페이지</Button>
-										</form>
+                    					<input type="hidden" name="user_id" value="${sessionScope.user.user_id }">
+                    					<Button type="submit" onclick="" style="color: white;">친구페이지</Button>
+                    					</form>
 									</div>
-								</div>
+								</div> 
 								<!--widget-about end-->
 								<div class="widget widget-jobs">
 									<div class="sd-title">
@@ -992,11 +988,10 @@
 	<script type="text/javascript"
 		src="resources/js/jquery.mCustomScrollbar.js"></script>
 	<script type="text/javascript" src="resources/lib/slick/slick.min.js"></script>
-	<script type="text/javascript" src="resources/js/scrollbar.js"></script>	
+	<script type="text/javascript" src="resources/js/scrollbar.js"></script>
 	<script type="text/javascript" src="resources/js/script.js"></script>
-	<script type="text/javascript" src="resources/sns_js/index.js"></script>
 	
-
+	<script type="text/javascript" src="resources/sns_js/index.js"></script>
 
 </body>
 </html>

@@ -71,70 +71,119 @@
 							</div>
 							<!--acc-leftbar end-->
 						</div>
-						<div class="col-lg-9">
+<div class="col-lg-9">
 							<div class="tab-content" id="nav-tabContent">
 								<div class="tab-pane fade show active" id="nav-acc"
 									role="tabpanel" aria-labelledby="nav-acc-tab" align="center">
 									<div class="acc-setting">
-										<h3>개 인 정 보 변 경</h3>
+
+
+										<h3 style="margin-top: 10px; font-size: 50px;">
+											<i class="far fa-address-card">&nbsp;</i><span>개 인 정 보
+												변 경</span>
+										</h3>
+
+
+
 										<form id="SubmitUserUpdate">
-										
-										<input type="hidden" id="unum" name=unum value="${user.unum }">
+
+											<input type="hidden" id="unum" name=unum
+												value="${user.unum }">
 											<div class="notbar">
-												<h4>아 이 디</h4>
-												<input type="text" id="user_id" name="user_id" value="${user.user_id }"readonly />												
+
+												<h4 style="margin-bottom: 10px;">
+													<span>아 이 디</span> <i class="la la-user"
+														style="font-size: 25px; padding-left: 70px;">&nbsp;</i> <input
+														type="text" id="user_id" name="user_id"
+														value="${user.user_id }" readonly
+														style="height: 35px; width: 200px; border-radius: 2px; border-radius: 5px;" />
+												</h4>
+
+
 												<!-- 아이디 값 가져오기 -->
 											</div>
 											<div class="notbar">
-												<h4>이 름</h4>
-												<input type="text" id="user_name" name="user_name" value="${user.user_name }"/>												
+												<h4 style="margin-bottom: 10px;">
+													<span>이&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 름</span> <i
+														class="la la-globe"
+														style="font-size: 25px; padding-left: 70px; color: black;">&nbsp;</i>
+													<input type="text" id="user_name" name="user_name"
+														value="${user.user_name }"
+														style="height: 35px; width: 200px; border-radius: 2px; border-radius: 5px;" />
+												</h4>
 												<!-- 이름 적는곳 -->
 											</div>
 
 											<div class="notbar">
-												<h4>전 화</h4>
-												<input type="text" id="user_phone" name="user_phone" value="${user.user_phone }"/>
+												<h4 style="margin-bottom: 10px;">
+													<span>전&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 화</span> <i
+														class="fas fa-phone"
+														style="font-size: 20px; padding-left: 70px;">&nbsp;</i> <input
+														type="text" id="user_phone" name="user_phone"
+														value="${user.user_phone }"
+														style="height: 35px; width: 200px; border-radius: 2px; border-radius: 5px;" />
+												</h4>
 												<!-- 전화 적는곳 -->
 											</div>
 											<div class="notbar">
-												<h4>이 메 일</h4>
-												<input type="text" id="user_email" name="user_email" value="${user.user_email }"/>
+												<h4 style="margin-bottom: 10px;">
+													<span>이 메 일</span> <i class="fas fa-envelope"
+														style="font-size: 20px; padding-left: 70px;">&nbsp;</i> <input
+														type="text" id="user_email" name="user_email"
+														value="${user.user_email }"
+														style="height: 35px; width: 200px; border-radius: 2px; border-radius: 5px;" />
+												</h4>
 												<!-- 이메일 적는곳 -->
 											</div>
 											<div class="notbar">
-												<h4>새 비 밀 번 호</h4>
-												<input type="password" id="user_pwd" name="user_pwd" />
+
+												<h4 style="margin-bottom: 10px;">
+													<span>새 &nbsp;&nbsp;&nbsp; &nbsp;비&nbsp; 밀&nbsp; 번
+														&nbsp;호&nbsp;&nbsp;&nbsp;</span> <i class="la la-lock"
+														style="font-size: 25px; padding-left: 70px;">&nbsp;</i> <input
+														type="password" id="user_pwd" name="user_pwd"
+														style="height: 35px; width: 200px; border-radius: 2px; border-radius: 5px;" />
+												</h4>  
 												<!-- 새로운 비밀번호 적는곳 ->값 가져오면 안됨 -->
 											</div>
 											<div class="notbar">
-												<h4>새 비 밀 번 호 확 인</h4>
-												<input type="password" id="repeat_user_pwd"/>
+												<h4 style="margin-bottom: 10px;">
+													<span>새 비 밀 번 호 확 인</span> <i class="la la-lock"
+														style="font-size: 25px; padding-left: 70px;">&nbsp;</i> <input
+														type="password" id="repeat_user_pwd"
+														style="height: 35px; width: 200px; border-radius: 2px; border-radius: 5px;" " />
+												</h4>
 												<!-- 비밀번호 확인 적는곳 -->
 											</div>
 											<div class="save-stngs">
-                        <ul>
-                          <li><button type="button" id="btnUserUpdate">변 경</button></li>
-                          <li><button type="reset">취 소</button></li>
-                        </ul>
-                      </div>
-                      <!--save-stngs end-->
-                    </form>
-                  </div>
-                  <!--acc-setting end-->
-                </div>
+												<ul>
+													<li><button type="button" id="btnUserUpdate">변
+															경</button></li>
+													<li><button type="reset">취 소</button></li>
+												</ul>
+											</div>
+											<!--save-stngs end-->
+										</form>
+									</div>
+									<!--acc-setting end-->
+								</div>
 								
 <!--  계정 탈퇴 부분 -->
 								<div class="tab-pane fade" id="nav-status" role="tabpanel"
 									aria-labelledby="nav-status-tab">
 									<div class="acc-setting">
 										<h3 align="center">계 정 탈 퇴</h3>
+										<form id="SubmitUserDelete">
+										
+										<input type="hidden" id="unum" name=unum value="${user.unum }">
+										
 										<h3 align="center" style="color: red;">※중요한 내용이므로 각 항목 별로 주의 깊게 읽어주세요※</h3>
 										<div class="profile-bx-details">
 											<div class="row">
 												<div class="col-lg-3 col-md-6 col-sm-12">
 													<div class="profile-bx-info">
 														<div class="pro-bx">
-															<img src="resources/images/setting_1.jpg" alt="">
+															<img src="resources/images/setting1.png" alt="">
 															<div class="bx-info">
 																<h3 align="center">Service</h3>
 
@@ -149,10 +198,10 @@
 												<div class="col-lg-3 col-md-6 col-sm-12">
 													<div class="profile-bx-info">
 														<div class="pro-bx">
-															<img src="resources/images/setting_2.jpg" alt="">
+															<img src="resources/images/setting2.png" alt="">
 															<div class="bx-info">
 																<h3>Delete</h3>
-																 
+																  
 															</div>
 															<!--bx-info end-->
 														</div>
@@ -164,7 +213,7 @@
 												<div class="col-lg-3 col-md-6 col-sm-12">
 													<div class="profile-bx-info">
 														<div class="pro-bx">
-															<img src="resources/images/setting_3.jpg" alt="">
+															<img src="resources/images/setting3.png" alt="">
 															<div class="bx-info">
 																<h3>Wait</h3>
 															 
@@ -179,7 +228,7 @@
 												<div class="col-lg-3 col-md-6 col-sm-12">
 													<div class="profile-bx-info">
 														<div class="pro-bx">
-															<img src="resources/images/setting_4.jpg" alt="">
+															<img src="resources/images/setting4.png" alt="">
 															<div class="bx-info">
 																<h3>Check</h3>
 																 
@@ -194,7 +243,7 @@
 											</div>
 										</div>
 										<!--profile-bx-details end-->
-										<p align="right"><input type="button"  value="탈 퇴" id="btnuserdelete" name="btnuserdelete"
+										<p align="right"><input type="button" id="btnUserDelete" value="탈 퇴"
 										 style ="align-content:center; width:100px; margin-right: 20px; border:none; border-radius:10px; 
 										 font-size: 23px;
 										 padding:15px 0; background-color: #f8585b; color: #fff"></p>
@@ -203,6 +252,7 @@
 											<!-- <h4>Work Status  -  Last Months Working Status</h4> -->
 										</div>
 										<!--pro-work-status end-->
+										</form>
 									</div>
 									<!--acc-setting end-->
 								</div>
@@ -288,10 +338,7 @@
                         </div>
                         <div class="notification-info">
                           <h3>
-                            <a href="#" title="">Poonam Verma </a> Bid on your Latest
-
-
-project.
+                            <a href="#" title="">Poonam Verma </a> Bid on your Latest project.
                           </h3>
                           <span>2 min ago</span>
                         </div>

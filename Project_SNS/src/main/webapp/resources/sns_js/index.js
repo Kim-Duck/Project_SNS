@@ -29,8 +29,10 @@ $(function() {
 		$(".post-popup.job_post.boardupdate").removeClass("active");
         $(".wrapper").removeClass("overlay");
         return false;
-	})
+	});
     
+    
+   
 });
 
 function BoardUpdate(boardnum,boardunum,unum){	
@@ -115,7 +117,9 @@ function handleImgFileSelect2(e) {
     });
 }
 
-
+function ViewMyProfile(user_num){
+	
+}
 
 
 var scroll = 1;

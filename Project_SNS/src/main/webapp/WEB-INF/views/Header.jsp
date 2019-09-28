@@ -15,7 +15,7 @@
 		<div class="container">
 			<div class="header-data">
 				<div class="logo">
-					<a href="/sns/index"><img src="resources/images/logo.png" alt=""></a>
+					<a href="/sns/index"><img src="resources/images/HeaderLOGO.png" alt=""></a>
 				</div>
 				<!--logo end-->
 				<div class="search-bar">
@@ -119,13 +119,13 @@
 					<div class="menu-btn">
 						<a href="#" title=""><i class="fa fa-bars"></i></a>
 					</div><!--menu-btn end-->
-					<div class="user-account">
-						<div class="user-info">  
-							<img src="resources/images/test/${sessionScope.user.user_photo }" alt="" width="30px" height="30px">
-							<a href="#" title="">${sessionScope.user.user_name }</a>
-							<i class="la la-sort-down"></i>
-						</div>
-						<div class="user-account-settingss" id="users">
+				<div class="user-account">
+          			<div class="user-info" style="width: 115px;">
+            			<img src="resources/images/test/${sessionScope.user.user_photo }"
+              			alt="" width="30px" height="30px"> <a href="#" title=""
+              			style="margin-right: 2px;">${sessionScope.user.user_name }</a> <i
+              			class="la la-sort-down"></i>
+          			</div>						<div class="user-account-settingss" id="users">
 							<h3 class="tc"><a href="/sns/Mypage">마이페이지</a></h3>
 						<h3 class="tc"><a href="/sns/Setting">설 정</a></h3>
 						 

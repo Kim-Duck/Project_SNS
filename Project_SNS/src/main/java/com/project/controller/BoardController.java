@@ -72,7 +72,7 @@ public class BoardController {
 		HttpSession session = request.getSession();
 		UserVO vo = (UserVO)session.getAttribute("user");		
 		ModelAndView mv = new ModelAndView();
-		List<BoardVO> board_list = service.Board_List(1, 3,vo.getUser_id());		
+		List<BoardVO> board_list = service.Board_List(1, 3,vo.getUser_id());
 		if(board_list.isEmpty()) {
 			List<BoardVO> Board_List_Self = service.Board_List_Self(1, 3,vo.getUser_id());
 			mv.addObject("board_list", Board_List_Self);
