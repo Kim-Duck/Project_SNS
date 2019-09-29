@@ -23,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.project.board.BoardServiceImpl;
 import com.project.board.BoardVO;
+import com.project.sign.SignServiceImpl;
 import com.project.sign.UserVO;
 
 @Controller
@@ -33,30 +34,34 @@ public class BoardController {
 
 	@Inject
 	public BoardServiceImpl service;
+	
+
+	@Inject
+	public SignServiceImpl signservice;
 
 	@PostMapping("/boardinsert")
 	public String Board_Insert(BoardVO vo) throws Exception {
 		String savedName = "";
-		if(vo.getPhotoFile().getSize()==0) {
+		if (vo.getPhotoFile().getSize() == 0) {
 			vo.setPhoto(null);
-		}else {			
-			savedName = uploadFile(vo.getPhotoFile().getOriginalFilename(), vo.getPhotoFile().getBytes());			
+		} else {
+			savedName = uploadFile(vo.getPhotoFile().getOriginalFilename(), vo.getPhotoFile().getBytes());
 			vo.setPhoto(savedName);
 			File f = new File(uploadPath + savedName);
 			vo.getPhotoFile().transferTo(f);
 		}
 		service.Board_Insert(vo);
-		
+
 		return "redirect:/mainIndex";
 	}
 
 	@PostMapping("/boardupdate")
 	public String Board_Update(BoardVO vo) throws Exception {
 		String savedName = "";
-		if(vo.getPhotoFile().getSize()==0) {
+		if (vo.getPhotoFile().getSize() == 0) {
 			vo.setPhoto(null);
-		}else {			
-			savedName = uploadFile(vo.getPhotoFile().getOriginalFilename(), vo.getPhotoFile().getBytes());			
+		} else {
+			savedName = uploadFile(vo.getPhotoFile().getOriginalFilename(), vo.getPhotoFile().getBytes());
 			vo.setPhoto(savedName);
 			File f = new File(uploadPath + savedName);
 			vo.getPhotoFile().transferTo(f);
@@ -66,17 +71,16 @@ public class BoardController {
 		return "redirect:/mainIndex";
 	}
 
-
 	@GetMapping("/mainIndex")
 	public ModelAndView Board_List(HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		UserVO vo = (UserVO)session.getAttribute("user");		
+		UserVO vo = (UserVO) session.getAttribute("user");
 		ModelAndView mv = new ModelAndView();
-		List<BoardVO> board_list = service.Board_List(1, 3,vo.getUser_id());
-		if(board_list.isEmpty()) {
-			List<BoardVO> Board_List_Self = service.Board_List_Self(1, 3,vo.getUser_id());
+		List<BoardVO> board_list = service.Board_List(1, 3, vo.getUser_id());
+		if (board_list.isEmpty()) {
+			List<BoardVO> Board_List_Self = service.Board_List_Self(1, 3, vo.getUser_id());
 			mv.addObject("board_list", Board_List_Self);
-		}else {
+		} else {
 			mv.addObject("board_list", board_list);
 		}
 		mv.setViewName("index");
@@ -86,15 +90,25 @@ public class BoardController {
 	// 스크롤용
 	@ResponseBody
 	@PostMapping("/mainIndextest")
-	public List<BoardVO> Board_List2(HttpServletRequest request,@RequestParam("start") int start, @RequestParam("end") int end) {
+	public List<BoardVO> Board_List2(HttpServletRequest request, @RequestParam("start") int start,
+			@RequestParam("end") int end) {
 		HttpSession session = request.getSession();
-		UserVO vo = (UserVO)session.getAttribute("user");		
-		List<BoardVO> board_list = service.Board_List(start, end,vo.getUser_id());
-		if(board_list.isEmpty()) {			
-			List<BoardVO> Board_List_Self = service.Board_List_Self(start, end,vo.getUser_id());
-			return Board_List_Self;			
+		UserVO vo = (UserVO) session.getAttribute("user");
+		List<BoardVO> board_list = service.Board_List(start, end, vo.getUser_id());
+		if (board_list.isEmpty()) {
+			List<BoardVO> Board_List_Self = service.Board_List_Self(start, end, vo.getUser_id());
+			return Board_List_Self;
 		}
 		return board_list;
+	}
+
+	// 마이페이지스크롤용
+	@ResponseBody
+	@PostMapping("/mainIndextest2")
+	public List<BoardVO> Board_List3(HttpServletRequest request, @RequestParam("start") int start, @RequestParam("end") int end,@RequestParam("unum") int unum) {		
+		String user_id = signservice.User_Id(unum);		
+		List<BoardVO> Board_List_Self = service.Board_List_Self(start, end, user_id);
+		return Board_List_Self;
 	}
 
 	// 수정전 데이터 가져오기

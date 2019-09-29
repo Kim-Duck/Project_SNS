@@ -9,7 +9,8 @@
 
 <select id="User_List" parameterType="String"  resultType="com.project.sign.UserVO"> 
  <!-- select sns_user.*, cc.friend_check from ( select aa.*, bb.friend_id as friend_check from ( select user_id from sns_user MINUS select #{user_id} as user_id from dual ) aa, (select friend_id from sns_friend where main_id = #{user_id}) bb ) cc, sns_user where cc.user_id = sns_user.user_id --> 
- select sns_user.* from ( select user_id from sns_user MINUS select #{user_id} as user_id from dual ) aa, sns_user where aa.user_id = sns_user.user_id
+ <!-- select sns_user.* from ( select user_id from sns_user MINUS select #{user_id} as user_id from dual ) aa, sns_user where aa.user_id = sns_user.user_id -->
+ select sns_user.* from (select user_id from sns_user MINUS select #{user_id} as user_id from dual) aa, sns_user where aa.user_id = sns_user.user_id and user_name like '%'||#{searchName}||'%'
 </select>
 <select id="User_List_Friend" parameterType="String" resultType="String">
 select friend_id from sns_friend where main_id = #{user_id}

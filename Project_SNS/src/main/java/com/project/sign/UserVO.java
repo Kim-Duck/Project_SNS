@@ -4,14 +4,15 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class UserVO {
 	private int unum, user_following, user_follower;
-	private String user_id, user_pwd, user_photo, user_phone, user_email, user_day;
-	private String user_name;
+	private String user_id, user_pwd, user_photo, user_phone, user_email, user_day, user_cover, user_name, friend_check;	
 	private MultipartFile user_photoFile;
-	private String friend_check;
-	
-	
-	
 
+	public String getUser_cover() {
+		return user_cover;
+	}
+	public void setUser_cover(String user_cover) {
+		this.user_cover = user_cover;
+	}
 	public String getFriend_check() {
 		return friend_check;
 	}

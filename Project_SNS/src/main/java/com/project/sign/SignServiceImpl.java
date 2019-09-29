@@ -23,6 +23,20 @@ public class SignServiceImpl implements SignService{
 	public void User_Update(UserVO vo) {
 		mapper.User_Update(vo);
 	}
+	
+	@Override
+	public void User_Cover(UserVO vo) {
+		mapper.User_Cover(vo);
+	}
+	@Override
+	public void User_Photo(UserVO vo) {
+		mapper.User_Photo(vo);
+	}
+
+	@Override
+	public String User_Id(int unum) {
+		return mapper.User_Id(unum);
+	}
 
 	
 }

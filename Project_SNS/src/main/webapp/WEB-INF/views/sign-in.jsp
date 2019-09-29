@@ -181,6 +181,6 @@
 <script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="resources/lib/slick/slick.min.js"></script>
 <script type="text/javascript" src="resources/js/script.js"></script>
-<script type="text/javascript" src="resources/sns_js/sign_in.js"></script>
+<script type="text/javascript" src="resources/sns_js/sign-in.js"></script>
 </body>
 </html>

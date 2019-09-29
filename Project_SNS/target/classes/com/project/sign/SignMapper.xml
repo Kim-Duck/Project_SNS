@@ -17,6 +17,20 @@ select * from SNS_USER where user_id = #{user_id}
 update SNS_USER set user_name=#{user_name} ,user_phone=#{user_phone}, user_email=#{user_email}, user_pwd=#{user_pwd} where unum=#{unum}
 </update>
 
+<update id="User_Cover" parameterType="com.project.sign.UserVO">
+update SNS_USER set user_cover=#{user_cover, jdbcType=VARCHAR} where unum=#{unum}
+</update>
+
+
+<update id="User_Photo" parameterType="com.project.sign.UserVO">
+update SNS_USER set user_photo=#{user_photo, jdbcType=VARCHAR} where unum=#{unum}
+</update>
+
+<select id="User_Id" parameterType="Integer" resultType="String">
+select user_id from sns_user where unum = #{unum}
+</select>
+
+
 </mapper>
     
     

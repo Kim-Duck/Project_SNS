@@ -30,9 +30,12 @@ $(function() {
         $(".wrapper").removeClass("overlay");
         return false;
 	});
+
     
     
-   
+    $("#viewprofile").click(function() {
+    	document.viewprofile.submit();
+	});
 });
 
 function BoardUpdate(boardnum,boardunum,unum){	
@@ -115,10 +118,6 @@ function handleImgFileSelect2(e) {
         }
         reader.readAsDataURL(f);
     });
-}
-
-function ViewMyProfile(user_num){
-	
 }
 
 

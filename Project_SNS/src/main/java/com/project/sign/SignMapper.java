@@ -1,5 +1,7 @@
 package com.project.sign;
 
+import org.apache.ibatis.annotations.Param;
+
 public interface SignMapper {
 	
 	//회원가입
@@ -10,6 +12,15 @@ public interface SignMapper {
 	
 	//회원수정
 	public void User_Update(UserVO vo);
+	
+	//회원 커버사진 변경
+	public void User_Cover(UserVO vo);
+	
+	//회원 커버사진 변경
+	public void User_Photo(UserVO vo);
+	
+	//아이디찾기
+	public String User_Id(@Param("unum") int unum);
 	
 	
 }

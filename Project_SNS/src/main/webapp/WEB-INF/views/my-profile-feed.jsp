@@ -37,16 +37,23 @@
 		<%@ include file="Header.jsp"%>
 
 		<section class="cover-sec">
-			<img src="resources/images/resources/cover-img.jpg" alt="">			
+		<c:if test="${user_info.user_cover==null }">
+			<img src="resources/images/resources/cover-img.jpg" alt="">
+			</c:if>
+			<c:if test="${user_info.user_cover!=null }">
+			<img src="resources/images/test/${user_info.user_cover }" width="1600px" height="400px">
+			</c:if>						
 			<div class="add-pic-box">
 				<div class="container">
 					<div class="row no-gutters">
-						<div class="col-lg-12 col-sm-12">						
-						<form method="post" id="ChangeCover" enctype="multipart/form-data">
-							<input type="hidden" name="unum" value="${sessionScope.user.unum }">
-							<input type="file" name="photoFile" id="coverfile" accept=".gif, .jpg, .png, .jpeg, .bmp" class="coverfile"><label for="coverfile">커버 사진 변경</label>
-							<label class="coverfile2">커버 사진 변경2</label>
+						<div class="col-lg-12 col-sm-12">
+						<input type="hidden" value="${user_info.unum }" id="user_num">
+						<c:if test="${user_info.unum == sessionScope.user.unum }">
+						<form id ="ChangeCover" name="ChangeCover" enctype="multipart/form-data">
+							<input type="hidden" id="unum" name="unum" value="${sessionScope.user.unum }">													
+							<input type="file" name="user_photoFile" id="coverfile" accept=".gif, .jpg, .png, .jpeg, .bmp"><label for="coverfile">커버 사진 변경</label>													
 						</form>
+						</c:if>
 						</div>
 					</div>
 				</div>
@@ -63,18 +70,23 @@
 								<div class="user_profile">
 									<div class="user-pro-img">
 										<img
-											src="resources/images/test/${sessionScope.user.user_photo }"
+											src="resources/images/test/${user_info.user_photo }"
 											alt="">
 										<div class="add-dp" id="OpenImgUpload">
-											<input type="file" id="file"> <label for="file"><i
-												class="fas fa-camera"></i></label>
+										<c:if test="${user_info.unum == sessionScope.user.unum }">
+					<form id="ChangePhoto" name="ChangePhoto" enctype="multipart/form-data">
+							<input type="hidden" id="unum" name="unum" value="${sessionScope.user.unum }">													
+							<input type="file" name="user_photoFile" id="mainfile" accept=".gif, .jpg, .png, .jpeg, .bmp"><label for="mainfile"><i class="fas fa-camera"></i></label>													
+						</form>
+						</c:if>
+											
 										</div>
 									</div>
 									<!--user-pro-img end-->
 									<div class="user_pro_status">
 										<ul class="flw-status">
-											<li><span>Following</span> <b>${sessionScope.user.user_following }</b></li>
-											<li><span>Followers</span> <b>${sessionScope.user.user_follower }</b></li>
+											<li><span>Following</span> <b>${user_info.user_following }</b></li>
+											<li><span>Followers</span> <b>${user_info.user_follower }</b></li>
 										</ul>
 									</div>
 									<!--user_pro_status end-->
@@ -83,62 +95,29 @@
 								<!--user_profile end-->
 								<div class="suggestions full-width">
 									<div class="sd-title">
-										<h3>친구 목록 보이게 하기</h3>
+										<h3>Friend List</h3>
 										<i class="la la-ellipsis-v"></i>
 									</div>
 									<!--sd-title end-->
 									<div class="suggestions-list">
-										<div class="suggestion-usd">
+									<c:if test="${Friend_List.isEmpty() }">
+									<div class="suggestion-usd">
 											<img src="resources/images/resources/s1.png" alt="">
 											<div class="sgt-text">
-												<h4>Jessica William</h4>
-												<span>Graphic Designer</span>
-											</div>
-											<span><i class="la la-plus"></i></span>
+												<h4>친구를 추가해주세요</h4>
+												<span>ㅜㅜ</span>
+											</div>												
 										</div>
+									</c:if>
+									<c:forEach items="${Friend_List }" var="Friend_List">
 										<div class="suggestion-usd">
-											<img src="resources/images/resources/s2.png" alt="">
+											<img src="resources/images/test/${Friend_List.user_photo }" alt="" width="35px" height="35px">
 											<div class="sgt-text">
-												<h4>John Doe</h4>
-												<span>PHP Developer</span>
-											</div>
-											<span><i class="la la-plus"></i></span>
+												<h4>${Friend_List.user_name }</h4>
+												<span>: )</span>
+											</div>												
 										</div>
-										<div class="suggestion-usd">
-											<img src="resources/images/resources/s3.png" alt="">
-											<div class="sgt-text">
-												<h4>Poonam</h4>
-												<span>Wordpress Developer</span>
-											</div>
-											<span><i class="la la-plus"></i></span>
-										</div>
-										<div class="suggestion-usd">
-											<img src="resources/images/resources/s4.png" alt="">
-											<div class="sgt-text">
-												<h4>Bill Gates</h4>
-												<span>C & C++ Developer</span>
-											</div>
-											<span><i class="la la-plus"></i></span>
-										</div>
-										<div class="suggestion-usd">
-											<img src="resources/images/resources/s5.png" alt="">
-											<div class="sgt-text">
-												<h4>Jessica William</h4>
-												<span>Graphic Designer</span>
-											</div>
-											<span><i class="la la-plus"></i></span>
-										</div>
-										<div class="suggestion-usd">
-											<img src="resources/images/resources/s6.png" alt="">
-											<div class="sgt-text">
-												<h4>John Doe</h4>
-												<span>PHP Developer</span>
-											</div>
-											<span><i class="la la-plus"></i></span>
-										</div>
-										<div class="view-more">
-											<a href="#" title="">View More</a>
-										</div>
+										</c:forEach>										
 									</div>
 									<!--suggestions-list end-->
 								</div>
@@ -201,6 +180,8 @@
 
 											</div>
 										</c:forEach>
+										<div id="scrolltest"></div>
+										<div id="scrollscripttest"></div>
 										<!-- 게시글 끝  -->
 										<!--process-comm end-->
 
@@ -232,13 +213,8 @@
 	<script type="text/javascript" src="resources/js/flatpickr.min.js"></script>
 	<script type="text/javascript" src="resources/lib/slick/slick.min.js"></script>
 	<script type="text/javascript" src="resources/js/script.js"></script>
-	<script type="text/javascript"
-		src="resources/sns_js/my-profile-feed.js"></script>
-		<script>
-	    $('.coverfile2').click(function(){
-	    	alert("test2");
-	    });
-	    </script>
+	<script type="text/javascript" src="resources/sns_js/my-profile-feed.js?ver=123"></script>
+
 
 </body>
 </html>

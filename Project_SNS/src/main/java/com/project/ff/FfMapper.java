@@ -10,7 +10,7 @@ public interface FfMapper {
 	
 	public ArrayList<UserVO> Friend_List(@Param("user_id")String user_id);
 	
-	public ArrayList<UserVO> User_List(@Param("user_id")String user_id);
+	public ArrayList<UserVO> User_List(@Param("user_id")String user_id, @Param("searchName") String searchName);
 	
 	public String[] User_List_Friend(@Param("user_id") String user_id);
 	

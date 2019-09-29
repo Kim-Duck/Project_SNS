@@ -7,7 +7,7 @@ import com.project.sign.UserVO;
 public interface FfService {
 	public ArrayList<UserVO> Friend_List(String user_id);
 	
-	public ArrayList<UserVO> User_List(String user_id);
+	public ArrayList<UserVO> User_List(String user_id,String searchName);
 	
 	public String[] User_List_Friend(String user_id);
 	

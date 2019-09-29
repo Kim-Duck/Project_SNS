@@ -19,8 +19,8 @@ public class FfServiceImpl implements FfService{
 	}
 	
 	@Override
-	public ArrayList<UserVO> User_List(String user_id) {		
-		return mapper.User_List(user_id);
+	public ArrayList<UserVO> User_List(String user_id,String searchName) {		
+		return mapper.User_List(user_id,searchName);
 	}
 
 	@Override

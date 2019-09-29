@@ -37,10 +37,12 @@
 	<div class="wrapper">
 		<%@ include file="Header.jsp"%>
 		<section class="companies-info">
-			<div class="container">
-				<div class="company-title">
+			<div class="container">				
+				<c:if test="${!Friend_List.isEmpty() }">
+					<div class="company-title">
 					<h3>Friend List</h3>
 				</div>
+				</c:if>
 				<!--company-title end-->
 				<div class="companies-list">
 					<div class="row">
@@ -58,8 +60,7 @@
 													class="fa fa-envelope"></i></a></li>
 										</ul>
 									</div>
-									<a href="user-profile.html" title="" class="view-more-pro">View
-										Profile</a>
+									<a href="javascript:void(0)" class="view-more-pro" onclick="viewMyFriendProfile('${Friend_List.user_id}')">View Profile</a>
 								</div>
 								<!--company_profile_info end-->
 							</div>
@@ -116,39 +117,7 @@
 								</div>
 								<!--company_profile_info end-->
 							</div>
-						</c:forEach>
-						<div class="company-title">
-							<h3>모든유저</h3>
-						</div>
-						<c:forEach items="${User_List }" var="User_List">
-							<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-								<div class="company_profile_info">
-									<div class="company-up-info">
-										<img src="resources/images/test/${User_List.user_photo }"
-											alt="">
-										<h3>${User_List.user_name }</h3>
-										<ul>
-											<c:if test="${User_List.user_id == User_List.friend_check }">
-												<li><a href="javascript:void(0)"
-												onclick="" class="hire">이미친구입니다!</a></li>
-											</c:if>
-											<c:if test="${User_List.user_id != User_List.friend_check }">
-												<li><a href="javascript:void(0)"
-												onclick="FriendRequest('${sessionScope.user.user_id }','${User_List.user_id}')" class="follow">FriendButton</a></li>
-											</c:if>
-											
-											
-												
-											<li><a href="#" title="" class="message-us"><i
-													class="fa fa-envelope"></i></a></li>
-										</ul>
-									</div>
-									<a href="user-profile.html" title="" class="view-more-pro">View
-										Profile</a>
-								</div>
-								<!--company_profile_info end-->
-							</div>
-						</c:forEach>
+						</c:forEach>						
 					</div>
 				</div>
 				<!--companies-list end-->
@@ -166,6 +135,6 @@
 	<script type="text/javascript" src="resources/lib/slick/slick.min.js"></script>
 	<script type="text/javascript" src="resources/js/script.js"></script>
 	
-	<script type="text/javascript" src="resources/sns_js/profiles.js"></script>
+	<script type="text/javascript" src="resources/sns_js/profiles.js?ver=123"></script>
 </body>
 </html>

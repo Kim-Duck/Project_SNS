@@ -24,3 +24,15 @@ function FriendAgree(user_id,friend_id){
 function FriendRequestIng(){
 	alert("받아...주실꺼예요...ㅎ..조금만 기다려보세요..");
 }
+
+function viewMyFriendProfile(user_id){
+    var $form = $('<form></form>');
+    $form.attr('action', '/sns/Mypage');
+    $form.attr('method', 'post');    
+    $form.appendTo('body');    
+    
+    var keyword = $('<input type="hidden" value='+user_id+' name="user_id">');
+
+    $form.append(keyword);
+    $form.submit();
+}
