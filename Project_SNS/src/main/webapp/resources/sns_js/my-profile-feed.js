@@ -1,4 +1,13 @@
 $(function() {
+	
+    $("#btnBoardUpdate").click(function(){    	
+    	var SubmitBoardUpdate = $("#SubmitBoardUpdate");
+    	SubmitBoardUpdate.attr("action","/sns/boardupdate");
+    	SubmitBoardUpdate.attr("method","POST");
+    	SubmitBoardUpdate.submit();
+    });
+    
+    $("#boardinputImg3").on("change", handleImgFileSelect3);
 
 	$('#coverfile').on("change", function() {
 		var formData = new FormData($("#ChangeCover")[0]);		
@@ -21,6 +30,13 @@ $(function() {
 		
 	})
 	
+	    
+    $("#btnUpdatePostClose").click(function() {
+		$(".post-popup.job_post.boardupdate").removeClass("active");
+        $(".wrapper").removeClass("overlay");
+        return false;
+	});
+	
 	
 	$('#mainfile').on("change", function() {
 		var formData = new FormData($("#ChangePhoto")[0]);
@@ -42,6 +58,68 @@ $(function() {
 	})
 
 })
+
+function BoardUpdate(boardnum,boardunum,unum){	
+	if(boardunum!=unum){
+		alert("글쓴이와 일치하지 않습니다.");
+		return;
+	}else{
+		$(".post-popup.job_post.boardupdate").addClass("active");
+        $(".wrapper").addClass("overlay");
+        $.ajax({
+        	type:"post",
+        	url:"/sns/boardData",
+        	data:{"bnum":boardnum},
+        	dataType:"json",
+        	success:function(data){        		
+        		$.each(data, function(idx, val) {
+        			$("#updateContent").val(val.content);
+        			$("#updateBnum").val(val.bnum);
+        			$("#updateWriter").val(val.writer);
+        			$("#updateUnum").val(val.unum);
+        		});
+        	},
+        	error:function(e){
+        		
+        	}        	
+        });
+        return false;
+	}
+};
+
+function BoardDelete(boardnum,boardunum,unum){	
+	if(boardunum!=unum){
+		alert("글쓴이와 일치하지 않습니다.");
+		return;
+	}else{
+		if(confirm("정말 삭제 하시겠습니까?")){
+			$.post("/sns/boardDelete",{"bnum":boardnum});
+			alert("삭제되었습니다.");
+			location.href = "/sns/mainIndex";
+		}
+	}
+	
+}
+
+function handleImgFileSelect3(e) {
+    var files = e.target.files;
+    var filesArr = Array.prototype.slice.call(files);
+
+    filesArr.forEach(function(f) {
+        if(!f.type.match("image.*")) {
+            alert("이미지업로드 오류!");
+            return;
+        }
+
+        sel_file = f;
+
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            $("#BoardImgPreview3").attr("src", e.target.result);
+        }
+        reader.readAsDataURL(f);
+    });
+}
 
 var scroll = 1;
 var start = 4;
