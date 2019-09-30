@@ -91,7 +91,7 @@
 										<li><a href="#" title="">Copyright Policy</a></li>
 									</ul>
 									<div class="cp-sec">
-										<img src="resources/images/logo2.png" alt="">
+										<img src="resources/images/index(rightROGO).png" alt="" width="88px" height="17px">
 										<p>
 											<img src="resources/images/cp.png" alt="">Copyright
 											2019
@@ -205,8 +205,8 @@
 									</div>
 									<!--top-profiles end-->
 									<!-- 게시글 시작  -->
-									<c:forEach items="${board_list }" var="board_list">
-										<div class="post-bar">
+									<c:forEach items="${board_list }" var="board_list" varStatus="index" >
+										<div class="post-bar baselist${index.index }">
 											<div class="post_topbar">
 												<div class="usy-dt">
 													<img src="resources/images/test/${board_list.user_photo }"
@@ -241,89 +241,18 @@
 											</div>
 											<div class="job-status-bar">
 												<ul class="like-com" style="margin-top: 29px">
-													<li><a href="#" class="com"><i
+													<li><a href="javascript:void(0)" class="com" onclick="commentpopup('${index.index }')"><i
 															class="fas fa-comment-alt"></i>댓글 갯수</a></li>
-
 												</ul>
-												<a href="#" class="com"><i class="fas fa-heart"></i>
+												<c:if test="${sessionScope.user.unum != board_list.unum }">
+												<a href="javascript:void(0)" class="com" onclick="follow('${sessionScope.user.user_id }','${board_list.unum}')"><i class="fas fa-heart"></i>
 													FOLLOW!</a>
+												</c:if>
+													
 											</div>
 											<div class="job-status-bar" style="margin-top: 16px"></div>
-										</div>
-									</c:forEach>
-									<!-- 게시글 끝  -->
-
-									<!--post-bar end-->
-
-									<div class="posty">
-										<div class="post-bar no-margin">
-											<div class="post_topbar">
-												<div class="usy-dt">
-													<img src="resources/images/resources/us-pc2.png" alt="">
-													<div class="usy-name">
-														<h3>John Doe</h3>
-														<span><img src="resources/images/clock.png" alt="">3
-															min ago</span>
-													</div>
-												</div>
-												<div class="ed-opts">
-													<a href="#" title="" class="ed-opts-open"><i
-														class="la la-ellipsis-v"></i></a>
-													<ul class="ed-options">
-														<li><a href="#" title="">Edit Post</a></li>
-														<li><a href="#" title="">Unsaved</a></li>
-														<li><a href="#" title="">Unbid</a></li>
-														<li><a href="#" title="">Close</a></li>
-														<li><a href="#" title="">Hide</a></li>
-													</ul>
-												</div>
-											</div>
-											<div class="epi-sec">
-												<ul class="descp">
-													<li><img src="resources/images/icon8.png" alt=""><span>Epic
-															Coder</span></li>
-													<li><img src="resources/images/icon9.png" alt=""><span>India</span></li>
-												</ul>
-												<ul class="bk-links">
-													<li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
-													<li><a href="#" title=""><i class="la la-envelope"></i></a></li>
-												</ul>
-											</div>
-											<div class="job_descp">
-												<h3>Senior Wordpress Developer</h3>
-												<ul class="job-dt">
-													<li><a href="#" title="">Full Time</a></li>
-													<li><span>$30 / hr</span></li>
-												</ul>
-												<p>
-													Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-													Aliquam luctus hendrerit metus, ut ullamcorper quam finibus
-													at. Etiam id magna sit amet... <a href="#" title="">view
-														more</a>
-												</p>
-												<ul class="skill-tags">
-													<li><a href="#" title="">HTML</a></li>
-													<li><a href="#" title="">PHP</a></li>
-													<li><a href="#" title="">CSS</a></li>
-													<li><a href="#" title="">Javascript</a></li>
-													<li><a href="#" title="">Wordpress</a></li>
-												</ul>
-											</div>
-											<div class="job-status-bar">
-												<ul class="like-com">
-													<li><a href="#"><i class="fas fa-heart"></i> Like</a>
-														<img src="resources/images/liked-img.png" alt=""> <span>25</span>
-													</li>
-													<li><a href="#" class="com"><i
-															class="fas fa-comment-alt"></i> Comment 15</a></li>
-												</ul>
-												<a href="#"><i class="fas fa-eye"></i>Views 50</a>
-											</div>
-										</div>
-										<!--post-bar end-->
-										<div class="comment-section">
-											<a href="#" class="plus-ic"> <i class="la la-plus"></i>
-											</a>
+										</div>		
+										<div class="comment-section comment-popup${index.index }" style="display: none; margin-bottom: 20px">
 											<div class="comment-sec">
 												<ul>
 													<li>
@@ -335,28 +264,9 @@
 																<h3>John Doe</h3>
 																<span><img src="resources/images/clock.png"
 																	alt=""> 3 min ago</span>
-																<p>Lorem ipsum dolor sit amet,</p>
-																<a href="#" title="" class="active"><i
-																	class="fa fa-reply-all"></i>Reply</a>
+																<p>Lorem ipsum dolor sit amet,</p>																
 															</div>
-														</div> <!--comment-list end-->
-														<ul>
-															<li>
-																<div class="comment-list">
-																	<div class="bg-img">
-																		<img src="resources/images/resources/bg-img2.png"
-																			alt="">
-																	</div>
-																	<div class="comment">
-																		<h3>John Doe</h3>
-																		<span><img src="resources/images/clock.png"
-																			alt=""> 3 min ago</span>
-																		<p>Hi John</p>
-																		<a href="#" title=""><i class="fa fa-reply-all"></i>Reply</a>
-																	</div>
-																</div> <!--comment-list end-->
-															</li>
-														</ul>
+														</div> <!--comment-list end-->														
 													</li>
 													<li>
 														<div class="comment-list">
@@ -369,8 +279,7 @@
 																	alt=""> 3 min ago</span>
 																<p>Lorem ipsum dolor sit amet, consectetur
 																	adipiscing elit. Aliquam luctus hendrerit metus, ut
-																	ullamcorper quam finibus at.</p>
-																<a href="#" title=""><i class="fa fa-reply-all"></i>Reply</a>
+																	ullamcorper quam finibus at.</p>																
 															</div>
 														</div> <!--comment-list end-->
 													</li>
@@ -378,9 +287,6 @@
 											</div>
 											<!--comment-sec end-->
 											<div class="post-comment">
-												<div class="cm_img">
-													<img src="resources/images/resources/bg-img4.png" alt="">
-												</div>
 												<div class="comment_box">
 													<form>
 														<input type="text" placeholder="Post a comment">
@@ -389,17 +295,11 @@
 												</div>
 											</div>
 											<!--post-comment end-->
-										</div>
-										<!--comment-section end-->
-									</div>
-									<!--posty end-->
-									<div class="process-comm">
-										<!-- 										<div class="spinner">
-											<div class="bounce1"></div>
-											<div class="bounce2"></div>
-											<div class="bounce3"></div>
-										</div> -->
-									</div>
+										</div>								
+									</c:forEach>
+									<!-- 게시글 끝  -->
+
+									<!--post-bar end-->		
 									<!--process-comm end-->
 									<div id="scrolltest"></div>
 									<div id="scrollscripttest"></div>
@@ -578,186 +478,7 @@
 
 
 
-		<div class="chatbox-list">
-			<div class="chatbox">
-				<div class="chat-mg">
-					<a href="#" title=""><img
-						src="resources/images/resources/usr-img1.png" alt=""></a> <span>2</span>
-				</div>
-				<div class="conversation-box">
-					<div class="con-title mg-3">
-						<div class="chat-user-info">
-							<img src="resources/images/resources/us-img1.png" alt="">
-							<h3>
-								John Doe <span class="status-info"></span>
-							</h3>
-						</div>
-						<div class="st-icons">
-							<a href="#" title=""><i class="la la-cog"></i></a> <a href="#"
-								title="" class="close-chat"><i class="la la-minus-square"></i></a>
-							<a href="#" title="" class="close-chat"><i
-								class="la la-close"></i></a>
-						</div>
-					</div>
-					<div class="chat-hist mCustomScrollbar" data-mcs-theme="dark">
-						<div class="chat-msg">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Donec rutrum congue leo eget malesuada. Vivamus suscipit tortor
-								eget felis porttitor.</p>
-							<span>Sat, Aug 23, 1:10 PM</span>
-						</div>
-						<div class="date-nd">
-							<span>Sunday, August 24</span>
-						</div>
-						<div class="chat-msg st2">
-							<p>Cras ultricies ligula.</p>
-							<span>5 minutes ago</span>
-						</div>
-						<div class="chat-msg">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Donec rutrum congue leo eget malesuada. Vivamus suscipit tortor
-								eget felis porttitor.</p>
-							<span>Sat, Aug 23, 1:10 PM</span>
-						</div>
-					</div>
-					<!--chat-list end-->
-					<div class="typing-msg">
-						<form>
-							<textarea placeholder="Type a message here"></textarea>
-							<button type="submit">
-								<i class="fa fa-send"></i>
-							</button>
-						</form>
-						<ul class="ft-options">
-							<li><a href="#" title=""><i class="la la-smile-o"></i></a></li>
-							<li><a href="#" title=""><i class="la la-camera"></i></a></li>
-							<li><a href="#" title=""><i class="fa fa-paperclip"></i></a></li>
-						</ul>
-					</div>
-					<!--typing-msg end-->
-				</div>
-				<!--chat-history end-->
-			</div>
-			<div class="chatbox">
-				<div class="chat-mg">
-					<a href="#" title=""><img
-						src="resources/images/resources/usr-img2.png" alt=""></a>
-				</div>
-				<div class="conversation-box">
-					<div class="con-title mg-3">
-						<div class="chat-user-info">
-							<img src="resources/images/resources/us-img1.png" alt="">
-							<h3>
-								John Doe <span class="status-info"></span>
-							</h3>
-						</div>
-						<div class="st-icons">
-							<a href="#" title=""><i class="la la-cog"></i></a> <a href="#"
-								title="" class="close-chat"><i class="la la-minus-square"></i></a>
-							<a href="#" title="" class="close-chat"><i
-								class="la la-close"></i></a>
-						</div>
-					</div>
-					<div class="chat-hist mCustomScrollbar" data-mcs-theme="dark">
-						<div class="chat-msg">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Donec rutrum congue leo eget malesuada. Vivamus suscipit tortor
-								eget felis porttitor.</p>
-							<span>Sat, Aug 23, 1:10 PM</span>
-						</div>
-						<div class="date-nd">
-							<span>Sunday, August 24</span>
-						</div>
-						<div class="chat-msg st2">
-							<p>Cras ultricies ligula.</p>
-							<span>5 minutes ago</span>
-						</div>
-						<div class="chat-msg">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Donec rutrum congue leo eget malesuada. Vivamus suscipit tortor
-								eget felis porttitor.</p>
-							<span>Sat, Aug 23, 1:10 PM</span>
-						</div>
-					</div>
-					<!--chat-list end-->
-					<div class="typing-msg">
-						<form>
-							<textarea placeholder="Type a message here"></textarea>
-							<button type="submit">
-								<i class="fa fa-send"></i>
-							</button>
-						</form>
-						<ul class="ft-options">
-							<li><a href="#" title=""><i class="la la-smile-o"></i></a></li>
-							<li><a href="#" title=""><i class="la la-camera"></i></a></li>
-							<li><a href="#" title=""><i class="fa fa-paperclip"></i></a></li>
-						</ul>
-					</div>
-					<!--typing-msg end-->
-				</div>
-				<!--chat-history end-->
-			</div>
-			<div class="chatbox">
-				<div class="chat-mg bx">
-					<a href="#" title=""><img src="resources/images/chat.png"
-						alt=""></a> <span>2</span>
-				</div>
-				<div class="conversation-box">
-					<div class="con-title">
-						<h3>Messages</h3>
-						<a href="#" title="" class="close-chat"><i
-							class="la la-minus-square"></i></a>
-					</div>
-					<div class="chat-list">
-						<div class="conv-list active">
-							<div class="usrr-pic">
-								<img src="resources/images/resources/usy1.png" alt=""> <span
-									class="active-status activee"></span>
-							</div>
-							<div class="usy-info">
-								<h3>John Doe</h3>
-								<span>Lorem ipsum dolor <img
-									src="resources/images/smley.png" alt=""></span>
-							</div>
-							<div class="ct-time">
-								<span>1:55 PM</span>
-							</div>
-							<span class="msg-numbers">2</span>
-						</div>
-						<div class="conv-list">
-							<div class="usrr-pic">
-								<img src="resources/images/resources/usy2.png" alt="">
-							</div>
-							<div class="usy-info">
-								<h3>John Doe</h3>
-								<span>Lorem ipsum dolor <img
-									src="resources/images/smley.png" alt=""></span>
-							</div>
-							<div class="ct-time">
-								<span>11:39 PM</span>
-							</div>
-						</div>
-						<div class="conv-list">
-							<div class="usrr-pic">
-								<img src="resources/images/resources/usy3.png" alt="">
-							</div>
-							<div class="usy-info">
-								<h3>John Doe</h3>
-								<span>Lorem ipsum dolor <img
-									src="resources/images/smley.png" alt=""></span>
-							</div>
-							<div class="ct-time">
-								<span>0.28 AM</span>
-							</div>
-						</div>
-					</div>
-					<!--chat-list end-->
-				</div>
-				<!--conversation-box end-->
-			</div>
-		</div>
-		<!--chatbox-list end-->
-
+		
 	</div>
 	<!--theme-layout end-->
 
@@ -772,7 +493,11 @@
 	<script type="text/javascript" src="resources/js/scrollbar.js"></script>
 	<script type="text/javascript" src="resources/js/script.js"></script>
 	
-	<script type="text/javascript" src="resources/sns_js/index.js"></script>
+	<script type="text/javascript" src="resources/sns_js/index.js?ver=123"></script>
+
+
+	
+  
 
 </body>
 </html>

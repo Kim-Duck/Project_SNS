@@ -32,9 +32,10 @@
 </head>
 
 <body>
+	<%@ include file="Header.jsp"%>
 	<div class="wrapper">
 
-		<%@ include file="Header.jsp"%>
+
 
 		<section class="cover-sec">
 			<c:if test="${user_info.user_cover==null }">
@@ -107,8 +108,7 @@
 								<!--user_profile end-->
 								<div class="suggestions full-width">
 									<div class="sd-title">
-										<h3>Friend List</h3>
-										<i class="la la-ellipsis-v"></i>
+										<h3>Friend List</h3>										
 									</div>
 									<!--sd-title end-->
 									<div class="suggestions-list">
@@ -145,9 +145,9 @@
 								<div class="product-feed-tab current" id="feed-dd">
 									<div class="posts-section">
 										<!-- 게시글 시작  -->
-										<c:forEach items="${board_list }" var="board_list">
-											<div class="post-bar">
-
+										<c:forEach items="${board_list }" var="board_list"
+											varStatus="index">
+											<div class="post-bar baselist${index.index }">
 												<div class="post_topbar">
 													<div class="usy-dt">
 														<img src="resources/images/test/${board_list.user_photo }"
@@ -185,7 +185,8 @@
 												</div>
 												<div class="job-status-bar">
 													<ul class="like-com" style="margin-top: 29px">
-														<li><a href="#" class="com"><i
+														<li><a href="javascript:void(0)" class="com"
+															onclick="commentpopup('${index.index}')"><i
 																class="fas fa-comment-alt"></i>댓글 갯수</a></li>
 
 													</ul>
@@ -194,6 +195,54 @@
 												</div>
 												<div class="job-status-bar" style="margin-top: 16px"></div>
 
+											</div>
+											<div class="comment-section comment-popup${index.index }"
+												style="display: none; margin-bottom: 20px">
+												<div class="comment-sec">
+													<ul>
+														<li>
+															<div class="comment-list">
+																<div class="bg-img">
+																	<img src="resources/images/resources/bg-img1.png"
+																		alt="">
+																</div>
+																<div class="comment">
+																	<h3>John Doe</h3>
+																	<span><img src="resources/images/clock.png"
+																		alt=""> 3 min ago</span>
+																	<p>Lorem ipsum dolor sit amet,</p>
+																</div>
+															</div> <!--comment-list end-->
+														</li>
+														<li>
+															<div class="comment-list">
+																<div class="bg-img">
+																	<img src="resources/images/resources/bg-img3.png"
+																		alt="">
+																</div>
+																<div class="comment">
+																	<h3>John Doe</h3>
+																	<span><img src="resources/images/clock.png"
+																		alt=""> 3 min ago</span>
+																	<p>Lorem ipsum dolor sit amet, consectetur
+																		adipiscing elit. Aliquam luctus hendrerit metus, ut
+																		ullamcorper quam finibus at.</p>
+																</div>
+															</div> <!--comment-list end-->
+														</li>
+													</ul>
+												</div>
+												<!--comment-sec end-->
+												<div class="post-comment">
+													
+													<div class="comment_box">
+														<form>
+															<input type="text" placeholder="Post a comment">
+															<button type="submit">Send</button>
+														</form>
+													</div>
+												</div>
+												<!--post-comment end-->
 											</div>
 										</c:forEach>
 										<div id="scrolltest"></div>
@@ -245,6 +294,40 @@
 
 								<!--main-ws-sec end-->
 							</div>
+						</div>
+						<div class="col-lg-3">
+							<div class="right-sidebar">
+								<div class="widget widget-about">
+									<img src="resources/images/index(rightROGO).png" alt="">
+									<span>자신의 친구를 찾아보세요~</span>
+									<div class="sign_link">
+										<form action="/sns/Friend" method="post">
+                    					<input type="hidden" name="user_id" value="${sessionScope.user.user_id }">
+                    					<Button type="submit" onclick="" style="color: white;">친구페이지</Button>
+                    					</form>
+									</div>										
+									</div>
+								</div>
+							</div>
+							<div class="tags-sec full-width">
+									<ul>
+										<li><a href="#" title="">Help Center</a></li>
+										<li><a href="#" title="">About</a></li>
+										<li><a href="#" title="">Privacy Policy</a></li>
+										<li><a href="#" title="">Community Guidelines</a></li>
+										<li><a href="#" title="">Cookies Policy</a></li>
+										<li><a href="#" title="">Career</a></li>
+										<li><a href="#" title="">Language</a></li>
+										<li><a href="#" title="">Copyright Policy</a></li>
+									</ul>
+									<div class="cp-sec">
+										<img src="resources/images/logo2.png" alt="">
+										<p>
+											<img src="resources/images/cp.png" alt="">Copyright
+											2019
+										</p>
+									</div>
+								</div>
 						</div>
 					</div>
 					<!-- main-section-data end-->

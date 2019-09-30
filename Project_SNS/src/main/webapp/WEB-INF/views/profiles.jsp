@@ -56,8 +56,7 @@
 										<h3>${Friend_List.user_name }</h3>
 										<ul>
 											<li><a href="#" title="" class="follow">Follow</a></li>
-											<li><a href="#" title="" class="message-us"><i
-													class="fa fa-envelope"></i></a></li>
+											
 										</ul>
 									</div>
 									<a href="javascript:void(0)" class="view-more-pro" onclick="viewMyFriendProfile('${Friend_List.user_id}')">View Profile</a>
@@ -80,8 +79,7 @@
 										<h3>${Friend_Request_Ing.user_name }</h3>
 										<ul>
 											<li><a href="javascript:void(0)" onclick="FriendRequestIng()"class="follow">FriendRequestIng...</a></li>
-											<li><a href="#" title="" class="message-us"><i
-													class="fa fa-envelope"></i></a></li>
+											
 										</ul>
 									</div>
 									<a href="user-profile.html" title="" class="view-more-pro">View
@@ -108,8 +106,7 @@
 										<ul>
 											<li><a href="javascript:void(0)" onclick="FriendAgree('${sessionScope.user.user_id }','${Friend_Request_List.user_id}')"
 												class="follow">FriendAgree</a></li>
-											<li><a href="#" title="" class="message-us"><i
-													class="fa fa-envelope"></i></a></li>
+											
 										</ul>
 									</div>
 									<a href="user-profile.html" title="" class="view-more-pro">View

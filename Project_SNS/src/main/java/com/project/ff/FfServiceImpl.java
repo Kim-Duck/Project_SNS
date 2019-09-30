@@ -48,4 +48,19 @@ public class FfServiceImpl implements FfService{
 		return mapper.User_List_Friend(user_id);
 	}
 
+	@Override
+	public String Follow_Id(int follownum) {		
+		return mapper.Follow_Id(follownum);
+	}
+
+	@Override
+	public String[] Follow_Check(String mainid) {
+		return mapper.Follow_Check(mainid);
+	}
+
+	@Override
+	public void Follow_Insert(String mainid, String followid) {
+		mapper.Follow_Insert(mainid,followid);		
+	}
+
 }

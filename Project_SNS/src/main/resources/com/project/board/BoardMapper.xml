@@ -20,7 +20,7 @@ select * from sns_board where bnum = #{bnum}
 </select>
 
 <update id="Board_Update" parameterType="com.project.board.BoardVO">
-update sns_board set photo = #{photo, jdbcType=VARCHAR}, content = #{content}, day = sysdate where bnum = #{bnum} and unum = #{unum}
+update sns_board set photo = #{photo, jdbcType=VARCHAR}, content = #{content} where bnum = #{bnum} and unum = #{unum}
 </update>
 
 <delete id="Board_Delete" parameterType="Integer">

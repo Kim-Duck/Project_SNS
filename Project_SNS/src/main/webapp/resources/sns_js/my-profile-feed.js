@@ -121,9 +121,20 @@ function handleImgFileSelect3(e) {
     });
 }
 
+function commentpopup(index){
+    if($(".comment-popup"+index+"").css("display")=="none"){	      
+	      $(".comment-popup"+index+"").css("display","block");
+	      $(".baselist"+index+"").addClass("no-margin");
+	    }else{
+	      $(".comment-popup"+index+"").css("display","none");
+	      $(".baselist"+index+"").removeClass("no-margin");
+	    }
+}
+
 var scroll = 1;
 var start = 4;
 var end = 6;
+var scrollcomment = 4;
 $(window).scroll(function() {	
 	if ($(window).scrollTop()+$(window).height() + 10 > $(document).height()) {
 		$.ajax({
@@ -140,7 +151,7 @@ $(window).scroll(function() {
 					}else if(val.photo!=null){
 						boardphoto = "resources/images/test/"+val.photo;
 					}
-					$("#scrolltest").append("<div class='post-bar'>" +
+					$("#scrolltest").append("<div class='post-bar baselist"+scrollcomment+"'>" +
 							" <div class='post_topbar'> " +
 							" <div class='usy-dt'>" +
 							" <img src='"+photourl+"'"+" alt='' width='50px' height='50px'>" +
@@ -164,16 +175,18 @@ $(window).scroll(function() {
 							"</div>"+
 							"<div class='job-status-bar'>"+
 							"<ul class='like-com' style='margin-top: 29px'>"+												
-							"<li><a href='#' class='com'><i class='fas fa-comment-alt'></i>댓글 갯수</a></li>"+												
+							"<li><a href='javascript:void(0)' class='com' onclick='commentpopup("+scrollcomment+")'><i class='fas fa-comment-alt'></i>댓글 갯수</a></li>"+												
 							"</ul>"+
 							"<a href='#' class='com'><i class='fas fa-heart'></i> FOLLOW!</a> "+
 							"</div>"+
 							"<div class='job-status-bar' style='margin-top: 16px'></div>"+
-							"</div>"
+							"</div>"+
+							"<div class='comment-section comment-popup"+scrollcomment+"' style='display: none; margin-bottom: 20px'><div class='comment-sec'><ul><li><div class='comment-list'><div class='bg-img'><img src='resources/images/resources/bg-img1.png' alt=''></div>	<div class='comment'><h3>John Doe</h3><span><img src='resources/images/clock.png' alt=''> 3 min ago</span><p>Lorem ipsum dolor sit amet,</p></div></div> <!--comment-list end--></li><li><div class='comment-list'><div class='bg-img'><img src='resources/images/resources/bg-img3.png' alt=''></div><div class='comment'><h3>John Doe</h3><span><img src='resources/images/clock.png' alt=''> 3 min ago</span><p>Lorem ipsum dolor sit amet, consecteturadipiscing elit. Aliquam luctus hendrerit metus, utullamcorper quam finibus at.</p></div></div> <!--comment-list end--></li>	</ul></div><!--comment-sec end-->	<div class='post-comment'><div class='cm_img'></div><div class='comment_box'><form><input type='text' placeholder='Post a comment'><button type='submit'>Send</button></form></div></div><!--post-comment end--></div>"
 							);
 					$("#scrollscripttest").empty();
 					$("#scrollscripttest").append("<script> $('.ed-opts-open"+scroll+"').on('click',function(){ $(this).next('.ed-options').toggleClass('active');return false;}); </script>");
 					scroll += 1;
+					scrollcomment += 1;
 				});
 				start += 3;
 				end += 3;

@@ -34,6 +34,19 @@ select sns_user.* from (select friend_id from sns_friendrequest where main_id=#{
 delete from sns_friendrequest where main_id = #{friend_id} and friend_id = #{user_id}
 </delete>
 
+<select id="Follow_Id" parameterType="Integer" resultType="String">
+select user_id from sns_user where unum = #{unum}
+</select>
+
+<select id="Follow_Check" parameterType="String" resultType="String">
+select follow_id from sns_follow where main_id = #{main_id}
+
+</select>
+
+<insert id="Follow_Insert" parameterType="String">
+insert into sns_follow values(#{main_id},#{follow_id},sysdate)
+</insert>
+
 
 </mapper>
 

@@ -21,4 +21,13 @@ public interface FfMapper {
 	public ArrayList<UserVO> Friend_Request_Ing(@Param("user_id")String user_id);
 	
 	public void Friend_Agree(@Param("user_id")String user_id, @Param("friend_id")String friend_id);
+	
+	public String Follow_Id(@Param("unum") int unum);
+	
+	public String[] Follow_Check(@Param("main_id")String main_id);
+	
+	public void Follow_Insert(@Param("main_id")String main_id,@Param("follow_id")String follow_id);
+	
+	
+	
 }

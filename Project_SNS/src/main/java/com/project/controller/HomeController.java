@@ -54,8 +54,10 @@ public class HomeController {
 		UserVO vo = signservice.User_Login(user_id);
 		List<BoardVO> board_list_self = boardservice.Board_List_Self(1, 3,vo.getUser_id());
 		ArrayList<UserVO> Friend_List = ffservice.Friend_List(user_id);
+		
+		mv.addObject("user_info",vo);		
 		mv.addObject("Friend_List", Friend_List);
-		mv.addObject("user_info",vo);
+		
 		mv.addObject("board_list", board_list_self);
 		mv.setViewName("my-profile-feed");
 		return mv;

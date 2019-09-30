@@ -52,20 +52,39 @@
 											alt="">
 										<h3>${User_List.user_name }</h3>
 										<ul>
+											<c:if test="${User_List.friend_check == 'Request-Ing' }">
+												<ul>
+													<li><a href="javascript:void(0)"
+														onclick="FriendRequestIng()" class="follow">FriendRequestIng...</a></li>
+													
+												</ul>
+											</c:if>
+											<c:if test="${User_List.friend_check == 'Request-List' }">
+												<ul>
+													<li><a href="javascript:void(0)"
+														onclick="FriendAgree('${sessionScope.user.user_id }','${User_List.user_id}')"
+														class="follow">FriendAgree</a></li>													
+												</ul>
+											</c:if>
 											<c:if test="${User_List.user_id == User_List.friend_check }">
 												<li><a href="javascript:void(0)" onclick=""
 													class="hire">이미친구입니다</a></li>
 											</c:if>
-											<c:if test="${User_List.user_id != User_List.friend_check }">
-												<li><a href="javascript:void(0)"
-													onclick="FriendRequest('${sessionScope.user.user_id }','${User_List.user_id}')"
-													class="follow">FriendButton</a></li>
+											<c:if test="${User_List.friend_check != 'Request-Ing' }">
+												<c:if test="${User_List.friend_check != 'Request-List' }">
+													<c:if
+														test="${User_List.user_id != User_List.friend_check }">
+														<li><a href="javascript:void(0)"
+															onclick="FriendRequest('${sessionScope.user.user_id }','${User_List.user_id}')"
+															class="follow">FriendButton</a></li>
+													</c:if>
+												</c:if>
 											</c:if>
-											<li><a href="#" title="" class="message-us"><i
-													class="fa fa-envelope"></i></a></li>
 										</ul>
-									</div>									
-									<a href="javascript:void(0)" class="view-more-pro" onclick="viewSearchProfile('${User_List.user_id}')">View Profile</a>
+									</div>
+									<a href="javascript:void(0)" class="view-more-pro"
+										onclick="viewSearchProfile('${User_List.user_id}')">View
+										Profile</a>
 								</div>
 								<!--company_profile_info end-->
 							</div>

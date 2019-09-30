@@ -18,4 +18,12 @@ public interface FfService {
 	public void Friend_Request(String main_id,String friend_id);
 	
 	public void Friend_Agree(String user_id,String friend_id);
+	
+	public String Follow_Id(int follownum);
+	
+	public String[] Follow_Check(String mainid);
+	
+	public void Follow_Insert(String mainid,String followid);
+	
+	
 }
