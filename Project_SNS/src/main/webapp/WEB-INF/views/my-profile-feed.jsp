@@ -98,10 +98,32 @@
 									<!--user-pro-img end-->
 									<div class="user_pro_status">
 										<ul class="flw-hr">
-											<li><a href="javascript:void(0)" class="flww">Friend<i
-													class="la la-plus"></i></a></li>
-											<li><a href="javascript:void(0)" class="hre">Follow<i
-													class="la la-plus"></i></a></li>
+										<c:if test="${user_info.user_id == sessionScope.user.user_id }">
+											<li><a href="javascript:void(0)" class="flww" onclick="FriendPage('${sessionScope.user.user_id}')">FriendList</a></li>
+											<li><a href="javascript:void(0)" class="hre" onclick="FollowPage('${sessionScope.user.user_id}')">FollowList</a></li>
+										</c:if>
+										
+										<c:if test="${user_info.user_id != sessionScope.user.user_id }">
+										<c:if test="${FriendCheck =='n' }">
+											<li><a href="javascript:void(0)" class="flww" onclick="FriendRequest('${sessionScope.user.user_id }','${user_info.user_id}')">Friend<i class="la la-plus"></i></a></li>
+										</c:if>										
+										<c:if test="${FriendCheck =='i' }">
+											<li><a href="javascript:void(0)" class="flww">FriendRequest</a></li>
+										</c:if>
+										<c:if test="${FriendCheck =='y' }">
+											<li><a href="javascript:void(0)" class="flww">Friend</a></li>
+										</c:if>										
+										
+										<c:if test="${FollowCheck =='y' }">
+											<li><a href="javascript:void(0)" class="hre">Follow</a></li>
+										</c:if>
+										<c:if test="${FollowCheck =='n'}">
+											<li><a href="javascript:void(0)" class="hre" onclick="follow('${sessionScope.user.user_id }','${user_info.unum}')">Follow<i class="la la-plus"></i></a></li>
+										</c:if>
+										</c:if>
+										
+										
+										
 										</ul>
 										<ul class="flw-status">
 

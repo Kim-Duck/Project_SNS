@@ -120,6 +120,8 @@ function follow(mainid,followunum){
 		})
 	}
 }
+
+
 function viewMyFriendProfile(user_id){
     var $form = $('<form></form>');
     $form.attr('action', '/sns/InfoPage');
@@ -134,6 +136,14 @@ function viewMyFriendProfile(user_id){
 
 function edoptsopen(index){	
 	$(".ed-options.testtest"+index+"").toggleClass("active");
+}
+
+function FriendRequest(main_id,friend_id){
+	if(confirm("친구요청을 하시겠습니까?")){
+		$.post("/sns/FriendRequest",{"main_id":main_id,"friend_id":friend_id});
+		location.reload();
+		return;
+	}
 }
 
 function BoardUpdate(boardnum,boardunum,unum){	
