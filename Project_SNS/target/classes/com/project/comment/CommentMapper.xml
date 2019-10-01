@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.comment.CommentMapper">
+<insert id="Comment_Insert" parameterType="com.project.comment.CommentVO">
+insert into sns_comment values(sns_comment_seq.nextval,#{bnum},#{writer},#{content},sysdate)
+</insert>
+
+<select id="Comment_List" parameterType="Integer" resultType="com.project.comment.CommentVO">
+select * from sns_comment where bnum = #{bnum} order by day
+</select>
+
+<select id="Comment_List2" parameterType="Integer" resultType="com.project.comment.CommentVO">
+select * from sns_comment where bnum = #{bnum} order by day desc
+</select>
+
+</mapper>

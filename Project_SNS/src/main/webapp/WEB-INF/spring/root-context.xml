@@ -28,8 +28,8 @@
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
 	
-		<mybatis-spring:scan base-package="com.project.sign,com.project.board,com.project.ff"/>
+		<mybatis-spring:scan base-package="com.project.sign,com.project.board,com.project.ff,com.project.comment"/>
 	
 	<!-- <context:component-scan base-package="com.project.aop"/> -->
-	<context:component-scan base-package="com.project.sign,com.project.board,com.project.ff"/>
+	<context:component-scan base-package="com.project.sign,com.project.board,com.project.ff,com.project.comment"/>
 </beans>

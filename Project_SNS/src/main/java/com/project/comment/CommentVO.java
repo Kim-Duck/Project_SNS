@@ -3,6 +3,15 @@ package com.project.comment;
 public class CommentVO {
 	private int cnum, bnum;
 	private String writer, content, day;
+	private int unum;
+	
+	
+	public int getUnum() {
+		return unum;
+	}
+	public void setUnum(int unum) {
+		this.unum = unum;
+	}
 	public int getCnum() {
 		return cnum;
 	}

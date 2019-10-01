@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -23,6 +24,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.project.board.BoardServiceImpl;
 import com.project.board.BoardVO;
+import com.project.comment.CommentServiceImpl;
+import com.project.comment.CommentVO;
 import com.project.sign.SignServiceImpl;
 import com.project.sign.UserVO;
 
@@ -33,12 +36,16 @@ public class BoardController {
 	private String uploadPath;
 
 	@Inject
-	public BoardServiceImpl service;
+	private BoardServiceImpl service;
 	
 
 	@Inject
-	public SignServiceImpl signservice;
+	private SignServiceImpl signservice;
+	
+	@Inject
+	private CommentServiceImpl commentservice;
 
+	
 	@PostMapping("/boardinsert")
 	public String Board_Insert(BoardVO vo) throws Exception {
 		String savedName = "";
@@ -52,7 +59,7 @@ public class BoardController {
 		}
 		service.Board_Insert(vo);
 
-		return "redirect:/mainIndex";
+		return "index";
 	}
 
 	@PostMapping("/boardupdate")
@@ -67,48 +74,23 @@ public class BoardController {
 			vo.getPhotoFile().transferTo(f);
 		}
 		service.Board_Update(vo);
-
-		return "redirect:/mainIndex";
+		return "index";
 	}
-
-	@GetMapping("/mainIndex")
-	public ModelAndView Board_List(HttpServletRequest request) {
+	
+	
+	@PostMapping("/boardlist")
+	public String Board_List(HttpServletRequest request,Model mv,@RequestParam("start")int start, @RequestParam("end")int end) {
 		HttpSession session = request.getSession();
-		UserVO vo = (UserVO) session.getAttribute("user");
-		ModelAndView mv = new ModelAndView();
-		List<BoardVO> board_list = service.Board_List(1, 3, vo.getUser_id());
-		if (board_list.isEmpty()) {
-			List<BoardVO> Board_List_Self = service.Board_List_Self(1, 3, vo.getUser_id());
-			mv.addObject("board_list", Board_List_Self);
-		} else {
-			mv.addObject("board_list", board_list);
-		}
-		mv.setViewName("index");
-		return mv;
-	}
-
-	// 스크롤용
-	@ResponseBody
-	@PostMapping("/mainIndextest")
-	public List<BoardVO> Board_List2(HttpServletRequest request, @RequestParam("start") int start,
-			@RequestParam("end") int end) {
-		HttpSession session = request.getSession();
-		UserVO vo = (UserVO) session.getAttribute("user");
+		UserVO vo = (UserVO) session.getAttribute("user");		
 		List<BoardVO> board_list = service.Board_List(start, end, vo.getUser_id());
+		
 		if (board_list.isEmpty()) {
-			List<BoardVO> Board_List_Self = service.Board_List_Self(start, end, vo.getUser_id());
-			return Board_List_Self;
-		}
-		return board_list;
-	}
-
-	// 마이페이지스크롤용
-	@ResponseBody
-	@PostMapping("/mainIndextest2")
-	public List<BoardVO> Board_List3(HttpServletRequest request, @RequestParam("start") int start, @RequestParam("end") int end,@RequestParam("unum") int unum) {		
-		String user_id = signservice.User_Id(unum);		
-		List<BoardVO> Board_List_Self = service.Board_List_Self(start, end, user_id);
-		return Board_List_Self;
+			List<BoardVO> board_List_Self = service.Board_List_Self(start, end, vo.getUser_id());			
+			mv.addAttribute("board_list", board_List_Self);
+		} else {			
+			mv.addAttribute("board_list", board_list);
+		}				
+		return "result/list";
 	}
 
 	// 수정전 데이터 가져오기
@@ -123,7 +105,7 @@ public class BoardController {
 	@PostMapping("/boardDelete")
 	public String Board_Delete(@RequestParam("bnum") int bnum) {
 		service.Board_Delete(bnum);
-		return "redirect/mainIndex";
+		return "index";
 	}
 
 	// 파일 이름 중복 없애는

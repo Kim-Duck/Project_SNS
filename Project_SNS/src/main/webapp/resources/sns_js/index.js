@@ -1,4 +1,6 @@
 $(function() {
+	boardlist();
+	
 	$("#btnBoardInsert").click(function () {		
 		var SubmitBoardInsert = $("#SubmitBoardInsert");
 		SubmitBoardInsert.attr("action","/sns/boardinsert");
@@ -18,10 +20,32 @@ $(function() {
 
     
     $("#btnBoardUpdate").click(function(){    	
-    	var SubmitBoardUpdate = $("#SubmitBoardUpdate");
+    	/*var SubmitBoardUpdate = $("#SubmitBoardUpdate");
     	SubmitBoardUpdate.attr("action","/sns/boardupdate");
     	SubmitBoardUpdate.attr("method","POST");
-    	SubmitBoardUpdate.submit();
+    	SubmitBoardUpdate.submit();*/
+    	var SubmitBoardUpdate = new FormData($("#SubmitBoardUpdate")[0]);
+/*    	$.post("/sns/boardupdate",SubmitBoardUpdate,function(f){
+    		alert("수정되었습니다.");
+    	});
+    	*/
+    	$.ajax({
+    		type:'post',
+    		url:'/sns/boardupdate',
+    		data: SubmitBoardUpdate,
+    		processData: false,
+			contentType: false,
+    		async : false,
+    		success:function(s){
+    			location.href="/sns/index";
+    			return;
+    		},
+    		error:function(e){
+    			alert(e);
+    		}
+    	})
+    	
+    	
     });
 
     
@@ -30,8 +54,6 @@ $(function() {
         $(".wrapper").removeClass("overlay");
         return false;
 	});
-
-    
     
     $("#viewprofile").click(function() {
     	document.viewprofile.submit();
@@ -41,7 +63,38 @@ $(function() {
     
     
 });
+var scroll = 1;
+var start = 1;
+var end = 3;
+var scrollcomment = 4;
+var boardnum = 0;
+var scrolltest = 0;
 
+function btnCommentInsert(bnum){
+	$.ajax({
+		type:'post',
+		url:'/sns/CommentInsert',
+		data: {"bnum":bnum,"writer":$("#comment_writer").val(),"content":$("#comment_content").val()},
+		success:function(s){	
+			$.post("/sns/CommentList",{"bnum":bnum},function(ff){
+				$("#commentlist"+bnum+"").empty();
+				$("#commentlist"+bnum+"").append(ff);
+			});
+		},
+		error:function(e){
+			alert(e);
+			return;
+		}
+	})
+}
+
+function boardlist(){	
+	$.post("/sns/boardlist",{"start":start,"end":end},function(s){
+		$("#boardlist").append(s);
+	});
+	start += 3;
+	end += 3;
+}
 
 function follow(mainid,followunum){
 	if(confirm("팔로우 하시겠습니까?")){
@@ -67,7 +120,15 @@ function follow(mainid,followunum){
 	}
 }
 
+function edoptsopen(index){	
+	$(".ed-options.testtest"+index+"").toggleClass("active");
+}
+
 function commentpopup(index){
+	$.post("/sns/CommentList",{"bnum":index},function(s){
+		$("#commentlist"+index+"").empty();
+		$("#commentlist"+index+"").append(s);
+	});
     if($(".comment-popup"+index+"").css("display")=="none"){	      
 	      $(".comment-popup"+index+"").css("display","block");
 	      $(".baselist"+index+"").addClass("no-margin");
@@ -111,9 +172,11 @@ function BoardDelete(boardnum,boardunum,unum){
 		return;
 	}else{
 		if(confirm("정말 삭제 하시겠습니까?")){
-			$.post("/sns/boardDelete",{"bnum":boardnum});
-			alert("삭제되었습니다.");
-			location.href = "/sns/mainIndex";
+			$.post("/sns/boardDelete",{"bnum":boardnum},function(s){
+				alert("삭제되었습니다.");
+				location.href="/sns/index";
+			});			
+			
 		}
 	}
 	
@@ -160,74 +223,12 @@ function handleImgFileSelect2(e) {
 }
 
 
-var scroll = 1;
-var start = 4;
-var end = 6;
-var scrollcomment = 4;
+
+
+var boardhtml = "";
 
 $(window).scroll(function() {	
 	if ($(window).scrollTop()+$(window).height() + 30 > $(document).height()) {
-	/*if ($(window).scrollTop() == $(document).height() - $(window).height()) {*/
-		$.ajax({
-			type : 'post',			
-			url : '/sns/mainIndextest',
-			data: {"start":start,"end":end},
-			dataType:'json',
-			success : function(s) {				
-				$.each(s, function(idx, val) {					
-					var photourl = "resources/images/test/"+val.user_photo;
-					var boardphoto = "";
-					if(val.photo==null){
-						boardphoto = "resources/images/test/null.png";
-					}else if(val.photo!=null){
-						boardphoto = "resources/images/test/"+val.photo;
-					}
-					$("#scrolltest").append("<div class='post-bar baselist"+scrollcomment+"'>" +
-							" <div class='post_topbar'> " +
-							" <div class='usy-dt'>" +
-							" <img src='"+photourl+"'"+" alt='' width='50px' height='50px'>" +
-							" <div class='usy-name'>" +
-							" <h3>"+val.writer+"</h3>" +
-							" <span><img src='resources/images/clock.png' alt=''>"+val.day+"</span>" +
-							" </div>" +
-							" </div>" +
-							" <div class='ed-opts'>" +
-							" <a href='#' title='' class='ed-opts-open"+scroll+"'>" +
-							" <i class='la la-ellipsis-v'></i></a>" +
-							" <ul class='ed-options'>" +
-							"<li><Button type='Button' class='post-job' onclick='BoardUpdate("+val.bnum+","+val.unum+","+sessionStorage.getItem('user_num')+")'>글수정</Button></li>" +
-							"<li><Button type='Button' class='post-job' onclick='BoardDelete("+val.bnum+","+val.unum+","+sessionStorage.getItem('user_num')+")'>글삭제</Button></li>" +							
-							"</ul> </div> </div>" +
-							"<div class='epi-sec'>"+
-							"<img src='"+boardphoto+"'>"+							
-							"</div>"+
-							"<div class='job_descp'>"+										
-							"<p>"+val.content+"</p>"+
-							"</div>"+
-							"<div class='job-status-bar'>"+
-							"<ul class='like-com' style='margin-top: 29px'>"+												
-							"<li><a href='javascript:void(0)' class='com' onclick='commentpopup("+scrollcomment+")'><i class='fas fa-comment-alt'></i>댓글 갯수</a></li>"+												
-							"</ul>"+
-							"<a href='#' class='com'><i class='fas fa-heart'></i> FOLLOW!</a> "+
-							"</div>"+
-							"<div class='job-status-bar' style='margin-top: 16px'></div>"+
-							"</div>"+
-							"<div class='comment-section comment-popup"+scrollcomment+"' style='display: none; margin-bottom: 20px'><div class='comment-sec'><ul><li><div class='comment-list'><div class='bg-img'><img src='resources/images/resources/bg-img1.png' alt=''></div>	<div class='comment'><h3>John Doe</h3><span><img src='resources/images/clock.png' alt=''> 3 min ago</span><p>Lorem ipsum dolor sit amet,</p></div></div> <!--comment-list end--></li><li><div class='comment-list'><div class='bg-img'><img src='resources/images/resources/bg-img3.png' alt=''></div><div class='comment'><h3>John Doe</h3><span><img src='resources/images/clock.png' alt=''> 3 min ago</span><p>Lorem ipsum dolor sit amet, consecteturadipiscing elit. Aliquam luctus hendrerit metus, utullamcorper quam finibus at.</p></div></div> <!--comment-list end--></li>	</ul></div><!--comment-sec end-->	<div class='post-comment'><div class='cm_img'></div><div class='comment_box'><form><input type='text' placeholder='Post a comment'><button type='submit'>Send</button></form></div></div><!--post-comment end--></div>"
-							);
-					$("#scrollscripttest").empty();
-					$("#scrollscripttest").append("<script> $('.ed-opts-open"+scroll+"').on('click',function(){ $(this).next('.ed-options').toggleClass('active');return false;}); </script>");
-					scroll += 1;
-					scrollcomment +=1;
-				});
-				start += 3;
-				end += 3;
-				
-			},
-			error : function(e) {
-				alert(e);
-			}
-		})
-
-	}
+		boardlist();
+	};
 });
-

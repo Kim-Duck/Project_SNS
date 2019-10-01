@@ -203,112 +203,21 @@
 										</div>
 										<!--profiles-slider end-->
 									</div>
+									<div id="boardlist">
+									</div>
 									<!--top-profiles end-->
-									<!-- 게시글 시작  -->
-									<c:forEach items="${board_list }" var="board_list" varStatus="index" >
-										<div class="post-bar baselist${index.index }">
-											<div class="post_topbar">
-												<div class="usy-dt">
-													<img src="resources/images/test/${board_list.user_photo }"
-														alt="" width="50px" height="50px">
-													<div class="usy-name">
-														<h3>${board_list.writer }</h3>
-														<span><img src="resources/images/clock.png" alt="">${board_list.day }</span>
-													</div>
-												</div>
-												<div class="ed-opts">
-													<a href="#" title="" class="ed-opts-open"><i
-														class="la la-ellipsis-v"></i></a>
-													<ul class="ed-options">
-														<li><Button type="Button" class="post-job"
-																onclick="BoardUpdate(${board_list.bnum },${board_list.unum },${user.unum })">글수정</Button></li>
-														<li><Button type="Button" class="post-job"
-																onclick="BoardDelete(${board_list.bnum },${board_list.unum },${user.unum })">글삭제</Button></li>
-													</ul>
-												</div>
-											</div>
-											<div class="epi-sec">
-												<c:if test="${board_list.photo!=null }">
-													<img src="resources/images/test/${board_list.photo }">
-												</c:if>
-												<c:if test="${board_list.photo==null }">
-													<img src="resources/images/test/null.png">
-												</c:if>
-											</div>
-											<div class="job_descp">
-												<p>${board_list.content }</p>
-
-											</div>
-											<div class="job-status-bar">
-												<ul class="like-com" style="margin-top: 29px">
-													<li><a href="javascript:void(0)" class="com" onclick="commentpopup('${index.index }')"><i
-															class="fas fa-comment-alt"></i>댓글 갯수</a></li>
-												</ul>
-												<c:if test="${sessionScope.user.unum != board_list.unum }">
-												<a href="javascript:void(0)" class="com" onclick="follow('${sessionScope.user.user_id }','${board_list.unum}')"><i class="fas fa-heart"></i>
-													FOLLOW!</a>
-												</c:if>
-													
-											</div>
-											<div class="job-status-bar" style="margin-top: 16px"></div>
-										</div>		
-										<div class="comment-section comment-popup${index.index }" style="display: none; margin-bottom: 20px">
-											<div class="comment-sec">
-												<ul>
-													<li>
-														<div class="comment-list">
-															<div class="bg-img">
-																<img src="resources/images/resources/bg-img1.png" alt="">
-															</div>
-															<div class="comment">
-																<h3>John Doe</h3>
-																<span><img src="resources/images/clock.png"
-																	alt=""> 3 min ago</span>
-																<p>Lorem ipsum dolor sit amet,</p>																
-															</div>
-														</div> <!--comment-list end-->														
-													</li>
-													<li>
-														<div class="comment-list">
-															<div class="bg-img">
-																<img src="resources/images/resources/bg-img3.png" alt="">
-															</div>
-															<div class="comment">
-																<h3>John Doe</h3>
-																<span><img src="resources/images/clock.png"
-																	alt=""> 3 min ago</span>
-																<p>Lorem ipsum dolor sit amet, consectetur
-																	adipiscing elit. Aliquam luctus hendrerit metus, ut
-																	ullamcorper quam finibus at.</p>																
-															</div>
-														</div> <!--comment-list end-->
-													</li>
-												</ul>
-											</div>
-											<!--comment-sec end-->
-											<div class="post-comment">
-												<div class="comment_box">
-													<form>
-														<input type="text" placeholder="Post a comment">
-														<button type="submit">Send</button>
-													</form>
-												</div>
-											</div>
-											<!--post-comment end-->
-										</div>								
-									</c:forEach>
-									<!-- 게시글 끝  -->
-
 									<!--post-bar end-->		
 									<!--process-comm end-->
-									<div id="scrolltest"></div>
+									<div id="scrolltest">
 									<div id="scrollscripttest"></div>
 								</div>
 								<!--posts-section end-->
 							</div>
 							<!--main-ws-sec end-->
 						</div>
-						<div class="col-lg-3 pd-right-none no-pd">
+						
+					</div>
+					<div class="col-lg-3 pd-right-none no-pd">
 							<div class="right-sidebar">
 								<div class="widget widget-about">
 									<img src="resources/images/index(rightROGO).png" alt="">
@@ -329,7 +238,6 @@
 							</div>
 							<!--right-sidebar end-->
 						</div>
-					</div>
 				</div>
 				<!-- main-section-data end-->
 			</div>
@@ -494,6 +402,7 @@
 	<script type="text/javascript" src="resources/js/script.js"></script>
 	
 	<script type="text/javascript" src="resources/sns_js/index.js?ver=123"></script>
+	<script>
 
 
 	

@@ -135,15 +135,26 @@ var scroll = 1;
 var start = 4;
 var end = 6;
 var scrollcomment = 4;
+var boardnum = 0;
+var scrolltest = 0;
+var boardhtml = "";
 $(window).scroll(function() {	
 	if ($(window).scrollTop()+$(window).height() + 10 > $(document).height()) {
+		if(scrolltest==start){
+			return;
+		}
+		scrolltest = start;
 		$.ajax({
 			type : 'post',			
 			url : '/sns/mainIndextest2',
 			data: {"start":start,"end":end,"unum":$("#user_num").val()},
 			dataType:'json',
-			success : function(s) {				
-				$.each(s, function(idx, val) {					
+			success : function(s) {
+				start += 3;
+				end += 3;
+				$.each(s, function(idx, val) {
+					boardhtml="";
+					boardnum = val.bnum;
 					var photourl = "resources/images/test/"+val.user_photo;
 					var boardphoto = "";
 					if(val.photo==null){
@@ -151,7 +162,7 @@ $(window).scroll(function() {
 					}else if(val.photo!=null){
 						boardphoto = "resources/images/test/"+val.photo;
 					}
-					$("#scrolltest").append("<div class='post-bar baselist"+scrollcomment+"'>" +
+					boardhtml += "<div class='post-bar baselist"+scrollcomment+"'>" +
 							" <div class='post_topbar'> " +
 							" <div class='usy-dt'>" +
 							" <img src='"+photourl+"'"+" alt='' width='50px' height='50px'>" +
@@ -181,15 +192,37 @@ $(window).scroll(function() {
 							"</div>"+
 							"<div class='job-status-bar' style='margin-top: 16px'></div>"+
 							"</div>"+
-							"<div class='comment-section comment-popup"+scrollcomment+"' style='display: none; margin-bottom: 20px'><div class='comment-sec'><ul><li><div class='comment-list'><div class='bg-img'><img src='resources/images/resources/bg-img1.png' alt=''></div>	<div class='comment'><h3>John Doe</h3><span><img src='resources/images/clock.png' alt=''> 3 min ago</span><p>Lorem ipsum dolor sit amet,</p></div></div> <!--comment-list end--></li><li><div class='comment-list'><div class='bg-img'><img src='resources/images/resources/bg-img3.png' alt=''></div><div class='comment'><h3>John Doe</h3><span><img src='resources/images/clock.png' alt=''> 3 min ago</span><p>Lorem ipsum dolor sit amet, consecteturadipiscing elit. Aliquam luctus hendrerit metus, utullamcorper quam finibus at.</p></div></div> <!--comment-list end--></li>	</ul></div><!--comment-sec end-->	<div class='post-comment'><div class='cm_img'></div><div class='comment_box'><form><input type='text' placeholder='Post a comment'><button type='submit'>Send</button></form></div></div><!--post-comment end--></div>"
-							);
+							"<div class='comment-section comment-popup"+scrollcomment+"' style='display: none; margin-bottom: 20px'><div class='comment-sec'><ul>";
+					
+					$.ajax({
+						type:'post',
+						url:'/sns/CommentList',
+						data : {"bnum":boardnum},
+						async : false, 
+						dataType:'json',
+						success:function(su){
+							$.each(su,function(asdf,value){												
+								if(boardnum == value.bnum){
+									boardhtml += "<li>" +
+										    "<div class='comment-list'><div class='bg-img'><img src='resources/images/resources/bg-img1.png' alt=''></div>" +
+										    "<div class='comment'><h3>"+value.writer+"</h3><span><img src='resources/images/clock.png' alt=''>"+value.day+"</span>" +
+										    "<p>"+value.content+"</p>" +
+										    "</div></div>" +
+										    "</li>";
+								};								
+							});										
+						},error:function(er){
+							alert(er);
+						}
+				});	
+					boardhtml += "</ul></div><!--comment-sec end--><div class='post-comment'><div class='cm_img'></div><div class='comment_box'><form method='post' action='/sns/CommentInsert'><input type='hidden' name='bnum' value='"+val.bnum+"'><input type='hidden' name='unum' value='"+sessionStorage.getItem('user_num')+"'><input type='text' name='content' placeholder='Post a comment'><button type='submit'>Send</button></form></div></div><!--post-comment end--></div>";		
+					$("#scrolltest").append(boardhtml);
 					$("#scrollscripttest").empty();
 					$("#scrollscripttest").append("<script> $('.ed-opts-open"+scroll+"').on('click',function(){ $(this).next('.ed-options').toggleClass('active');return false;}); </script>");
 					scroll += 1;
 					scrollcomment += 1;
 				});
-				start += 3;
-				end += 3;
+				
 				
 			},
 			error : function(e) {

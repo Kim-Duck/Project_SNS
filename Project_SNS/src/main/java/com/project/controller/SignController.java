@@ -57,12 +57,12 @@ public class SignController {
 
 	@PostMapping("/index")
 	public String Login() {
-		return "redirect:/mainIndex";
+		return "index";
 	}
 
 	@GetMapping("/index")
 	public String Login_Test() {
-		return "redirect:/mainIndex";
+		return "index";
 	}
 
 	// 로그인 체크
