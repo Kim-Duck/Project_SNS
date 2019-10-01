@@ -147,7 +147,7 @@
 							class="la la-sort-down"></i>
 					</div>
 					<div class="user-account-settingss" id="users">
-						<form name="viewprofile2" action="/sns/Mypage" method="post">
+						<form name="viewprofile2" action="/sns/InfoPage" method="post">
 							<input type="hidden" name="user_id"
 								value="${sessionScope.user.user_id }">
 						</form>

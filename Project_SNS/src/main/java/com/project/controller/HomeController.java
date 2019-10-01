@@ -57,6 +57,8 @@ public class HomeController {
 		session.removeAttribute("main");
 		UserVO vo = signservice.User_Login(user_id);		
 		ArrayList<UserVO> Friend_List = ffservice.Friend_List(user_id);
+		ArrayList<UserVO> Follow_List = ffservice.Follow_List(user_id);
+		ArrayList<UserVO> Follower_List = ffservice.Follower_List(user_id);
 		String another_id = (String)session.getAttribute("another_id");
 		if(another_id!=null) {
 			session.removeAttribute("another_id");
@@ -64,10 +66,13 @@ public class HomeController {
 		session.setAttribute("another_id", user_id);
 		
 		mv.addObject("user_info",vo);		
-		mv.addObject("Friend_List", Friend_List);		
+		mv.addObject("Friend_List", Friend_List);
+		mv.addObject("Follow_List", Follow_List);
+		mv.addObject("Follower_List", Follower_List);
 		
 		mv.setViewName("my-profile-feed");		
 		return mv;
+		
 	}
 	
 	

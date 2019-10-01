@@ -6,8 +6,14 @@ public class BoardVO {
 	private int bnum, unum;
 	private String content, writer, day,user_photo,photo;	
 	private MultipartFile photoFile;
-	
+	private int comment_cnt;
 
+	public int getComment_cnt() {
+		return comment_cnt;
+	}
+	public void setComment_cnt(int comment_cnt) {
+		this.comment_cnt = comment_cnt;
+	}
 	public MultipartFile getPhotoFile() {
 		return photoFile;
 	}

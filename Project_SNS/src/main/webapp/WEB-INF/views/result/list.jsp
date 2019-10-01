@@ -37,9 +37,15 @@
 		</div>
 		<div class="job-status-bar">
 			<ul class="like-com" style="margin-top: 29px">
-				<li><a href="javascript:void(0)" class="com"
-					onclick="commentpopup('${board_list.bnum }')"><i
-						class="fas fa-comment-alt"></i>댓글 갯수</a></li>
+				<li><a href="javascript:void(0)" class="com" onclick="commentpopup('${board_list.bnum }')">
+				<i class="fas fa-comment-alt"></i>
+				<c:if test="${board_list.comment_cnt != 0 }">
+				( ${board_list.comment_cnt } )
+				</c:if>
+				<c:if test="${board_list.comment_cnt == 0 }">
+				댓글을 달아주세요!
+				</c:if>
+				</a></li>
 			</ul>
 			<c:if test="${sessionScope.user.unum != board_list.unum }">
 				<a href="javascript:void(0)" class="com"

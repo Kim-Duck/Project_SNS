@@ -18,16 +18,10 @@ $(function() {
     });	
 
     
-    $("#btnBoardUpdate").click(function(){    	
-    	/*var SubmitBoardUpdate = $("#SubmitBoardUpdate");
-    	SubmitBoardUpdate.attr("action","/sns/boardupdate");
-    	SubmitBoardUpdate.attr("method","POST");
-    	SubmitBoardUpdate.submit();*/
+    $("#btnBoardUpdate").click(function(){   	
+
     	var SubmitBoardUpdate = new FormData($("#SubmitBoardUpdate")[0]);
-/*    	$.post("/sns/boardupdate",SubmitBoardUpdate,function(f){
-    		alert("수정되었습니다.");
-    	});
-    	*/
+
     	$.ajax({
     		type:'post',
     		url:'/sns/boardupdate',

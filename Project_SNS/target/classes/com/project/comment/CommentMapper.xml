@@ -8,11 +8,8 @@ insert into sns_comment values(sns_comment_seq.nextval,#{bnum},#{writer},#{conte
 </insert>
 
 <select id="Comment_List" parameterType="Integer" resultType="com.project.comment.CommentVO">
-select * from sns_comment where bnum = #{bnum} order by day
-</select>
-
-<select id="Comment_List2" parameterType="Integer" resultType="com.project.comment.CommentVO">
-select * from sns_comment where bnum = #{bnum} order by day desc
+<!-- select aa.*, bb.user_photo, bb.user_name from (select * from sns_comment where bnum = #{bnum} order by day) aa, (select user_photo,user_id,user_name from sns_user ) bb where aa.writer = bb.user_id -->
+select * from ( select ROWNUM rnum, aa.*, bb.user_photo, bb.user_name from (select * from sns_comment where bnum = #{bnum} order by day desc) aa, (select user_photo,user_id,user_name from sns_user ) bb where aa.writer = bb.user_id) bb where rnum <![CDATA[ >= ]]> 1 and rnum <![CDATA[ <= ]]> 50
 </select>
 
 </mapper>

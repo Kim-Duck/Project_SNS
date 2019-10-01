@@ -30,7 +30,7 @@ public class CommentController {
 	
 	@ResponseBody
 	@PostMapping("/CommentInsert")
-	public String Comment_Insert(CommentVO vo) {		 
+	public String Comment_Insert(CommentVO vo){		 
 		String user_id = signservice.User_Id(vo.getUnum());
 		if(user_id!=null) {
 			vo.setWriter(user_id);			
@@ -40,8 +40,13 @@ public class CommentController {
 	}
 
 	@PostMapping("/CommentList")
-	public String Comment_List(Model mv,@RequestParam("bnum")int bnum) {		
-		List<CommentVO> comment_list = commentservice.Comment_List(bnum);		
+	public String Comment_List(Model mv,@RequestParam("bnum")int bnum) throws NumberFormatException{		
+		List<CommentVO> comment_list = commentservice.Comment_List(bnum);
+		
+		
+		//Object[] asd = new Object[comment_list.size()];
+		
+		
 		mv.addAttribute("comment_list", comment_list);
 		mv.addAttribute("Board_num", bnum);
 		return "result/comment";

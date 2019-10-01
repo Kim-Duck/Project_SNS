@@ -28,6 +28,12 @@ public interface FfMapper {
 	
 	public void Follow_Insert(@Param("main_id")String main_id,@Param("follow_id")String follow_id);
 	
+	public ArrayList<UserVO> Follow_List(@Param("user_id")String user_id);
+	
+	public ArrayList<UserVO> Follower_List(@Param("user_id")String user_id);
+	
+	public UserVO User_Name(@Param("user_id")String user_id);
+	
 	
 	
 }

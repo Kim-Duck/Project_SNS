@@ -77,7 +77,7 @@
 								<div class="user_profile">
 									<div class="user-pro-img">
 										<img src="resources/images/test/${user_info.user_photo }"
-											alt="">
+											alt="" width="180px" height="180px">
 										<div class="user-specs">
 											<h3>${user_info.user_name }</h3>
 										</div>
@@ -97,7 +97,14 @@
 									</div>
 									<!--user-pro-img end-->
 									<div class="user_pro_status">
+										<ul class="flw-hr">
+											<li><a href="javascript:void(0)" class="flww">Friend<i
+													class="la la-plus"></i></a></li>
+											<li><a href="javascript:void(0)" class="hre">Follow<i
+													class="la la-plus"></i></a></li>
+										</ul>
 										<ul class="flw-status">
+
 											<li><span>Following</span> <b>${user_info.user_following }</b></li>
 											<li><span>Followers</span> <b>${user_info.user_follower }</b></li>
 										</ul>
@@ -105,35 +112,14 @@
 									<!--user_pro_status end-->
 
 								</div>
-								<!--user_profile end-->
-								<div class="suggestions full-width">
-									<div class="sd-title">
-										<h3>Friend List</h3>										
+								<div class="right-sidebar">
+									<div class="widget widget-about">
+										<img src="resources/images/index(rightROGO).png" alt="">
+										<span>자신의 친구를 찾아보세요~</span>
 									</div>
-									<!--sd-title end-->
-									<div class="suggestions-list">
-										<c:if test="${Friend_List.isEmpty() }">
-											<div class="suggestion-usd">
-												<img src="resources/images/resources/s1.png" alt="">
-												<div class="sgt-text">
-													<h4>친구를 추가해주세요</h4>
-													<span>ㅜㅜ</span>
-												</div>
-											</div>
-										</c:if>
-										<c:forEach items="${Friend_List }" var="Friend_List">
-											<div class="suggestion-usd">
-												<img src="resources/images/test/${Friend_List.user_photo }"
-													alt="" width="35px" height="35px">
-												<div class="sgt-text">
-													<h4>${Friend_List.user_name }</h4>
-													<span>: )</span>
-												</div>
-											</div>
-										</c:forEach>
-									</div>
-									<!--suggestions-list end-->
 								</div>
+								<!--user_profile end-->
+
 								<!--suggestions end-->
 							</div>
 							<!--main-left-sidebar end-->
@@ -144,8 +130,8 @@
 								<!--user-tab-sec end-->
 								<div class="product-feed-tab current" id="feed-dd">
 									<div class="posts-section">
-									<div id="boardlist"></div>
-										
+										<div id="boardlist"></div>
+
 										<!--process-comm end-->
 
 										<!--posts-section end-->
@@ -194,33 +180,94 @@
 							</div>
 						</div>
 						<div class="col-lg-3">
-							<div class="right-sidebar">
-								<div class="widget widget-about">
-									<img src="resources/images/index(rightROGO).png" alt="">
-									<span>자신의 친구를 찾아보세요~</span>
-									<div class="sign_link">
-										<form action="/sns/Friend" method="post">
-                    					<input type="hidden" name="user_id" value="${sessionScope.user.user_id }">
-                    					<Button type="submit" onclick="" style="color: white;">친구페이지</Button>
-                    					</form>
-									</div>										
-									</div>
+
+
+							<div class="suggestions full-width">
+								<div class="sd-title">
+									<h3>Friend List</h3>
 								</div>
+								<!--sd-title end-->
+								<div class="suggestions-list">
+									<c:if test="${Friend_List.isEmpty() }">
+										<div class="suggestion-usd">
+											<img src="resources/images/resources/s1.png" alt="">
+											<div class="sgt-text">
+												<h4>친구를 추가해주세요</h4>
+												<span>ㅜㅜ</span>
+											</div>
+										</div>
+									</c:if>
+									<c:forEach items="${Friend_List }" var="Friend_List" end="4">
+										<div class="suggestion-usd" onclick="viewMyFriendProfile('${Friend_List.user_id}')">
+											<img src="resources/images/test/${Friend_List.user_photo }"
+												alt="" width="35px" height="35px">
+											<div class="sgt-text">
+												<h4>${Friend_List.user_name }</h4>
+												<span>: )</span>
+											</div>
+										</div>
+									</c:forEach>
+									<c:if test="${Friend_List.size() > 5 }">
+									<div class="view-more">
+										<a href="javascript:void(0)"
+											onclick="FriendPage('${user_info.user_id}')">View More</a>
+									</div>
+									</c:if>
+								</div>
+								<!--suggestions-list end-->
 							</div>
-							
+
+							<div class="suggestions full-width">
+								<div class="sd-title">
+									<h3>Follow List</h3>
+								</div>
+								<!--sd-title end-->
+								<div class="suggestions-list">
+									<c:if test="${Follow_List.isEmpty() }">
+										<div class="suggestion-usd">
+											<img src="resources/images/resources/s1.png" alt="">
+											<div class="sgt-text">
+												<h4>팔로우를 추가해보세요!</h4>
+												<span>ㅜㅜ</span>
+											</div>
+										</div>
+									</c:if>
+									<c:forEach items="${Follow_List }" var="Follow_List" end="4">
+										<div class="suggestion-usd" onclick="viewMyFriendProfile('${Follow_List.user_id}')">
+											<img src="resources/images/test/${Follow_List.user_photo }"
+												alt="" width="35px" height="35px">
+											<div class="sgt-text">
+												<h4>${Follow_List.user_name }</h4>
+												<span>: )</span>
+											</div>
+										</div>
+									</c:forEach>
+									<c:if test="${Follow_List.size() > 5 || Follower_List.size() > 5 }">
+									<div class="view-more">
+										<a href="javascript:void(0)"
+											onclick="FollowPage('${user_info.user_id}')">View More</a>
+									</div>
+									</c:if>
+									
+								</div>
+								<!--suggestions-list end-->
+							</div>
 						</div>
+
 					</div>
-					<!-- main-section-data end-->
 				</div>
+				<!-- main-section-data end-->
 			</div>
 		</div>
-		</main>
+	</div>
+	</main>
 
-		
+
 
 
 	</div>
 	<!--theme-layout end-->
+
 
 
 

@@ -95,7 +95,7 @@
 			</div>
 		</section>
 		<!--companies-info end-->
-		<%@ include file="Footer.jsp"%>
+		
 
 	</div>
 	<!--theme-layout end-->
