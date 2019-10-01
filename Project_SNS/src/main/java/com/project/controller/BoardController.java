@@ -6,26 +6,28 @@ import java.util.UUID;
 
 import javax.annotation.Resource;
 import javax.inject.Inject;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.http.HttpRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
-import org.springframework.web.bind.annotation.GetMapping;
+
 
 import org.springframework.web.bind.annotation.PostMapping;
 
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import org.springframework.web.servlet.ModelAndView;
+
 
 import com.project.board.BoardServiceImpl;
 import com.project.board.BoardVO;
 import com.project.comment.CommentServiceImpl;
-import com.project.comment.CommentVO;
+
 import com.project.sign.SignServiceImpl;
 import com.project.sign.UserVO;
 
@@ -37,15 +39,13 @@ public class BoardController {
 
 	@Inject
 	private BoardServiceImpl service;
-	
 
 	@Inject
 	private SignServiceImpl signservice;
-	
+
 	@Inject
 	private CommentServiceImpl commentservice;
 
-	
 	@PostMapping("/boardinsert")
 	public String Board_Insert(BoardVO vo) throws Exception {
 		String savedName = "";
@@ -76,20 +76,43 @@ public class BoardController {
 		service.Board_Update(vo);
 		return "index";
 	}
-	
-	
+
 	@PostMapping("/boardlist")
-	public String Board_List(HttpServletRequest request,Model mv,@RequestParam("start")int start, @RequestParam("end")int end) {
+	public String Board_List(HttpServletRequest request, HttpServletResponse response, Model mv,
+			@RequestParam("start") int start, @RequestParam("end") int end) {
+
 		HttpSession session = request.getSession();
-		UserVO vo = (UserVO) session.getAttribute("user");		
+		UserVO vo = (UserVO) session.getAttribute("user");
 		List<BoardVO> board_list = service.Board_List(start, end, vo.getUser_id());
-		
+		String main = (String) session.getAttribute("main");
+		String another_id = (String) session.getAttribute("another_id");
+		if (main == null) {
+			if (another_id != null) {
+				// 자신의 페이지
+				if (vo.getUser_id().equals(another_id)) {
+					List<BoardVO> board_List_Self = service.Board_List_Self(start, end, vo.getUser_id());
+					mv.addAttribute("board_list", board_List_Self);
+					return "result/list";
+				}
+				// 다른사람 페이지
+				else {
+					List<BoardVO> board_List_Self = service.Board_List_Self(start, end, another_id);
+					mv.addAttribute("board_list", board_List_Self);
+					return "result/list";
+				}
+			}
+		}
+
+		// 메인페이지에서 친구X 팔로우X 이고 자기게시글만 있을때
 		if (board_list.isEmpty()) {
-			List<BoardVO> board_List_Self = service.Board_List_Self(start, end, vo.getUser_id());			
+			List<BoardVO> board_List_Self = service.Board_List_Self(start, end, vo.getUser_id());
 			mv.addAttribute("board_list", board_List_Self);
-		} else {			
+		}
+		// 메인페이지에 전부뽑기
+		else {
 			mv.addAttribute("board_list", board_list);
-		}				
+		}
+
 		return "result/list";
 	}
 

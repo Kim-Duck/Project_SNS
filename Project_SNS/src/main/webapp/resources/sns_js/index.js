@@ -16,7 +16,6 @@ $(function() {
         $(".wrapper").removeClass("overlay");
         return false;
     });	
-   
 
     
     $("#btnBoardUpdate").click(function(){    	
@@ -225,7 +224,7 @@ function handleImgFileSelect2(e) {
 
 
 
-var boardhtml = "";
+
 
 $(window).scroll(function() {	
 	if ($(window).scrollTop()+$(window).height() + 30 > $(document).height()) {

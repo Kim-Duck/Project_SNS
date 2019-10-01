@@ -1,4 +1,13 @@
+var scroll = 1;
+var start = 1;
+var end = 3;
+var scrollcomment = 4;
+var boardnum = 0;
+var scrolltest = 0;
+
 $(function() {
+	
+	boardlist();
 	
     $("#btnBoardUpdate").click(function(){    	
     	var SubmitBoardUpdate = $("#SubmitBoardUpdate");
@@ -58,6 +67,18 @@ $(function() {
 	})
 
 })
+
+function boardlist(){	
+	$.post("/sns/boardlist",{"start":start,"end":end},function(s){
+		$("#boardlist").append(s);
+	});
+	start += 3;
+	end += 3;
+}
+
+function edoptsopen(index){	
+	$(".ed-options.testtest"+index+"").toggleClass("active");
+}
 
 function BoardUpdate(boardnum,boardunum,unum){	
 	if(boardunum!=unum){
@@ -122,6 +143,10 @@ function handleImgFileSelect3(e) {
 }
 
 function commentpopup(index){
+	$.post("/sns/CommentList",{"bnum":index},function(s){
+		$("#commentlist"+index+"").empty();
+		$("#commentlist"+index+"").append(s);
+	});
     if($(".comment-popup"+index+"").css("display")=="none"){	      
 	      $(".comment-popup"+index+"").css("display","block");
 	      $(".baselist"+index+"").addClass("no-margin");
@@ -131,14 +156,13 @@ function commentpopup(index){
 	    }
 }
 
-var scroll = 1;
-var start = 4;
-var end = 6;
-var scrollcomment = 4;
-var boardnum = 0;
-var scrolltest = 0;
-var boardhtml = "";
 $(window).scroll(function() {	
+	if ($(window).scrollTop()+$(window).height() + 10 > $(document).height()) {
+		boardlist();
+	};
+});
+
+/*$(window).scroll(function() {	
 	if ($(window).scrollTop()+$(window).height() + 10 > $(document).height()) {
 		if(scrolltest==start){
 			return;
@@ -231,4 +255,4 @@ $(window).scroll(function() {
 		})
 
 	}
-});
+});*/

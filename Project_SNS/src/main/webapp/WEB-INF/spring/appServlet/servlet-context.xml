@@ -40,7 +40,7 @@
 
 	<beans:bean id="uploadPath" class="java.lang.String">
 		<!-- 업로드되는 경로, 아파치서버로 지정하기 -->
-		<beans:constructor-arg value="/C:/Users/it/git/Project_SNS/Project_SNS/src/main/webapp/resources/images/test/"></beans:constructor-arg>
+		<beans:constructor-arg value="/C:/Users/tjdrb_z8oh/git/Project_SNS/Project_SNS/src/main/webapp/resources/images/test/"></beans:constructor-arg>
 		
 	</beans:bean>
 

@@ -6,7 +6,9 @@ import java.util.Locale;
 
 import javax.annotation.Resource;
 import javax.inject.Inject;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.annotations.Param;
@@ -48,18 +50,23 @@ public class HomeController {
 		
 	}	
 	
-	//마이페이지
-	@PostMapping("/Mypage")
-	public ModelAndView Mypage(ModelAndView mv,@RequestParam("user_id") String user_id) {		
-		UserVO vo = signservice.User_Login(user_id);
-		List<BoardVO> board_list_self = boardservice.Board_List_Self(1, 3,vo.getUser_id());
+	//InfoPage
+	@PostMapping("/InfoPage")
+	public ModelAndView Mypage(HttpServletResponse response,HttpServletRequest request,ModelAndView mv,@RequestParam("user_id") String user_id) {
+		HttpSession session = request.getSession();
+		session.removeAttribute("main");
+		UserVO vo = signservice.User_Login(user_id);		
 		ArrayList<UserVO> Friend_List = ffservice.Friend_List(user_id);
+		String another_id = (String)session.getAttribute("another_id");
+		if(another_id!=null) {
+			session.removeAttribute("another_id");
+		}
+		session.setAttribute("another_id", user_id);
 		
 		mv.addObject("user_info",vo);		
-		mv.addObject("Friend_List", Friend_List);
+		mv.addObject("Friend_List", Friend_List);		
 		
-		mv.addObject("board_list", board_list_self);
-		mv.setViewName("my-profile-feed");
+		mv.setViewName("my-profile-feed");		
 		return mv;
 	}
 	
