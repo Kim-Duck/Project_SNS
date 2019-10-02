@@ -18,13 +18,17 @@ public class CommentServiceImpl implements CommentService{
 	}
 
 	@Override
-	public List<CommentVO> Comment_List(int bnum) {
-		return mapper.Comment_List(bnum);
+	public List<CommentVO> Comment_List(int bnum,int start, int end) {
+		return mapper.Comment_List(bnum,start,end);
 	}
-	
+
 	@Override
-	public List<CommentVO> Comment_List2(int bnum) {
-		return mapper.Comment_List2(bnum);
+	public int Comment_Size(int bnum) {
+		return mapper.Comment_Size(bnum);
 	}
+
+
+	
+
 
 }

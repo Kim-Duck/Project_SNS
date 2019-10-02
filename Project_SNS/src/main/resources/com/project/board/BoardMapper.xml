@@ -8,7 +8,7 @@
 insert into SNS_BOARD(BNUM,PHOTO,CONTENT,WRITER,DAY,UNUM) values(SNS_BOARD_SEQ.NEXTVAL,#{photo, jdbcType=VARCHAR},#{content},#{writer},sysdate,#{unum})
 </insert>
 <select id="Board_List" resultType="com.project.board.BoardVO">
-select * from ( select ROWNUM rnum,ab.* from ( select sns_board.bnum, sns_board.photo, sns_board.content, sns_board.writer, sns_board.day, sns_board.unum, sns_user.user_photo, (select count(*) from sns_comment where bnum = sns_board.bnum) as comment_cnt  from ( select friend_id from sns_friend where main_id = #{user_id} union select friend_id from sns_friend where friend_id = #{user_id} ) aa, sns_board, sns_user where sns_board.unum = sns_user.unum and sns_user.user_id = friend_id order by sns_board.day desc ) ab where ROWNUM <![CDATA[ >=  ]]> 1 )  where rnum <![CDATA[ >=  ]]>#{start}and rnum <![CDATA[<= ]]> #{end}
+select * from ( select ROWNUM rnum,ab.* from ( select sns_board.bnum, sns_board.photo, sns_board.content, sns_board.writer, sns_board.day, sns_board.unum, sns_user.user_photo, (select count(*) from sns_comment where bnum = sns_board.bnum) as comment_cnt  from ( select friend_id from sns_friend where main_id = #{user_id} union select friend_id from sns_friend where friend_id = #{user_id} union select follow_id as friend_id from sns_follow where main_id=#{user_id} union select #{user_id} as friend_id from sns_follow where main_id = #{user_id}) aa, sns_board, sns_user where sns_board.unum = sns_user.unum and sns_user.user_id = friend_id order by sns_board.day desc ) ab where ROWNUM <![CDATA[ >=  ]]> 1 )  where rnum <![CDATA[ >=  ]]>#{start}and rnum <![CDATA[<= ]]> #{end}
 </select>
 
 <select id="Board_List_Self" resultType="com.project.board.BoardVO">

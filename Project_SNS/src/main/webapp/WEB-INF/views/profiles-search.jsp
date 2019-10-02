@@ -48,8 +48,14 @@
 							<div class="col-lg-3 col-md-4 col-sm-6 col-12">
 								<div class="company_profile_info">
 									<div class="company-up-info">
-										<img src="resources/images/test/${User_List.user_photo }"
-											alt="">
+										<c:if test="${User_List.user_photo == null }">
+											<img src="resources/images/test/null.png" width="90px" height="90px">
+										</c:if>
+										<c:if test="${User_List.user_photo != null }">
+											<img src="resources/images/test/${User_List.user_photo }" width="90px" height="90px">
+										</c:if>
+										
+										
 										<h3>${User_List.user_name }</h3>
 										<ul>
 											<c:if test="${User_List.friend_check == 'Request-Ing' }">

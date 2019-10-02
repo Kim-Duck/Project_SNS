@@ -29,6 +29,8 @@
 <link rel="stylesheet" type="text/css" href="resources/css/style.css">
 <link rel="stylesheet" type="text/css"
 	href="resources/css/responsive.css">
+	
+
 </head>
 <body>
 
@@ -67,34 +69,34 @@
 										<li>
 											<h4>Followers</h4> <span>${sessionScope.user.user_follower }</span>
 										</li>
-										
+
 										<li>
-										<form name="viewprofile" action="/sns/InfoPage" method="post">
-										<input type="hidden" name="user_id" value="${sessionScope.user.user_id }">										
-										</form>
-										<a href="javascript:void(0)" id="viewprofile">View Profile</a>
+											<form name="viewprofile" action="/sns/InfoPage" method="post">
+												<input type="hidden" name="user_id"
+													value="${sessionScope.user.user_id }">
+											</form> <a href="javascript:void(0)" id="viewprofile">View
+												Profile</a>
 										</li>
 									</ul>
 								</div>
 								<!--user-data end-->
-								
+
 								<!--suggestions end-->
 								<div class="tags-sec full-width">
-									<ul>
-										<li><a href="#" title="">Help Center</a></li>
-										<li><a href="#" title="">About</a></li>
-										<li><a href="#" title="">Privacy Policy</a></li>
-										<li><a href="#" title="">Community Guidelines</a></li>
-										<li><a href="#" title="">Cookies Policy</a></li>
-										<li><a href="#" title="">Career</a></li>
-										<li><a href="#" title="">Language</a></li>
-										<li><a href="#" title="">Copyright Policy</a></li>
+									<ul style="font-size: 14px;">
+										<li>COMPANY : SPACE SNS</li>
+										<li>ADDRESS : 부산파이낸스센터 402호</li>
+										<li></li>
+										<li>TEL : 051-753-5600</li>
+										<li></li>																				
+										<li>E-MAIL : space@space.sns</li>
+
 									</ul>
 									<div class="cp-sec">
-										<img src="resources/images/index(rightROGO).png" alt="" width="88px" height="17px">
+										<img src="resources/images/index(leftLOGO).png" width="90px"
+											height="25px">
 										<p>
-											<img src="resources/images/cp.png" alt="">Copyright
-											2019
+											<img src="resources/images/cp.png"> Copyright 2019
 										</p>
 									</div>
 								</div>
@@ -105,21 +107,26 @@
 						<div class="col-lg-6 col-md-8 no-pd">
 							<div class="main-ws-sec">
 								<div class="post-topbar">
+
+									<input type="text"
+										placeholder="${sessionScope.user.user_name }님의 생각을 적어주세요."
+										style="margin-top: 15px; background-color: transparent; border: 0 solid black; text-align: left; width: 250px; margin-right: 15px;">
+
 									<div class="post-st">
 										<ul>
-											<li><a class="post-jb active" href="#" title="">나의
-													생각은?</a></li>
+											<li><a class="post-jb active" href="javascript:void(0)"
+												id="btnPostMain" style="border-radius: 5px;">나의 생각은?</a></li>
 										</ul>
 									</div>
+
 									<!--post-st end-->
 								</div>
 								<!--post-topbar end-->
 								<div class="posts-section">
-
 									<!--post-bar end-->
-									<div class="top-profiles">
+									<!-- <div class="top-profiles">
 										<div class="pf-hd">
-											<h3>Top Followers</h3>											
+											<h3>Top Followers</h3>
 										</div>
 										<div class="profiles-slider">
 											<div class="user-profy">
@@ -134,7 +141,7 @@
 												</ul>
 												<a href="#" title="">View Profile</a>
 											</div>
-											<!--user-profy end-->
+											user-profy end
 											<div class="user-profy">
 												<img src="resources/images/resources/user2.png" alt="">
 												<h3>John Doe</h3>
@@ -147,7 +154,7 @@
 												</ul>
 												<a href="#" title="">View Profile</a>
 											</div>
-											<!--user-profy end-->
+											user-profy end
 											<div class="user-profy">
 												<img src="resources/images/resources/user3.png" alt="">
 												<h3>John Doe</h3>
@@ -160,7 +167,7 @@
 												</ul>
 												<a href="#" title="">View Profile</a>
 											</div>
-											<!--user-profy end-->
+											user-profy end
 											<div class="user-profy">
 												<img src="resources/images/resources/user1.png" alt="">
 												<h3>John Doe</h3>
@@ -173,7 +180,7 @@
 												</ul>
 												<a href="#" title="">View Profile</a>
 											</div>
-											<!--user-profy end-->
+											user-profy end
 											<div class="user-profy">
 												<img src="resources/images/resources/user2.png" alt="">
 												<h3>John Doe</h3>
@@ -186,7 +193,7 @@
 												</ul>
 												<a href="#" title="">View Profile</a>
 											</div>
-											<!--user-profy end-->
+											user-profy end
 											<div class="user-profy">
 												<img src="resources/images/resources/user3.png" alt="">
 												<h3>John Doe</h3>
@@ -199,15 +206,14 @@
 												</ul>
 												<a href="#" title="">View Profile</a>
 											</div>
-											<!--user-profy end-->
+											user-profy end
 										</div>
-										<!--profiles-slider end-->
-									</div>
-									<div id="boardlist">
-									</div>
+										profiles-slider end
+									</div> -->
+									<div id="boardlist"></div>
 									<!--top-profiles end-->
-									<!--post-bar end-->		
-									<!--process-comm end-->									
+									<!--post-bar end-->
+									<!--process-comm end-->
 								</div>
 								<!--posts-section end-->
 							</div>
@@ -217,26 +223,47 @@
 							<div class="right-sidebar">
 								<div class="widget widget-about">
 									<img src="resources/images/index(rightROGO).png" alt="">
-                  					<span>자신의 친구를 찾아보세요~</span>
+									<span>자신의 친구를 찾아보세요~</span>
 									<div class="sign_link">
 										<form action="/sns/Friend" method="post">
-                    					<input type="hidden" name="user_id" value="${sessionScope.user.user_id }">
-                    					<Button type="submit" onclick="" style="color: white;">친구페이지</Button>
-                    					</form>
+											<input type="hidden" name="user_id"
+												value="${sessionScope.user.user_id }">
+											<Button type="submit" onclick="" style="color: white;">친구페이지</Button>
+										</form>
 									</div>
-								</div> 
+								</div>
 								<!--widget-about end-->
-								
+								<div class="tags-sec full-width">
+									<ul style="font-size: 14px;">
+										<li><a href="http://www.naver.com" target="_blank">#네이버</a></li>
+										<li><a href="http://www.google.com" target="_blank">#구글</a></li>
+										<li><a href="http://www.daum.net" target="_blank">#다음</a></li>
+										<br>
+										<br>
+										<li>만든이</li>
+										<br> 권성규 &nbsp; 김규희 &nbsp;&nbsp;송영철&nbsp;&nbsp; 김동민
+										<br>
+										<br>
+									</ul>
+									<div class="cp-sec">
+										<img src="resources/images/index(leftLOGO).png" width="90px"
+											height="25px">
+										<p>
+											<img src="resources/images/cp.png"> Copyright 2019
+										</p>
+									</div>
+								</div>
+								<!--tags-sec end-->
 								<!--widget-jobs end-->
-								
+
 								<!--widget-jobs end-->
-								
+
 							</div>
 							<!--right-sidebar end-->
 						</div>
-						
+
 					</div>
-					
+
 				</div>
 				<!-- main-section-data end-->
 			</div>
@@ -342,7 +369,7 @@
 			</div>
 			<!--post-project end-->
 		</div>
-		<div class="post-popup job_post">
+		<div class="post-popup job_post post-main">
 			<div class="post-project">
 				<h3>게시글 쓰기</h3>
 				<div class="post-project-fields">
@@ -383,26 +410,16 @@
 		</div>
 		<!--post-project-popup end-->
 
-
-
-		
 	</div>
 	<!--theme-layout end-->
-
-
-
-	<script type="text/javascript" src="resources/js/jquery.min.js"></script>
+	<script type="text/javascript" src="resources/js/jquery.min.js"></script>	
 	<script type="text/javascript" src="resources/js/popper.js"></script>
 	<script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
-	<script type="text/javascript"
-		src="resources/js/jquery.mCustomScrollbar.js"></script>
+	<script type="text/javascript" src="resources/js/jquery.mCustomScrollbar.js"></script>
 	<script type="text/javascript" src="resources/lib/slick/slick.min.js"></script>
 	<script type="text/javascript" src="resources/js/scrollbar.js"></script>
 	<script type="text/javascript" src="resources/js/script.js"></script>
-	
 	<script type="text/javascript" src="resources/sns_js/index.js?ver=123"></script>
-	
-  
 
 </body>
 </html>

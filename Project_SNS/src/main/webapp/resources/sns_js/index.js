@@ -12,10 +12,17 @@ $(function() {
 	$("#boardinputImg2").on("change", handleImgFileSelect2);
 	
     $("#btnPostClose").click(function(){    	
-        $(".post-popup.job_post").removeClass("active");
+        $(".post-popup.job_post.post-main").removeClass("active");
         $(".wrapper").removeClass("overlay");
         return false;
-    });	
+    });
+    
+    $("#btnPostMain").click(function() {
+    	$(".post-popup.job_post.post-main").addClass("active");
+        $(".wrapper").addClass("overlay");
+        return false;
+	})
+    
 
     
     $("#btnBoardUpdate").click(function(){   	
@@ -52,9 +59,7 @@ $(function() {
     	document.viewprofile.submit();
 	});
        
-
-    
-    
+        
 });
 var scroll = 1;
 var start = 1;
@@ -69,9 +74,14 @@ function btnCommentInsert(bnum){
 		url:'/sns/CommentInsert',
 		data: {"bnum":bnum,"writer":$("#comment_writer").val(),"content":$("#comment_content").val()},
 		success:function(s){	
-			$.post("/sns/CommentList",{"bnum":bnum},function(ff){
+			$.post("/sns/CommentList",{"bnum":bnum,"commentstart":1,"commentend":5},function(ff){
 				$("#commentlist"+bnum+"").empty();
 				$("#commentlist"+bnum+"").append(ff);
+				commentstart = 6;
+				commentend = 10;
+				var comment_cnt = s.trim();
+				$("#comment_count"+bnum+"").empty();
+				$("#comment_count"+bnum+"").append("( "+comment_cnt+" )");
 			});
 		},
 		error:function(e){
@@ -113,13 +123,22 @@ function follow(mainid,followunum){
 	}
 }
 
-function edoptsopen(index){	
-	alert(index);
-	$(".ed-options.testtest"+index+"").toggleClass("active");
+function edoptsopen(index){
+	
+	$(".ed-options.showbtn"+index+"").toggleClass("active");
+	
+/*	if($(".ed-options.showbtn"+index+"").css("visibility")=="hidden"){
+		$(".ed-options.showbtn"+index+"").css("visibility","visible");
+		$(".ed-options.showbtn"+index+"").toggleClass("active");
+	}else{
+		$(".ed-options.showbtn"+index+"").css("visibility","hidden");
+		$(".ed-options.showbtn"+index+"").toggleClass("active");
+	}*/
 }
 
+
 function commentpopup(index){
-	$.post("/sns/CommentList",{"bnum":index},function(s){
+	$.post("/sns/CommentList",{"bnum":index,"commentstart":1,"commentend":5},function(s){
 		$("#commentlist"+index+"").empty();
 		$("#commentlist"+index+"").append(s);
 	});
@@ -131,6 +150,7 @@ function commentpopup(index){
 	      $(".baselist"+index+"").removeClass("no-margin");
 	    }
 }
+
 
 function BoardUpdate(boardnum,boardunum,unum){	
 	if(boardunum!=unum){
@@ -216,6 +236,20 @@ function handleImgFileSelect2(e) {
     });
 }
 
+
+var commentstart = 6;
+var commentend = 10;
+function Comment_Paging(bnum,size){	
+	$.post("/sns/CommentList",{"bnum":bnum,"commentstart":commentstart,"commentend":commentend},function(s){
+		$("#comment_page").append(s);
+	});
+	
+	if(size < commentend){		
+		$("#comment_plus").remove();
+	}
+	commentstart += 5;
+	commentend += 5;
+}
 
 
 

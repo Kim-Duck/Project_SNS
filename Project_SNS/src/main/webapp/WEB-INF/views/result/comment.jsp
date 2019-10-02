@@ -15,9 +15,7 @@
 		</form>
 	</div>
 </div>
-
-	<ul>
-	
+	<ul>	
 		<c:forEach items="${comment_list }" var="comment_list">
 			<li>
 				<div class="comment-area">
@@ -30,17 +28,18 @@
 								<span><img src="resources/images/clock.png" alt="">${comment_list.day }</span>
 							</div>
 						</div>
-					</div>
-					<div class="reply-area">
-						<p>${comment_list.content }</p>
-					</div>
+					</div>					
+					<div class="reply-area"> <p>${comment_list.content }</p> </div>					
 				</div>
 			</li>
 		</c:forEach>
-		
+		<div id="comment_page"></div>	
 	</ul>
-	<a href="javascript:void(0)" class="plus-ic"><i class="la la-plus"></i>
-	</a>
+	<c:if test="${comment_size > 5 }">
+	<div id="comment_plus">
+	<a href="javascript:void(0)" class="plus-ic" onclick="Comment_Paging('${Board_num}','${comment_size }')"><i class="la la-plus"></i></a>
+	</div>
+	</c:if>
 </div>
 <!--comment-sec end-->
 

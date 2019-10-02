@@ -104,12 +104,12 @@ public class BoardController {
 		}
 
 		// 메인페이지에서 친구X 팔로우X 이고 자기게시글만 있을때
-		if (board_list.isEmpty()) {
+		if (board_list.isEmpty()) {			
 			List<BoardVO> board_List_Self = service.Board_List_Self(start, end, vo.getUser_id());
 			mv.addAttribute("board_list", board_List_Self);
 		}
 		// 메인페이지에 전부뽑기
-		else {
+		else {			
 			mv.addAttribute("board_list", board_list);
 		}
 

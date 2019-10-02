@@ -73,11 +73,17 @@
 				<div class="main-section-data">
 					<div class="row">
 						<div class="col-lg-3">
-							<div class="main-left-sidebar">
+							<div class="main-left-sidebar" style="width: 260px;">
 								<div class="user_profile">
 									<div class="user-pro-img">
-										<img src="resources/images/test/${user_info.user_photo }"
-											alt="" width="180px" height="180px">
+									
+									<c:if test="${user_info.user_photo == null }">
+										<img src="resources/images/test/null.png" alt="" width="180px" height="180px">
+									</c:if>
+									<c:if test="${user_info.user_photo != null }">
+										<img src="resources/images/test/${user_info.user_photo }" alt="" width="180px" height="180px">
+									</c:if>
+										
 										<div class="user-specs">
 											<h3>${user_info.user_name }</h3>
 										</div>

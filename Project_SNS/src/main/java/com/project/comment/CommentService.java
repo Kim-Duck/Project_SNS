@@ -6,8 +6,10 @@ public interface CommentService {
 	
 	public void Comment_Insert(CommentVO vo);
 	
-	public List<CommentVO> Comment_List(int bnum);
+	public List<CommentVO> Comment_List(int bnum,int start,int end);
 	
-	public List<CommentVO> Comment_List2(int bnum);
+	public int Comment_Size(int bnum);
+	
+	
 
 }

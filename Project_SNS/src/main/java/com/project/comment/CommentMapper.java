@@ -7,7 +7,8 @@ import org.apache.ibatis.annotations.Param;
 public interface CommentMapper {
 	public void Comment_Insert(CommentVO vo);
 	
-	public List<CommentVO> Comment_List(@Param("bnum")int bnum);
+	public List<CommentVO> Comment_List(@Param("bnum")int bnum,@Param("start")int start,@Param("end")int end);
 	
-	public List<CommentVO> Comment_List2(@Param("bnum") int bnum);
+	public int Comment_Size(@Param("bnum") int bnum);
+	
 }

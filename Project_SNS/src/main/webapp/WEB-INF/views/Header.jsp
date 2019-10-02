@@ -32,107 +32,12 @@
 				<!--search-bar end-->
 				<nav>
 					<ul>
-						<li><a href="/sns/index" title=""> <span><img
-									src="resources/images/icon1.png" alt=""></span> Home
-						</a></li>
+            <li><a href="/sns/index" title=""> <span><img
+                  src="resources/images/icon1.png" style="margin-top: 2px;" alt=""></span> Home
+            </a></li>
 
-
-						<li>
-							<div class="notification-box msg" id="message">
-								<div class="nt-title">
-									<h4>Setting</h4>
-									<a href="#" title="">Clear all</a>
-								</div>
-								<div class="nott-list">
-									<div class="notfication-details">
-										<div class="noty-user-img">
-											<img src="resources/images/resources/ny-img1.png" alt="">
-										</div>
-										<div class="notification-info">
-											<h3>
-												<a href="messages.html" title="">Jassica William</a>
-											</h3>
-											<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-												elit, sed do.</p>
-											<span>2 min ago</span>
-										</div>
-										<!--notification-info -->
-									</div>
-									<div class="notfication-details">
-										<div class="noty-user-img">
-											<img src="resources/images/resources/ny-img2.png" alt="">
-										</div>
-										<div class="notification-info">
-											<h3>
-												<a href="messages.html" title="">Jassica William</a>
-											</h3>
-											<p>Lorem ipsum dolor sit amet.</p>
-											<span>2 min ago</span>
-										</div>
-										<!--notification-info -->
-									</div>
-
-									<div class="nott-list">
-										<div class="notfication-details">
-											<div class="noty-user-img">
-												<img src="resources/images/resources/ny-img1.png" alt="">
-											</div>
-											<div class="notification-info">
-												<h3>
-													<a href="#" title="">Jassica William</a> Comment on your
-													project.
-												</h3>
-												<span>2 min ago</span>
-											</div>
-											<!--notification-info -->
-										</div>
-										<div class="notfication-details">
-											<div class="noty-user-img">
-												<img src="resources/images/resources/ny-img2.png" alt="">
-											</div>
-											<div class="notification-info">
-												<h3>
-													<a href="#" title="">Jassica William</a> Comment on your
-													project.
-												</h3>
-												<span>2 min ago</span>
-											</div>
-											<!--notification-info -->
-										</div>
-										<div class="notfication-details">
-											<div class="noty-user-img">
-												<img src="resources/images/resources/ny-img3.png" alt="">
-											</div>
-											<div class="notification-info">
-												<h3>
-													<a href="#" title="">Jassica William</a> Comment on your
-													project.
-												</h3>
-												<span>2 min ago</span>
-											</div>
-											<!--notification-info -->
-										</div>
-										<div class="notfication-details">
-											<div class="noty-user-img">
-												<img src="resources/images/resources/ny-img2.png" alt="">
-											</div>
-											<div class="notification-info">
-												<h3>
-													<a href="#" title="">Jassica William</a> Comment on your
-													project.
-												</h3>
-												<span>2 min ago</span>
-											</div>
-											<!--notification-info -->
-										</div>
-										<div class="view-all-nots">
-											<a href="#" title="">View All Notification</a>
-										</div>
-									</div>
-									<!--nott-list end-->
-								</div>
-								<!--notification-box end--></li>
-					</ul>
+             
+          </ul>
 				</nav>
 				<!--nav end-->
 				<div class="menu-btn">

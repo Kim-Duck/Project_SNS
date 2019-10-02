@@ -27,7 +27,6 @@ select sns_user.* from (select main_id from sns_friendrequest where friend_id = 
 
 <select id="Friend_Request_Ing" parameterType="String" resultType="com.project.sign.UserVO">
 select sns_user.* from (select friend_id from sns_friendrequest where main_id=#{user_id}) aa, sns_user where friend_id = sns_user.user_id
-
 </select>
 
 <delete id="Friend_Agree" parameterType="String">

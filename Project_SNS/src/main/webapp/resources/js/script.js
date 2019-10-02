@@ -20,7 +20,7 @@ $(window).on("load", function() {
     //  ============= POST JOB POPUP FUNCTION =========
 
     $(".post-jb").on("click", function(){
-        $(".post-popup.job_post").addClass("active");
+        $(".post-popup.job_post.post-main").addClass("active");
         $(".wrapper").addClass("overlay");
         return false;
     });
@@ -205,10 +205,10 @@ $(window).on("load", function() {
     //  ================== Edit Options Function =================
 
 
-    $(".ed-opts-open").on("click", function(){
+/*    $(".ed-opts-open").on("click", function(){
         $(this).next(".ed-options").toggleClass("active");
         return false;
-    });
+    });*/
 
 
     // ============== Menu Script =============

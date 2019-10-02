@@ -78,7 +78,7 @@ public class HomeController {
 		String[] Follow_Check = ffservice.Follow_Check(session_user_id);
 		
 		for(int i = 0;i<User_List_Friend.length;i++) {
-			if(User_List_Friend[i].equals(session_user_id)) {
+			if(User_List_Friend[i].equals(user_id)) {
 				FriendCheck = "y";				
 			}
 		}

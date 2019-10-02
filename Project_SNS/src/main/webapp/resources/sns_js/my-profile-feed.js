@@ -135,7 +135,7 @@ function viewMyFriendProfile(user_id){
 }
 
 function edoptsopen(index){	
-	$(".ed-options.testtest"+index+"").toggleClass("active");
+	$(".ed-options.showbtn"+index+"").toggleClass("active");
 }
 
 function FriendRequest(main_id,friend_id){
@@ -209,7 +209,7 @@ function handleImgFileSelect3(e) {
 }
 
 function commentpopup(index){
-	$.post("/sns/CommentList",{"bnum":index},function(s){
+	$.post("/sns/CommentList",{"bnum":index,"commentstart":1,"commentend":5},function(s){
 		$("#commentlist"+index+"").empty();
 		$("#commentlist"+index+"").append(s);
 	});
@@ -221,6 +221,44 @@ function commentpopup(index){
 	      $(".baselist"+index+"").removeClass("no-margin");
 	    }
 }
+
+var commentstart = 6;
+var commentend = 10;
+function Comment_Paging(bnum,size){	
+	$.post("/sns/CommentList",{"bnum":bnum,"commentstart":commentstart,"commentend":commentend},function(s){
+		$("#comment_page").append(s);
+	});
+	
+	if(size <= commentend){		
+		$("#comment_plus").remove();
+	}
+	commentstart += 5;
+	commentend += 5;
+}
+
+function btnCommentInsert(bnum){
+	$.ajax({
+		type:'post',
+		url:'/sns/CommentInsert',
+		data: {"bnum":bnum,"writer":$("#comment_writer").val(),"content":$("#comment_content").val()},
+		success:function(s){	
+			$.post("/sns/CommentList",{"bnum":bnum,"commentstart":1,"commentend":5},function(ff){
+				$("#commentlist"+bnum+"").empty();
+				$("#commentlist"+bnum+"").append(ff);
+				commentstart = 6;
+				commentend = 10;
+				var comment_cnt = s.trim();
+				$("#comment_count"+bnum+"").empty();
+				$("#comment_count"+bnum+"").append("( "+comment_cnt+" )");
+			});
+		},
+		error:function(e){
+			alert(e);
+			return;
+		}
+	})
+}
+
 
 $(window).scroll(function() {	
 	if ($(window).scrollTop()+$(window).height() + 10 > $(document).height()) {
