@@ -6,7 +6,9 @@ import java.util.Locale;
 
 import javax.annotation.Resource;
 import javax.inject.Inject;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.annotations.Param;
@@ -41,6 +43,8 @@ public class HomeController {
 	
 	@Inject
 	private FfServiceImpl ffservice;
+	
+	
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
@@ -48,19 +52,59 @@ public class HomeController {
 		
 	}	
 	
-	//마이페이지
-	@PostMapping("/Mypage")
-	public ModelAndView Mypage(ModelAndView mv,@RequestParam("user_id") String user_id) {		
-		UserVO vo = signservice.User_Login(user_id);
-		List<BoardVO> board_list_self = boardservice.Board_List_Self(1, 3,vo.getUser_id());
+	//InfoPage
+	@PostMapping("/InfoPage")
+	public ModelAndView Mypage(HttpServletResponse response,HttpServletRequest request,ModelAndView mv,@RequestParam("user_id") String user_id) {
+		HttpSession session = request.getSession();
+		session.removeAttribute("main");
+		UserVO vo = signservice.User_Login(user_id);		
 		ArrayList<UserVO> Friend_List = ffservice.Friend_List(user_id);
+		ArrayList<UserVO> Follow_List = ffservice.Follow_List(user_id);
+		ArrayList<UserVO> Follower_List = ffservice.Follower_List(user_id);
+		String another_id = (String)session.getAttribute("another_id");
+		if(another_id!=null) {
+			session.removeAttribute("another_id");
+		}
+		session.setAttribute("another_id", user_id);
 		
-		mv.addObject("user_info",vo);		
+		UserVO session_user = (UserVO)session.getAttribute("user");
+		String session_user_id = session_user.getUser_id();
+		
+		String FriendCheck = "n";
+		String FollowCheck = "n";
+		
+		String[] User_List_Friend = ffservice.User_List_Friend(session_user_id);
+		ArrayList<UserVO> Friend_Request_Ing = ffservice.Friend_Request_Ing(session_user_id);
+		String[] Follow_Check = ffservice.Follow_Check(session_user_id);
+		
+		for(int i = 0;i<User_List_Friend.length;i++) {
+			if(User_List_Friend[i].equals(session_user_id)) {
+				FriendCheck = "y";				
+			}
+		}
+		for(int i = 0;i<Friend_Request_Ing.size();i++) {			
+			if(Friend_Request_Ing.get(i).getUser_id().equals(user_id)) {
+				FriendCheck = "i";
+			}
+		}
+		
+		for(int i = 0;i<Follow_Check.length;i++) {
+			if(Follow_Check[i].equals(user_id)) {
+				FollowCheck = "y";				
+			}
+		}	
+		
+		mv.addObject("FriendCheck", FriendCheck);
+		mv.addObject("FollowCheck", FollowCheck);
+		mv.addObject("user_info",vo);
+		
 		mv.addObject("Friend_List", Friend_List);
+		mv.addObject("Follow_List", Follow_List);
+		mv.addObject("Follower_List", Follower_List);
 		
-		mv.addObject("board_list", board_list_self);
-		mv.setViewName("my-profile-feed");
+		mv.setViewName("my-profile-feed");		
 		return mv;
+		
 	}
 	
 	

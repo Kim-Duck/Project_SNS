@@ -16,19 +16,12 @@ $(function() {
         $(".wrapper").removeClass("overlay");
         return false;
     });	
-   
 
     
-    $("#btnBoardUpdate").click(function(){    	
-    	/*var SubmitBoardUpdate = $("#SubmitBoardUpdate");
-    	SubmitBoardUpdate.attr("action","/sns/boardupdate");
-    	SubmitBoardUpdate.attr("method","POST");
-    	SubmitBoardUpdate.submit();*/
+    $("#btnBoardUpdate").click(function(){   	
+
     	var SubmitBoardUpdate = new FormData($("#SubmitBoardUpdate")[0]);
-/*    	$.post("/sns/boardupdate",SubmitBoardUpdate,function(f){
-    		alert("수정되었습니다.");
-    	});
-    	*/
+
     	$.ajax({
     		type:'post',
     		url:'/sns/boardupdate',
@@ -121,6 +114,7 @@ function follow(mainid,followunum){
 }
 
 function edoptsopen(index){	
+	alert(index);
 	$(".ed-options.testtest"+index+"").toggleClass("active");
 }
 
@@ -225,7 +219,7 @@ function handleImgFileSelect2(e) {
 
 
 
-var boardhtml = "";
+
 
 $(window).scroll(function() {	
 	if ($(window).scrollTop()+$(window).height() + 30 > $(document).height()) {

@@ -25,5 +25,12 @@ public interface FfService {
 	
 	public void Follow_Insert(String mainid,String followid);
 	
+	public ArrayList<UserVO> Follow_List(String user_id);
+	
+	public ArrayList<UserVO> Follower_List(String user_id);
+	
+	public UserVO User_Name(String user_id);
+	
 	
 }
+

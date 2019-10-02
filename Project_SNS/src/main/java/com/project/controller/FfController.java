@@ -19,18 +19,37 @@ public class FfController {
 	@Inject
 	private FfServiceImpl service;
 
-	// 친구요청창 페이지테스트
+	// 친구창
 	@PostMapping("/Friend")
-	public ModelAndView FriendTest(@RequestParam("user_id") String user_id) {
+	public ModelAndView Friend(@RequestParam("user_id") String user_id) {
 		// user_id 는 지금 로그인한 ID
 		ModelAndView mv = new ModelAndView();
 		ArrayList<UserVO> Friend_List = service.Friend_List(user_id);
 		ArrayList<UserVO> Friend_Request_List = service.Friend_Request_List(user_id);
 		ArrayList<UserVO> Friend_Request_Ing = service.Friend_Request_Ing(user_id);
+		UserVO vo = service.User_Name(user_id);
 		mv.addObject("Friend_List", Friend_List);
 		mv.addObject("Friend_Request_List", Friend_Request_List);
 		mv.addObject("Friend_Request_Ing", Friend_Request_Ing);
+		mv.addObject("user_name", vo.getUser_name());
+		mv.addObject("user_id", user_id);
 		mv.setViewName("profiles");
+		return mv;
+	}
+	
+	// 팔로우창
+	@PostMapping("/Follow")
+	public ModelAndView Follow(@RequestParam("user_id") String user_id) {
+		ModelAndView mv = new ModelAndView();
+		UserVO vo = service.User_Name(user_id);
+		ArrayList<UserVO> Follow_List = service.Follow_List(user_id);
+		
+		ArrayList<UserVO> Follower_List = service.Follower_List(user_id);
+		
+		mv.addObject("Follow_List", Follow_List);
+		mv.addObject("Follower_List", Follower_List);
+		mv.addObject("user_name", vo.getUser_name());
+		mv.setViewName("follow");
 		return mv;
 	}
 

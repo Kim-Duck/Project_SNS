@@ -56,12 +56,17 @@ public class SignController {
 	}
 
 	@PostMapping("/index")
-	public String Login() {
+	public String Login(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		session.setAttribute("main", "main");
+		
 		return "index";
 	}
 
 	@GetMapping("/index")
-	public String Login_Test() {
+	public String Login_(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		session.setAttribute("main", "main");
 		return "index";
 	}
 

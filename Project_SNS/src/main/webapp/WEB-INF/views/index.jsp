@@ -69,7 +69,7 @@
 										</li>
 										
 										<li>
-										<form name="viewprofile" action="/sns/Mypage" method="post">
+										<form name="viewprofile" action="/sns/InfoPage" method="post">
 										<input type="hidden" name="user_id" value="${sessionScope.user.user_id }">										
 										</form>
 										<a href="javascript:void(0)" id="viewprofile">View Profile</a>
@@ -207,17 +207,13 @@
 									</div>
 									<!--top-profiles end-->
 									<!--post-bar end-->		
-									<!--process-comm end-->
-									<div id="scrolltest">
-									<div id="scrollscripttest"></div>
+									<!--process-comm end-->									
 								</div>
 								<!--posts-section end-->
 							</div>
 							<!--main-ws-sec end-->
 						</div>
-						
-					</div>
-					<div class="col-lg-3 pd-right-none no-pd">
+						<div class="col-lg-3 pd-right-none no-pd">
 							<div class="right-sidebar">
 								<div class="widget widget-about">
 									<img src="resources/images/index(rightROGO).png" alt="">
@@ -238,6 +234,9 @@
 							</div>
 							<!--right-sidebar end-->
 						</div>
+						
+					</div>
+					
 				</div>
 				<!-- main-section-data end-->
 			</div>
@@ -402,9 +401,6 @@
 	<script type="text/javascript" src="resources/js/script.js"></script>
 	
 	<script type="text/javascript" src="resources/sns_js/index.js?ver=123"></script>
-	<script>
-
-
 	
   
 

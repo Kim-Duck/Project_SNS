@@ -13,16 +13,21 @@
 				</div>
 			</div>
 			<div class="ed-opts">
-				<a href="javascript:void(0)" class="ed-opts-open"
-					onclick="edoptsopen(${board_list.bnum})"><i
-					class="la la-ellipsis-v"></i></a>
-				<ul class="ed-options testtest${board_list.bnum }">
-					<li><Button type="Button" class="post-job"
-							onclick="BoardUpdate(${board_list.bnum },${board_list.unum },${user.unum })">글수정</Button></li>
-					<li><Button type="Button" class="post-job"
-							onclick="BoardDelete(${board_list.bnum },${board_list.unum },${user.unum })">글삭제</Button></li>
-				</ul>
-			</div>
+                          <a href="javascript:void(0)" title="" class="ed-opts-open" onclick="edoptsopen(${board_list.bnum})"><i
+                            class="la la-ellipsis-v"></i></a>
+                          <ul class="ed-options" style="border-radius: 40px;">
+                            <li><Button type="Button" class="post-job"
+                                onclick="BoardUpdate(${board_list.bnum },${board_list.unum },${user.unum })"
+                                style="width: 90px; height: 27px; margin-top: 7px; font-size: 18px; border-radius: 5px; color: white; background-color: #e44d3a">글
+                                수정</Button></li>
+                            <li><Button type="Button" class="post-job"
+                                onclick="BoardDelete(${board_list.bnum },${board_list.unum },${user.unum })"
+                                style="width: 90px; height: 27px; margin-bottom: 7px; font-size: 18px; border-radius: 5px; color: white; background-color: #e44d3a">글
+                                삭제</Button></li>
+                          </ul>
+                        </div>
+			
+			
 		</div>
 		<div class="epi-sec">
 			<c:if test="${board_list.photo!=null }">
@@ -37,9 +42,15 @@
 		</div>
 		<div class="job-status-bar">
 			<ul class="like-com" style="margin-top: 29px">
-				<li><a href="javascript:void(0)" class="com"
-					onclick="commentpopup('${board_list.bnum }')"><i
-						class="fas fa-comment-alt"></i>댓글 갯수</a></li>
+				<li><a href="javascript:void(0)" class="com" onclick="commentpopup('${board_list.bnum }')">
+				<i class="fas fa-comment-alt"></i>
+				<c:if test="${board_list.comment_cnt != 0 }">
+				( ${board_list.comment_cnt } )
+				</c:if>
+				<c:if test="${board_list.comment_cnt == 0 }">
+				댓글을 달아주세요!
+				</c:if>
+				</a></li>
 			</ul>
 			<c:if test="${sessionScope.user.unum != board_list.unum }">
 				<a href="javascript:void(0)" class="com"

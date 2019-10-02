@@ -544,8 +544,7 @@
         </div>
         <!--account-tabs-setting end-->
       </div>
-    </section>
-    <%@ include file="Footer.jsp"%>
+    </section>    
 
   </div>
   <!--theme-layout end-->

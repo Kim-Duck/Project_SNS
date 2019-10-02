@@ -27,7 +27,7 @@ function FriendRequestIng(){
 
 function viewMyFriendProfile(user_id){
     var $form = $('<form></form>');
-    $form.attr('action', '/sns/Mypage');
+    $form.attr('action', '/sns/InfoPage');
     $form.attr('method', 'post');    
     $form.appendTo('body');    
     

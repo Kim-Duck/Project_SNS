@@ -47,6 +47,17 @@ select follow_id from sns_follow where main_id = #{main_id}
 insert into sns_follow values(#{main_id},#{follow_id},sysdate)
 </insert>
 
+<select id="Follow_List" parameterType="String" resultType="com.project.sign.UserVO">
+select bb.* from ( select follow_id from sns_follow where main_id = #{user_id} ) aa, sns_user bb where aa.follow_id = bb.user_id
+</select>
+<select id="Follower_List" parameterType="String" resultType="com.project.sign.UserVO">
+select bb.* from ( select main_id from sns_follow where follow_id = #{user_id} ) aa, sns_user bb where aa.main_id = bb.user_id
+</select>
+
+<select id="User_Name" parameterType="String" resultType="com.project.sign.UserVO">
+select * from sns_user where user_id = #{user_id}
+</select>
+
 
 </mapper>
 

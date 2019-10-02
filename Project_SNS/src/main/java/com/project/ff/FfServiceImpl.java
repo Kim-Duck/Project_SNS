@@ -63,4 +63,18 @@ public class FfServiceImpl implements FfService{
 		mapper.Follow_Insert(mainid,followid);		
 	}
 
+	@Override
+	public ArrayList<UserVO> Follow_List(String user_id) {
+		return mapper.Follow_List(user_id);
+	}
+	@Override
+	public ArrayList<UserVO> Follower_List(String user_id) {
+		return mapper.Follower_List(user_id);
+	}
+
+	@Override
+	public UserVO User_Name(String user_id) {
+		return mapper.User_Name(user_id);
+	}
+
 }

@@ -38,92 +38,56 @@
 		<%@ include file="Header.jsp"%>
 		<section class="companies-info">
 			<div class="container">
-			<c:if test="${!Friend_List.isEmpty() || !Friend_Request_Ing.isEmpty() || !Friend_Request_List.isEmpty()}">
 			<div class="user-tab-sec">
-			<h3>${user_name}님의 친구 리스트입니다</h3><br><br>
+			<h3>${user_name}님의 팔로우 리스트입니다</h3><br><br>
 			</div>
-			</c:if>
-				<c:if test="${Friend_List.isEmpty() && Friend_Request_Ing.isEmpty() && Friend_Request_List.isEmpty()}">
+				<c:if test="${Follow_List.isEmpty() && Follower_List.isEmpty()}">
 				<div class="company-title">
-					<h3>위의 검색창에서 친구 이름을 검색해보세요!</h3>
+					<h3>팔로우를 추가해 보세요!!</h3>
 					</div>
 				</c:if>
-				<c:if test="${!Friend_List.isEmpty() }">
+				<c:if test="${!Follow_List.isEmpty() }">
 					<div class="company-title">
-					<h3>Friend List</h3>
+					<h3>Follow List</h3>
 				</div>
 				</c:if>
 				<!--company-title end-->
 				<div class="companies-list">
 					<div class="row">
-						<c:forEach items="${Friend_List }" var="Friend_List">
+						<c:forEach items="${Follow_List }" var="Follow_List">
 							<div class="col-lg-3 col-md-4 col-sm-6 col-12">
 								<div class="company_profile_info">
 									<div class="company-up-info">
-										<img src="resources/images/test/${Friend_List.user_photo }"
+										<img src="resources/images/test/${Follow_List.user_photo }"
 											alt=""> <input type="hidden" id=""
-											value="${Friend_List.unum }">
-										<h3>${Friend_List.user_name }</h3>
-										
+											value="${Follow_List.unum }">
+										<h3>${Follow_List.user_name }</h3>
 									</div>
-									<a href="javascript:void(0)" class="view-more-pro" onclick="viewMyFriendProfile('${Friend_List.user_id}')">View Profile</a>
+									<a href="javascript:void(0)" class="view-more-pro" onclick="viewMyFriendProfile('${Follow_List.user_id}')">View Profile</a>
 								</div>
 								<!--company_profile_info end-->
 							</div>
 						</c:forEach>
-						
-						<c:if test="${user_id == sessionScope.user.user_id }">
-						<c:if test="${!Friend_Request_Ing.isEmpty() }">
+						<c:if test="${!Follower_List.isEmpty() }">
 							<div class="company-title">
-								<h3>친구요청중</h3>
+								<h3>Follower List</h3>
 							</div>
 						</c:if>
-						<c:forEach items="${Friend_Request_Ing }" var="Friend_Request_Ing">
+						<c:forEach items="${Follower_List }" var="Follower_List">
 							<div class="col-lg-3 col-md-4 col-sm-6 col-12">
 								<div class="company_profile_info">
 									<div class="company-up-info">
 										<img
-											src="resources/images/test/${Friend_Request_Ing.user_photo }"
+											src="resources/images/test/${Follower_List.user_photo }"
 											alt="">
-										<h3>${Friend_Request_Ing.user_name }</h3>
-										<ul>
-											<li><a href="javascript:void(0)" class="follow">FriendRequestIng...</a></li>
-											
-										</ul>
+										<h3>${Follower_List.user_name }</h3>	
 									</div>
-									<a href="javascript:void(0)" class="view-more-pro" onclick="viewMyFriendProfile('${Friend_Request_Ing.user_id}')">View Profile</a>
+									<a href="javascript:void(0)" class="view-more-pro" onclick="viewMyFriendProfile('${Follower_List.user_id}')">View Profile</a>
 								</div>
 								<!--company_profile_info end-->
 							</div>
-						</c:forEach>
-						<c:if test="${!Friend_Request_List.isEmpty() }">
-							<div class="company-title">
-								<h3>친구요청옴!!</h3>
-							</div>
-						</c:if>
-						<c:forEach items="${Friend_Request_List }"
-							var="Friend_Request_List">
-
-							<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-								<div class="company_profile_info">
-									<div class="company-up-info">
-										<img
-											src="resources/images/test/${Friend_Request_List.user_photo }"
-											alt="">
-										<h3>${Friend_Request_List.user_name }</h3>
-										<ul>
-											<li><a href="javascript:void(0)" onclick="FriendAgree('${sessionScope.user.user_id }','${Friend_Request_List.user_id}')"
-												class="follow">FriendAgree</a></li>
-											
-										</ul>
-									</div>
-									<a href="javascript:void(0)" class="view-more-pro" onclick="viewMyFriendProfile('${Friend_Request_List.user_id}')">View Profile</a>
-								</div>
-								<!--company_profile_info end-->
-							</div>
-						</c:forEach>
-						
-						</c:if>						
+						</c:forEach>						
+							
 					</div>
 				</div>
 				<!--companies-list end-->
@@ -139,7 +103,6 @@
 	<script type="text/javascript" src="resources/js/flatpickr.min.js"></script>
 	<script type="text/javascript" src="resources/lib/slick/slick.min.js"></script>
 	<script type="text/javascript" src="resources/js/script.js"></script>
-	
-	<script type="text/javascript" src="resources/sns_js/profiles.js?ver=123"></script>
+	<script type="text/javascript" src="resources/sns_js/follow.js"></script>
 </body>
 </html>
