@@ -65,11 +65,13 @@ $(function () {
 		if(!passwdCheck.test($("#signup_user_pwd").val())){			
 			alert("비밀번호는 영문+숫자+특수기호 8~16자 입니다.");
 			$("#signup_user_pwd").val("");
+			$("#signup_user_pwd_2").val("");
 			$("#signup_user_pwd").focus();
 			return;
 		}
 		if($("#signup_user_pwd").val()!=$("#signup_user_pwd_2").val()){
 			alert("비밀번호 확인칸을 다시 확인해주세요");
+			$("#signup_user_pwd").val("");
 			$("#signup_user_pwd_2").val("");
 			$("#signup_user_pwd_2").focus();
 			return;			

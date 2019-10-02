@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
-
+import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -56,17 +56,25 @@ public class SignController {
 	}
 
 	@PostMapping("/index")
-	public String Login(HttpServletRequest request) {
+	public String Login(Model model,HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		session.setAttribute("main", "main");
+		session.setAttribute("main", "main");		
+		UserVO vo = (UserVO)session.getAttribute("user");
+		UserVO user_info = service.User_Login(vo.getUser_id());		
 		
+		model.addAttribute("user_info", user_info);
 		return "index";
 	}
 
 	@GetMapping("/index")
-	public String Login_(HttpServletRequest request) {
+	public String Login_(Model model,HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		session.setAttribute("main", "main");
+		UserVO vo = (UserVO)session.getAttribute("user");
+		UserVO user_info = service.User_Login(vo.getUser_id());		
+		
+		model.addAttribute("user_info", user_info);
+		
 		return "index";
 	}
 
@@ -176,6 +184,10 @@ public class SignController {
 			}
 			return sha;			
 		}
+	}
+	@PostMapping("/UserDelete")
+	public void User_Delete(int unum) {
+	    service.User_Delete(unum);
 	}
 
 }

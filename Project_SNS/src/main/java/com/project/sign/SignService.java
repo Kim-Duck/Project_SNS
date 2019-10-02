@@ -12,4 +12,6 @@ public interface SignService {
 	
 	public String User_Id(int unum);
 	
+	public void User_Delete(int unum);
+	
 }

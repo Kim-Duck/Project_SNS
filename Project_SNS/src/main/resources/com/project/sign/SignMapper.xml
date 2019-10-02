@@ -30,6 +30,9 @@ update SNS_USER set user_photo=#{user_photo, jdbcType=VARCHAR} where unum=#{unum
 select user_id from sns_user where unum = #{unum}
 </select>
 
+<delete id="User_Delete" parameterType="int">
+delete SNS_USER where unum=#{unum}
+</delete>
 
 </mapper>
     

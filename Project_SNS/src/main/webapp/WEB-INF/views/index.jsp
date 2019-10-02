@@ -51,23 +51,26 @@
 									<div class="user-profile">
 										<div class="username-dt">
 											<div class="usr-pic">
-												<img
-													src="resources/images/test/${sessionScope.user.user_photo}"
-													alt="" width="110px" height="110px">
+												<c:if test="${user_info.user_photo != null }">
+												<img src="resources/images/test/${user_info.user_photo}" alt="" width="110px" height="110px">
+												</c:if>
+												<c:if test="${user_info.user_photo == null }">
+												<img src="resources/images/test/null.png" alt="" width="110px" height="110px">
+												</c:if>
 											</div>
 										</div>
 										<!--username-dt end-->
 										<div class="user-specs">
-											<h3>${sessionScope.user.user_name }</h3>
+											<h3>${user_info.user_name }</h3>
 										</div>
 									</div>
 									<!--user-profile end-->
 									<ul class="user-fw-status">
 										<li>
-											<h4>Following</h4> <span>${sessionScope.user.user_following }</span>
+											<h4>Following</h4> <span>${user_info.user_following }</span>
 										</li>
 										<li>
-											<h4>Followers</h4> <span>${sessionScope.user.user_follower }</span>
+											<h4>Followers</h4> <span>${user_info.user_follower }</span>
 										</li>
 
 										<li>

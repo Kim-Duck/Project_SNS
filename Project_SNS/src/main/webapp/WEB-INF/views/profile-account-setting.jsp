@@ -169,7 +169,7 @@
 										
 										<input type="hidden" id="unum" name=unum value="${user.unum }">
 										
-										<h3 align="center" style="color: red;">※중요한 내용이므로 각 항목 별로 주의 깊게 읽어주세요※</h3>
+										<h3 align="center" style="color: red;margin-top: 15px">※중요한 내용이므로 각 항목 별로 주의 깊게 읽어주세요※</h3>
 										<div class="profile-bx-details">
 											<div class="row">
 												<div class="col-lg-3 col-md-6 col-sm-12">
@@ -228,7 +228,7 @@
 															<!--bx-info end-->
 														</div>
 														<!--pro-bx end-->
-														<p style="color: red;">다시 한번 이전의 주의사항들을 확인해 주세요</p>
+														<p style="color: red;margin-bottom: 20px">다시 한번 이전의 주의사항들을 확인해 주세요</p>
 													</div>
 													<!--profile-bx-info end-->
 												</div>

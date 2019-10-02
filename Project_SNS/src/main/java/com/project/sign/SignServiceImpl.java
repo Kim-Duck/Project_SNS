@@ -38,5 +38,11 @@ public class SignServiceImpl implements SignService{
 		return mapper.User_Id(unum);
 	}
 
+	@Override
+	public void User_Delete(int unum) {
+		mapper.User_Delete(unum);
+		
+	}
+
 	
 }

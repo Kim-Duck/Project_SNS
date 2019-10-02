@@ -42,11 +42,10 @@
 						<div class="col-lg-6">
 							<div class="cmp-info">
 								<div class="cm-logo">
-									<img src="resources/images/Sign-inLOGO.png" alt="">
-									<p>Welcome To The Space</p>
+									<img src="resources/images/Sign-inLOGO.png" style="margin-top: 30px">
+									<p>소셜 네트워킹 서비스(Social Networking Service)는 사용자 간의 자유로운 의사소통과 정보 공유, 그리고 인맥 확대 등을 통해 사회적 관계를 생성하고 강화해주는 온라인 플랫폼을 의미한다. SNS에서 가장 중요한 부분은 이 서비스를 통해 사회적 관계망을 생성, 유지, 강화, 확장해 나간다는 점이다. 이러한 관계망을 통해 정보가 공유되고 유통될 때 더욱 의미 있을 수 있다.</p>
 								</div>
-								<!--cm-logo end-->
-								<img src="resources/images/cm-main-img.png" alt="">
+								<!--cm-logo end-->								
 							</div>
 							<!--cmp-info end-->
 						</div>
@@ -83,7 +82,7 @@
 										</div>
 									</form>
 									<div class="login-resources">
-									
+										<img src="resources/images/cm-main-img.png" alt="">
 									</div>
 									<!--login-resources end-->
 								</div>

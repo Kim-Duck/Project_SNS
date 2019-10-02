@@ -32,12 +32,13 @@
 				<!--search-bar end-->
 				<nav>
 					<ul>
-            <li><a href="/sns/index" title=""> <span><img
-                  src="resources/images/icon1.png" style="margin-top: 2px;" alt=""></span> Home
-            </a></li>
+						<li><a href="/sns/index" title=""> <span><img
+									src="resources/images/icon1.png" style="margin-top: 2px;"
+									alt=""></span> Home
+						</a></li>
 
-             
-          </ul>
+
+					</ul>
 				</nav>
 				<!--nav end-->
 				<div class="menu-btn">
@@ -46,10 +47,21 @@
 				<!--menu-btn end-->
 				<div class="user-account">
 					<div class="user-info" style="width: 115px;">
-						<img src="resources/images/test/${sessionScope.user.user_photo }"
-							alt="" width="30px" height="30px"> <a href="#" title=""
-							style="margin-right: 2px;">${sessionScope.user.user_name }</a> <i
-							class="la la-sort-down"></i>
+
+						<c:if test="${user_info.user_photo != null }">
+							<img src="resources/images/test/${user_info.user_photo }" alt=""
+								width="30px" height="30px">
+						</c:if>
+						<c:if test="${user_info.user_photo == null }">
+							<img src="resources/images/test/null.png" alt="" width="30px"
+								height="30px">
+						</c:if>
+
+
+
+
+						<a href="#" style="margin-right: 2px;">${sessionScope.user.user_name }</a>
+						<i class="la la-sort-down"></i>
 					</div>
 					<div class="user-account-settingss" id="users">
 						<form name="viewprofile2" action="/sns/InfoPage" method="post">

@@ -39,6 +39,9 @@
 ===================================================================================== */
 
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Gamja+Flower&display=swap');
+
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700&display=swap');
 
 /* 폰트 저장해서 다른 사용자가 볼 수 있게 하기.  */
 @font-face {
@@ -83,13 +86,15 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-	font-family: "DungGeunMo";
+	font-family: 'Nanum Gothic', sans-serif;
 	overflow-x: hidden;
-	font-weight: 400;
+	font-weight: 600;
 	background-color: #f2f2f2;
+	
 }
 ]body, table, div, p {
-  font-family: "DungGeunMo";
+  font-family: 'Nanum Gothic', sans-serif;
+  font-weight: 600;
 }
 ol, ul {
 	list-style: none;
@@ -97,6 +102,7 @@ ol, ul {
 a:hover {
 	text-decoration: none;
 }
+
 blockquote, q {
 	quotes: none;
 }

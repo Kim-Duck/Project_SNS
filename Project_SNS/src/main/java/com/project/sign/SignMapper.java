@@ -22,5 +22,8 @@ public interface SignMapper {
 	//¾ÆÀÌµğÃ£±â
 	public String User_Id(@Param("unum") int unum);
 	
+	//È¸¿øÅ»Åğ
+	public void User_Delete(@Param("unum") int unum);
+	
 	
 }
