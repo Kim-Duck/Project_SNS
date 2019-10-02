@@ -9,12 +9,28 @@ $(function() {
 	
 	boardlist();
 	
-    $("#btnBoardUpdate").click(function(){    	
-    	var SubmitBoardUpdate = $("#SubmitBoardUpdate");
-    	SubmitBoardUpdate.attr("action","/sns/boardupdate");
-    	SubmitBoardUpdate.attr("method","POST");
-    	SubmitBoardUpdate.submit();
-    });
+	   $("#btnBoardUpdate").click(function(){   	
+
+	    	var SubmitBoardUpdate = new FormData($("#SubmitBoardUpdate")[0]);
+
+	    	$.ajax({
+	    		type:'post',
+	    		url:'/sns/boardupdate',
+	    		data: SubmitBoardUpdate,
+	    		processData: false,
+				contentType: false,
+	    		async : false,
+	    		success:function(s){
+	    			if(s.trim()=="0"){
+	    				location.reload();
+		    			return;
+	    			}
+	    		},
+	    		error:function(e){
+	    			alert(e);
+	    		}
+	    	})
+	   });
     
     $("#boardinputImg3").on("change", handleImgFileSelect3);
 
@@ -182,7 +198,7 @@ function BoardDelete(boardnum,boardunum,unum){
 		if(confirm("정말 삭제 하시겠습니까?")){
 			$.post("/sns/boardDelete",{"bnum":boardnum});
 			alert("삭제되었습니다.");
-			location.href = "/sns/mainIndex";
+			location.reload();
 		}
 	}
 	
@@ -266,97 +282,58 @@ $(window).scroll(function() {
 	};
 });
 
-/*$(window).scroll(function() {	
-	if ($(window).scrollTop()+$(window).height() + 10 > $(document).height()) {
-		if(scrolltest==start){
-			return;
-		}
-		scrolltest = start;
-		$.ajax({
-			type : 'post',			
-			url : '/sns/mainIndextest2',
-			data: {"start":start,"end":end,"unum":$("#user_num").val()},
-			dataType:'json',
-			success : function(s) {
-				start += 3;
-				end += 3;
-				$.each(s, function(idx, val) {
-					boardhtml="";
-					boardnum = val.bnum;
-					var photourl = "resources/images/test/"+val.user_photo;
-					var boardphoto = "";
-					if(val.photo==null){
-						boardphoto = "resources/images/test/null.png";
-					}else if(val.photo!=null){
-						boardphoto = "resources/images/test/"+val.photo;
-					}
-					boardhtml += "<div class='post-bar baselist"+scrollcomment+"'>" +
-							" <div class='post_topbar'> " +
-							" <div class='usy-dt'>" +
-							" <img src='"+photourl+"'"+" alt='' width='50px' height='50px'>" +
-							" <div class='usy-name'>" +
-							" <h3>"+val.writer+"</h3>" +
-							" <span><img src='resources/images/clock.png' alt=''>"+val.day+"</span>" +
-							" </div>" +
-							" </div>" +
-							" <div class='ed-opts'>" +
-							" <a href='#' title='' class='ed-opts-open"+scroll+"'>" +
-							" <i class='la la-ellipsis-v'></i></a>" +
-							" <ul class='ed-options'>" +
-							"<li><Button type='Button' class='post-job' onclick='BoardUpdate("+val.bnum+","+val.unum+","+sessionStorage.getItem('user_num')+")'>글수정</Button></li>" +
-							"<li><Button type='Button' class='post-job' onclick='BoardDelete("+val.bnum+","+val.unum+","+sessionStorage.getItem('user_num')+")'>글삭제</Button></li>" +							
-							"</ul> </div> </div>" +
-							"<div class='epi-sec'>"+
-							"<img src='"+boardphoto+"'>"+							
-							"</div>"+
-							"<div class='job_descp'>"+										
-							"<p>"+val.content+"</p>"+
-							"</div>"+
-							"<div class='job-status-bar'>"+
-							"<ul class='like-com' style='margin-top: 29px'>"+												
-							"<li><a href='javascript:void(0)' class='com' onclick='commentpopup("+scrollcomment+")'><i class='fas fa-comment-alt'></i>댓글 갯수</a></li>"+												
-							"</ul>"+
-							"<a href='#' class='com'><i class='fas fa-heart'></i> FOLLOW!</a> "+
-							"</div>"+
-							"<div class='job-status-bar' style='margin-top: 16px'></div>"+
-							"</div>"+
-							"<div class='comment-section comment-popup"+scrollcomment+"' style='display: none; margin-bottom: 20px'><div class='comment-sec'><ul>";
-					
-					$.ajax({
-						type:'post',
-						url:'/sns/CommentList',
-						data : {"bnum":boardnum},
-						async : false, 
-						dataType:'json',
-						success:function(su){
-							$.each(su,function(asdf,value){												
-								if(boardnum == value.bnum){
-									boardhtml += "<li>" +
-										    "<div class='comment-list'><div class='bg-img'><img src='resources/images/resources/bg-img1.png' alt=''></div>" +
-										    "<div class='comment'><h3>"+value.writer+"</h3><span><img src='resources/images/clock.png' alt=''>"+value.day+"</span>" +
-										    "<p>"+value.content+"</p>" +
-										    "</div></div>" +
-										    "</li>";
-								};								
-							});										
-						},error:function(er){
-							alert(er);
-						}
-				});	
-					boardhtml += "</ul></div><!--comment-sec end--><div class='post-comment'><div class='cm_img'></div><div class='comment_box'><form method='post' action='/sns/CommentInsert'><input type='hidden' name='bnum' value='"+val.bnum+"'><input type='hidden' name='unum' value='"+sessionStorage.getItem('user_num')+"'><input type='text' name='content' placeholder='Post a comment'><button type='submit'>Send</button></form></div></div><!--post-comment end--></div>";		
-					$("#scrolltest").append(boardhtml);
-					$("#scrollscripttest").empty();
-					$("#scrollscripttest").append("<script> $('.ed-opts-open"+scroll+"').on('click',function(){ $(this).next('.ed-options').toggleClass('active');return false;}); </script>");
-					scroll += 1;
-					scrollcomment += 1;
-				});
-				
-				
-			},
-			error : function(e) {
-				alert(e);
-			}
-		})
-
-	}
-});*/
+/*
+ * $(window).scroll(function() { if ($(window).scrollTop()+$(window).height() +
+ * 10 > $(document).height()) { if(scrolltest==start){ return; } scrolltest =
+ * start; $.ajax({ type : 'post', url : '/sns/mainIndextest2', data:
+ * {"start":start,"end":end,"unum":$("#user_num").val()}, dataType:'json',
+ * success : function(s) { start += 3; end += 3; $.each(s, function(idx, val) {
+ * boardhtml=""; boardnum = val.bnum; var photourl =
+ * "resources/images/test/"+val.user_photo; var boardphoto = "";
+ * if(val.photo==null){ boardphoto = "resources/images/test/null.png"; }else
+ * if(val.photo!=null){ boardphoto = "resources/images/test/"+val.photo; }
+ * boardhtml += "<div class='post-bar baselist"+scrollcomment+"'>" + " <div
+ * class='post_topbar'> " + " <div class='usy-dt'>" + " <img
+ * src='"+photourl+"'"+" alt='' width='50px' height='50px'>" + " <div
+ * class='usy-name'>" + " <h3>"+val.writer+"</h3>" + " <span><img
+ * src='resources/images/clock.png' alt=''>"+val.day+"</span>" + " </div>" + "
+ * </div>" + " <div class='ed-opts'>" + " <a href='#' title=''
+ * class='ed-opts-open"+scroll+"'>" + " <i class='la la-ellipsis-v'></i></a>" + "
+ * <ul class='ed-options'>" + "<li><Button type='Button' class='post-job'
+ * onclick='BoardUpdate("+val.bnum+","+val.unum+","+sessionStorage.getItem('user_num')+")'>글수정</Button></li>" + "<li><Button
+ * type='Button' class='post-job'
+ * onclick='BoardDelete("+val.bnum+","+val.unum+","+sessionStorage.getItem('user_num')+")'>글삭제</Button></li>" + "</ul>
+ * </div> </div>" + "<div class='epi-sec'>"+ "<img src='"+boardphoto+"'>"+ "</div>"+ "<div
+ * class='job_descp'>"+ "<p>"+val.content+"</p>"+ "</div>"+ "<div
+ * class='job-status-bar'>"+ "<ul class='like-com' style='margin-top: 29px'>"+ "<li><a
+ * href='javascript:void(0)' class='com'
+ * onclick='commentpopup("+scrollcomment+")'><i class='fas fa-comment-alt'></i>댓글
+ * 갯수</a></li>"+ "</ul>"+ "<a href='#' class='com'><i class='fas
+ * fa-heart'></i> FOLLOW!</a> "+ "</div>"+ "<div class='job-status-bar'
+ * style='margin-top: 16px'></div>"+ "</div>"+ "<div class='comment-section
+ * comment-popup"+scrollcomment+"' style='display: none; margin-bottom: 20px'><div
+ * class='comment-sec'><ul>";
+ * 
+ * $.ajax({ type:'post', url:'/sns/CommentList', data : {"bnum":boardnum}, async :
+ * false, dataType:'json', success:function(su){ $.each(su,function(asdf,value){
+ * if(boardnum == value.bnum){ boardhtml += "<li>" + "<div
+ * class='comment-list'><div class='bg-img'><img
+ * src='resources/images/resources/bg-img1.png' alt=''></div>" + "<div
+ * class='comment'><h3>"+value.writer+"</h3><span><img
+ * src='resources/images/clock.png' alt=''>"+value.day+"</span>" + "<p>"+value.content+"</p>" + "</div></div>" + "</li>"; };
+ * }); },error:function(er){ alert(er); } }); boardhtml += "</ul></div><!--comment-sec
+ * end--><div class='post-comment'><div class='cm_img'></div><div
+ * class='comment_box'><form method='post' action='/sns/CommentInsert'><input
+ * type='hidden' name='bnum' value='"+val.bnum+"'><input type='hidden'
+ * name='unum' value='"+sessionStorage.getItem('user_num')+"'><input
+ * type='text' name='content' placeholder='Post a comment'><button
+ * type='submit'>Send</button></form></div></div><!--post-comment end--></div>";
+ * $("#scrolltest").append(boardhtml); $("#scrollscripttest").empty();
+ * $("#scrollscripttest").append("<script>
+ * $('.ed-opts-open"+scroll+"').on('click',function(){
+ * $(this).next('.ed-options').toggleClass('active');return false;});
+ * </script>"); scroll += 1; scrollcomment += 1; });
+ * 
+ *  }, error : function(e) { alert(e); } })
+ *  } });
+ */

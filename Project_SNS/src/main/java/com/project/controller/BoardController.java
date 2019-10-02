@@ -46,6 +46,7 @@ public class BoardController {
 	@Inject
 	private CommentServiceImpl commentservice;
 
+	@ResponseBody
 	@PostMapping("/boardinsert")
 	public String Board_Insert(BoardVO vo) throws Exception {
 		String savedName = "";
@@ -58,10 +59,10 @@ public class BoardController {
 			vo.getPhotoFile().transferTo(f);
 		}
 		service.Board_Insert(vo);
-
-		return "index";
+		return "0";
 	}
 
+	@ResponseBody
 	@PostMapping("/boardupdate")
 	public String Board_Update(BoardVO vo) throws Exception {
 		String savedName = "";
@@ -74,7 +75,7 @@ public class BoardController {
 			vo.getPhotoFile().transferTo(f);
 		}
 		service.Board_Update(vo);
-		return "index";
+		return "0";
 	}
 
 	@PostMapping("/boardlist")
