@@ -39,11 +39,11 @@ public class SignController {
 	public String User_signUp(UserVO vo) throws Exception {
 		String savedName = "";
 		SecurityUtil se = new SecurityUtil();
-		
-		String sepwd = se.encryptSHA256(vo.getUser_pwd());	
+
+		String sepwd = se.encryptSHA256(vo.getUser_pwd());
 		if (vo.getUser_photoFile().getSize() == 0) {
 			vo.setUser_photo(null);
-		} else {			
+		} else {
 			savedName = uploadFile(vo.getUser_photoFile().getOriginalFilename(), vo.getUser_photoFile().getBytes());
 			vo.setUser_photo(savedName);
 			File f = new File(uploadPath + savedName);
@@ -56,25 +56,24 @@ public class SignController {
 	}
 
 	@PostMapping("/index")
-	public String Login(Model model,HttpServletRequest request) {
+	public String Login(Model model, HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		session.setAttribute("main", "main");		
-		UserVO vo = (UserVO)session.getAttribute("user");
-		UserVO user_info = service.User_Login(vo.getUser_id());		
-		
+		session.setAttribute("main", "main");
+		UserVO vo = (UserVO) session.getAttribute("user");
+		UserVO user_info = service.User_Login(vo.getUser_id());
+
 		model.addAttribute("user_info", user_info);
 		return "index";
 	}
 
 	@GetMapping("/index")
-	public String Login_(Model model,HttpServletRequest request) {
+	public String Login_(Model model, HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		session.setAttribute("main", "main");
-		UserVO vo = (UserVO)session.getAttribute("user");
-		UserVO user_info = service.User_Login(vo.getUser_id());		
-		
+		UserVO vo = (UserVO) session.getAttribute("user");
+		UserVO user_info = service.User_Login(vo.getUser_id());
 		model.addAttribute("user_info", user_info);
-		
+
 		return "index";
 	}
 
@@ -85,11 +84,11 @@ public class SignController {
 			HttpServletRequest request) {
 		String loginCheck = "0";
 		SecurityUtil se = new SecurityUtil();
-		String sepwd = se.encryptSHA256(LoginPWD);	
+		String sepwd = se.encryptSHA256(LoginPWD);
 		UserVO user = service.User_Login(LoginID);
-		if(user==null) {
+		if (user == null) {
 			return loginCheck;
-		}else {
+		} else {
 			if (user.getUser_pwd().equals(sepwd)) {
 				HttpSession session = request.getSession();
 				session.setAttribute("user", user);
@@ -117,37 +116,38 @@ public class SignController {
 		HttpSession session = request.getSession();
 		session.invalidate();
 		return "sign-in";
-	}	
-	//사용자 커버사진 변경
+	}
+
+	// 사용자 커버사진 변경
 	@ResponseBody
 	@PostMapping("/ChangeCover")
-	public String ChangeCover(UserVO vo) throws Exception{
+	public String ChangeCover(UserVO vo) throws Exception {
 		String savedName = "";
 		if (vo.getUser_photoFile().getSize() == 0) {
-			vo.setUser_cover(null);			
-		} else {			
+			vo.setUser_cover(null);
+		} else {
 			savedName = uploadFile(vo.getUser_photoFile().getOriginalFilename(), vo.getUser_photoFile().getBytes());
 			vo.setUser_cover(savedName);
 			File f = new File(uploadPath + savedName);
 			vo.getUser_photoFile().transferTo(f);
-		}		
-		service.User_Cover(vo);		
+		}
+		service.User_Cover(vo);
 		return "0";
 	}
-	
-	//사용자 프로필사진 변경
+
+	// 사용자 프로필사진 변경
 	@ResponseBody
 	@PostMapping("/ChangePhoto")
-	public String ChangePhoto(UserVO vo) throws Exception{		
-		String savedName = "";		
+	public String ChangePhoto(UserVO vo) throws Exception {
+		String savedName = "";
 		if (vo.getUser_photoFile().getSize() == 0) {
-			vo.setUser_photo(null);			
-		} else {			
+			vo.setUser_photo(null);
+		} else {
 			savedName = uploadFile(vo.getUser_photoFile().getOriginalFilename(), vo.getUser_photoFile().getBytes());
 			vo.setUser_photo(savedName);
 			File f = new File(uploadPath + savedName);
 			vo.getUser_photoFile().transferTo(f);
-		}		
+		}
 		service.User_Photo(vo);
 		return "0";
 	}
@@ -161,34 +161,39 @@ public class SignController {
 		return savedName;
 	}
 
-	@PostMapping("/Logout")
-	public void User_Update(UserVO vo) {
-		service.User_Update(vo);		
-	}
-	
-	public class SecurityUtil{
+	public class SecurityUtil {
 		public String encryptSHA256(String str) {
-			String sha="";
+			String sha = "";
 			try {
 				MessageDigest sh = MessageDigest.getInstance("SHA-256");
 				sh.update(str.getBytes());
 				byte byteData[] = sh.digest();
 				StringBuffer sb = new StringBuffer();
-				for(int i = 0;i<byteData.length;i++) {
-					sb.append(Integer.toString((byteData[i]&0xff)+0x100,16).substring(1));					
+				for (int i = 0; i < byteData.length; i++) {
+					sb.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
 				}
 				sha = sb.toString();
 			} catch (NoSuchAlgorithmException e) {
 				e.printStackTrace();
-				sha=null;
+				sha = null;
 			}
-			return sha;			
+			return sha;
 		}
 	}
+
 	@PostMapping("/UserDelete")
 	public void User_Delete(int unum) {
-	    service.User_Delete(unum);
+		service.User_Delete(unum);
+	}
+
+	@PostMapping("/UserUpdate")
+	public void User_Update(UserVO vo) {
+		SecurityUtil se = new SecurityUtil();
+		String sepwd = se.encryptSHA256(vo.getUser_pwd());
+		
+		vo.setUser_pwd(sepwd);
+		
+		service.User_Update(vo);
 	}
 
 }
-
