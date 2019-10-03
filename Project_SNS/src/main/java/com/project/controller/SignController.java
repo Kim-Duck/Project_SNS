@@ -1,9 +1,10 @@
 package com.project.controller;
 
 import java.io.File;
-import java.io.IOException;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 import java.util.UUID;
 
 import javax.annotation.Resource;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.project.ff.FfServiceImpl;
 import com.project.sign.SignServiceImpl;
 import com.project.sign.UserVO;
 
@@ -31,6 +33,8 @@ public class SignController {
 
 	@Inject
 	private SignServiceImpl service;
+	@Inject
+	private FfServiceImpl ffservice;
 
 	@Resource(name = "uploadPath")
 	private String uploadPath;
@@ -61,6 +65,9 @@ public class SignController {
 		session.setAttribute("main", "main");
 		UserVO vo = (UserVO) session.getAttribute("user");
 		UserVO user_info = service.User_Login(vo.getUser_id());
+		List<UserVO> friend_request_list = ffservice.Friend_Request_List(vo.getUser_id());
+
+		model.addAttribute("friend_request_list", friend_request_list);
 
 		model.addAttribute("user_info", user_info);
 		return "index";
@@ -72,6 +79,10 @@ public class SignController {
 		session.setAttribute("main", "main");
 		UserVO vo = (UserVO) session.getAttribute("user");
 		UserVO user_info = service.User_Login(vo.getUser_id());
+
+		List<UserVO> friend_request_list = ffservice.Friend_Request_List(vo.getUser_id());
+
+		model.addAttribute("friend_request_list", friend_request_list);
 		model.addAttribute("user_info", user_info);
 
 		return "index";
@@ -190,9 +201,9 @@ public class SignController {
 	public void User_Update(UserVO vo) {
 		SecurityUtil se = new SecurityUtil();
 		String sepwd = se.encryptSHA256(vo.getUser_pwd());
-		
+
 		vo.setUser_pwd(sepwd);
-		
+
 		service.User_Update(vo);
 	}
 

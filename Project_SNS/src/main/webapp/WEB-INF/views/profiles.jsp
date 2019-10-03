@@ -87,7 +87,7 @@
 											alt="">
 										<h3>${Friend_Request_Ing.user_name }</h3>
 										<ul>
-											<li><a href="javascript:void(0)" class="follow">FriendRequestIng...</a></li>
+											<li><a href="javascript:void(0)" class="follow" onclick="FriendRequestIng()">FriendRequestIng...</a></li>
 											
 										</ul>
 									</div>

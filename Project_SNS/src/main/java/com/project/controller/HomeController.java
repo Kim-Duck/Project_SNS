@@ -57,7 +57,7 @@ public class HomeController {
 	public ModelAndView Mypage(HttpServletResponse response,HttpServletRequest request,ModelAndView mv,@RequestParam("user_id") String user_id) {
 		HttpSession session = request.getSession();
 		session.removeAttribute("main");
-		UserVO vo = signservice.User_Login(user_id);		
+		UserVO vo = signservice.User_Login(user_id);
 		ArrayList<UserVO> Friend_List = ffservice.Friend_List(user_id);
 		ArrayList<UserVO> Follow_List = ffservice.Follow_List(user_id);
 		ArrayList<UserVO> Follower_List = ffservice.Follower_List(user_id);
@@ -93,10 +93,18 @@ public class HomeController {
 				FollowCheck = "y";				
 			}
 		}	
+		List<UserVO> friend_request_list = ffservice.Friend_Request_List(session_user.getUser_id());
+		
+		mv.addObject("friend_request_list", friend_request_list);
 		
 		mv.addObject("FriendCheck", FriendCheck);
 		mv.addObject("FollowCheck", FollowCheck);
-		mv.addObject("user_info",vo);
+		
+		
+		mv.addObject("user_info_page",vo);
+		
+		mv.addObject("user_info",session_user);
+		
 		
 		mv.addObject("Friend_List", Friend_List);
 		mv.addObject("Follow_List", Follow_List);
@@ -110,7 +118,12 @@ public class HomeController {
 	
 	// 계정설정
 	@GetMapping("/Setting")
-	public String Logout2(HttpServletRequest request) {		
+	public String Logout2(HttpServletRequest request,Model model) {		
+		HttpSession session = request.getSession();
+		UserVO session_user = (UserVO)session.getAttribute("user");
+		List<UserVO> friend_request_list = ffservice.Friend_Request_List(session_user.getUser_id());
+		model.addAttribute("user_info", session_user);
+		model.addAttribute("friend_request_list", friend_request_list);
 		return "profile-account-setting";
 	}
 	

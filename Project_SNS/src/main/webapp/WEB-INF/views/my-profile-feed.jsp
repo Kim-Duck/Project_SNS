@@ -38,20 +38,20 @@
 
 
 		<section class="cover-sec">
-			<c:if test="${user_info.user_cover==null }">
+			<c:if test="${user_info_page.user_cover==null }">
 				<img src="resources/images/test/null.png" alt="" width="1600px"
 					height="400px">
 			</c:if>
-			<c:if test="${user_info.user_cover!=null }">
-				<img src="resources/images/test/${user_info.user_cover }"
+			<c:if test="${user_info_page.user_cover!=null }">
+				<img src="resources/images/test/${user_info_page.user_cover }"
 					width="1600px" height="400px">
 			</c:if>
 			<div class="add-pic-box">
 				<div class="container">
 					<div class="row no-gutters">
 						<div class="col-lg-12 col-sm-12">
-							<input type="hidden" value="${user_info.unum }" id="user_num">
-							<c:if test="${user_info.unum == sessionScope.user.unum }">
+							<input type="hidden" value="${user_info_page.unum }" id="user_num">
+							<c:if test="${user_info_page.unum == sessionScope.user.unum }">
 								<form id="ChangeCover" name="ChangeCover"
 									enctype="multipart/form-data">
 									<input type="hidden" id="unum" name="unum"
@@ -77,18 +77,18 @@
 								<div class="user_profile">
 									<div class="user-pro-img">
 									
-									<c:if test="${user_info.user_photo == null }">
+									<c:if test="${user_info_page.user_photo == null }">
 										<img src="resources/images/test/null.png" alt="" width="180px" height="180px">
 									</c:if>
-									<c:if test="${user_info.user_photo != null }">
-										<img src="resources/images/test/${user_info.user_photo }" alt="" width="180px" height="180px">
+									<c:if test="${user_info_page.user_photo != null }">
+										<img src="resources/images/test/${user_info_page.user_photo }" alt="" width="180px" height="180px">
 									</c:if>
 										
 										<div class="user-specs">
-											<h3>${user_info.user_name }</h3>
+											<h3>${user_info_page.user_name }</h3>
 										</div>
 										<div class="add-dp" id="OpenImgUpload">
-											<c:if test="${user_info.unum == sessionScope.user.unum }">
+											<c:if test="${user_info_page.unum == sessionScope.user.unum }">
 												<form id="ChangePhoto" name="ChangePhoto"
 													enctype="multipart/form-data">
 													<input type="hidden" id="unum" name="unum"
@@ -104,27 +104,27 @@
 									<!--user-pro-img end-->
 									<div class="user_pro_status">
 										<ul class="flw-hr">
-										<c:if test="${user_info.user_id == sessionScope.user.user_id }">
+										<c:if test="${user_info_page.user_id == sessionScope.user.user_id }">
 											<li><a href="javascript:void(0)" class="flww" onclick="FriendPage('${sessionScope.user.user_id}')">FriendList</a></li>
 											<li><a href="javascript:void(0)" class="hre" onclick="FollowPage('${sessionScope.user.user_id}')">FollowList</a></li>
 										</c:if>
 										
-										<c:if test="${user_info.user_id != sessionScope.user.user_id }">
+										<c:if test="${user_info_page.user_id != sessionScope.user.user_id }">
 										<c:if test="${FriendCheck =='n' }">
-											<li><a href="javascript:void(0)" class="flww" onclick="FriendRequest('${sessionScope.user.user_id }','${user_info.user_id}')">Friend<i class="la la-plus"></i></a></li>
+											<li><a href="javascript:void(0)" class="flww" onclick="FriendRequest('${sessionScope.user.user_id }','${user_info_page.user_id}')">Friend<i class="la la-plus"></i></a></li>
 										</c:if>										
 										<c:if test="${FriendCheck =='i' }">
 											<li><a href="javascript:void(0)" class="flww">FriendRequest</a></li>
 										</c:if>
 										<c:if test="${FriendCheck =='y' }">
-											<li><a href="javascript:void(0)" class="flww">Friend</a></li>
+											<li><a href="javascript:void(0)" class="flww" onclick="FriendPage('${user_info_page.user_id}')">Friend</a></li>
 										</c:if>										
 										
 										<c:if test="${FollowCheck =='y' }">
-											<li><a href="javascript:void(0)" class="hre">Follow</a></li>
+											<li><a href="javascript:void(0)" class="hre" onclick="FollowPage('${user_info_page.user_id}')">Follow</a></li>
 										</c:if>
 										<c:if test="${FollowCheck =='n'}">
-											<li><a href="javascript:void(0)" class="hre" onclick="follow('${sessionScope.user.user_id }','${user_info.unum}')">Follow<i class="la la-plus"></i></a></li>
+											<li><a href="javascript:void(0)" class="hre" onclick="follow('${sessionScope.user.user_id }','${user_info_page.unum}')">Follow<i class="la la-plus"></i></a></li>
 										</c:if>
 										</c:if>
 										
@@ -133,8 +133,8 @@
 										</ul>
 										<ul class="flw-status">
 
-											<li><span>Following</span> <b>${user_info.user_following }</b></li>
-											<li><span>Followers</span> <b>${user_info.user_follower }</b></li>
+											<li><span>Following</span> <b>${user_info_page.user_following }</b></li>
+											<li><span>Followers</span> <b>${user_info_page.user_follower }</b></li>
 										</ul>
 									</div>
 									<!--user_pro_status end-->
@@ -238,7 +238,7 @@
 									<c:if test="${Friend_List.size() > 5 }">
 									<div class="view-more">
 										<a href="javascript:void(0)"
-											onclick="FriendPage('${user_info.user_id}')">View More</a>
+											onclick="FriendPage('${user_info_page.user_id}')">View More</a>
 									</div>
 									</c:if>
 								</div>
@@ -273,7 +273,7 @@
 									<c:if test="${Follow_List.size() > 5 || Follower_List.size() > 5 }">
 									<div class="view-more">
 										<a href="javascript:void(0)"
-											onclick="FollowPage('${user_info.user_id}')">View More</a>
+											onclick="FollowPage('${user_info_page.user_id}')">View More</a>
 									</div>
 									</c:if>
 									
