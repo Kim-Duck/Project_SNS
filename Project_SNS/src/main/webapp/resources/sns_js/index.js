@@ -173,6 +173,8 @@ function edoptsopen(index) {
 }
 
 function commentpopup(index) {
+	commentstart = 1;
+	commentend = 5;
 	$.post("/sns/CommentList", {
 		"bnum" : index,
 		"commentstart" : 1,
@@ -189,6 +191,7 @@ function commentpopup(index) {
 		$(".baselist" + index + "").removeClass("no-margin");
 	}
 }
+
 
 function BoardUpdate(boardnum, boardunum, unum) {
 	if (boardunum != unum) {
