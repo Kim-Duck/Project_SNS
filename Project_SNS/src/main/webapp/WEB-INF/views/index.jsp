@@ -111,7 +111,7 @@
 							<div class="main-ws-sec">
 								<div class="post-topbar">
 
-									<input type="text"
+									<input type="text" readonly="readonly"
 										placeholder="${sessionScope.user.user_name }님의 생각을 적어주세요."
 										style="margin-top: 15px; background-color: transparent; border: 0 solid black; text-align: left; width: 250px; margin-right: 15px;">
 
@@ -231,7 +231,7 @@
 										<form action="/sns/Friend" method="post">
 											<input type="hidden" name="user_id"
 												value="${sessionScope.user.user_id }">
-											<Button type="submit" onclick="" style="color: white;">친구페이지</Button>
+											<Button type="submit" style="color: white; border-radius: 5px; width: 130px;">친구페이지</Button>
 										</form>
 									</div>
 								</div>

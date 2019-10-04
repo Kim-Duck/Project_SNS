@@ -32,12 +32,13 @@
 				<!--search-bar end-->
 				<nav>
 					<ul>
-						<li><a href="/sns/index" title=""> <span><img
-									src="resources/images/icon1.png" style="margin-top: 2px;"
-									alt=""></span> Home
-						</a></li>
-
-
+					<c:if test="${!friend_request_list.isEmpty() }">
+						<li><a href="javascript:void(0)" onclick="friendpagego('${sessionScope.user.user_id}')"><span><img src="resources/images/icon7.png"></span>친구요청알림</a></li>
+						</c:if>
+						<li><a href="/sns/index" title="">
+						<span><img src="resources/images/icon1.png" style="margin-top: 2px;"></span>
+						Home</a></li>
+						
 					</ul>
 				</nav>
 				<!--nav end-->

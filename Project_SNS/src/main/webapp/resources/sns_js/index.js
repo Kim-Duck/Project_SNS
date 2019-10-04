@@ -290,6 +290,18 @@ function Comment_Paging(bnum, size) {
 	commentend += 5;
 }
 
+function friendpagego(user_id){
+	 var $form = $('<form></form>');
+	    $form.attr('action', '/sns/Friend');
+	    $form.attr('method', 'post');    
+	    $form.appendTo('body');    
+	    
+	    var keyword = $('<input type="hidden" value='+user_id+' name="user_id">');
+
+	    $form.append(keyword);
+	    $form.submit();
+}
+
 $(window).scroll(
 		function() {
 			if ($(window).scrollTop() + $(window).height() + 30 > $(document)
