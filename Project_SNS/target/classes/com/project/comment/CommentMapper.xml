@@ -9,7 +9,7 @@ insert into sns_comment values(sns_comment_seq.nextval,#{bnum},#{writer},#{conte
 
 <select id="Comment_List" parameterType="Integer" resultType="com.project.comment.CommentVO">
 <!-- select aa.*, bb.user_photo, bb.user_name from (select * from sns_comment where bnum = #{bnum} order by day) aa, (select user_photo,user_id,user_name from sns_user ) bb where aa.writer = bb.user_id -->
-select * from ( select ROWNUM rnum, aa.*, bb.user_photo, bb.user_name from (select * from sns_comment where bnum = #{bnum} order by cnum asc) aa, (select user_photo,user_id,user_name from sns_user ) bb where aa.writer = bb.user_id) bb where rnum <![CDATA[ >= ]]> #{start} and rnum <![CDATA[ <= ]]> #{end}
+select * from ( select ROWNUM rnum, aa.*, bb.user_photo, bb.user_name from (select * from sns_comment where bnum = #{bnum} order by cnum desc) aa, (select user_photo,user_id,user_name from sns_user ) bb where aa.writer = bb.user_id) bb where rnum <![CDATA[ >= ]]> #{start} and rnum <![CDATA[ <= ]]> #{end}
 </select>
 
 

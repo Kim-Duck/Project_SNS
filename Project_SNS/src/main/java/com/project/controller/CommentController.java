@@ -44,7 +44,7 @@ public class CommentController {
 
 	@PostMapping("/CommentList")
 	public String Comment_List(Model mv,@RequestParam("bnum")int bnum,@RequestParam("commentstart")int start,@RequestParam("commentend")int end) throws NumberFormatException{		
-		List<CommentVO> comment_list = commentservice.Comment_List(bnum,start,end);
+		List<CommentVO> comment_list = commentservice.Comment_List(bnum,start,end);		
 		int comment_size = commentservice.Comment_Size(bnum);
 		mv.addAttribute("comment_list", comment_list);
 		mv.addAttribute("Board_num", bnum);

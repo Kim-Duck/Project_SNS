@@ -84,35 +84,41 @@ var boardnum = 0;
 var scrolltest = 0;
 
 function btnCommentInsert(bnum) {
-	$.ajax({
-		type : 'post',
-		url : '/sns/CommentInsert',
-		data : {
-			"bnum" : bnum,
-			"writer" : $("#comment_writer").val(),
-			"content" : $("#comment_content").val()
-		},
-		success : function(s) {
-			$.post("/sns/CommentList", {
+	if($("#comment_content"+bnum+"").val() == ""){
+		alert("내용을 입력해주세요!");
+		$("#comment_content"+bnum+"").focus();
+		return;
+	}else{
+		$.ajax({
+			type : 'post',
+			url : '/sns/CommentInsert',
+			data : {
 				"bnum" : bnum,
-				"commentstart" : 1,
-				"commentend" : 5
-			}, function(ff) {
-				$("#commentlist" + bnum + "").empty();
-				$("#commentlist" + bnum + "").append(ff);
-				commentstart = 6;
-				commentend = 10;
-				var comment_cnt = s.trim();
-				$("#comment_count" + bnum + "").empty();
-				$("#comment_count" + bnum + "").append(
-						"( " + comment_cnt + " )");
-			});
-		},
-		error : function(e) {
-			alert(e);
-			return;
-		}
-	})
+				"writer" : $("#comment_writer"+bnum+"").val(),
+				"content" : $("#comment_content"+bnum+"").val()
+			},
+			success : function(s) {
+				$.post("/sns/CommentList", {
+					"bnum" : bnum,
+					"commentstart" : 1,
+					"commentend" : 5
+				}, function(ff) {
+					$("#commentlist" + bnum + "").empty();
+					$("#commentlist" + bnum + "").append(ff);
+					commentstart = 1;
+					commentend = 5;
+					var comment_cnt = s.trim();
+					$("#comment_count" + bnum + "").empty();
+					$("#comment_count" + bnum + "").append(
+							"( " + comment_cnt + " )");
+				});
+			},
+			error : function(e) {
+				alert(e);
+				return;
+			}
+		})
+	}	
 }
 
 function boardlist() {
@@ -272,22 +278,33 @@ function handleImgFileSelect2(e) {
 	});
 }
 
-var commentstart = 6;
-var commentend = 10;
+var commentstart = 1;
+var commentend = 5;
+var bnumtest = 0;
 function Comment_Paging(bnum, size) {
+	
+	if(bnumtest != bnum){
+		commentstart = 6;
+		commentend = 10;				
+	}else{
+		commentstart += 5;
+		commentend += 5;
+	}
+	bnumtest = bnum;
+	
 	$.post("/sns/CommentList", {
 		"bnum" : bnum,
 		"commentstart" : commentstart,
 		"commentend" : commentend
 	}, function(s) {
-		$("#comment_page").append(s);
+		$("#comment_page"+bnum+"").append(s);
 	});
 
-	if (size < commentend) {
-		$("#comment_plus").remove();
+	if (size <= commentend) {
+		$("#comment_plus"+bnum+"").remove();
 	}
-	commentstart += 5;
-	commentend += 5;
+
+	
 }
 
 function friendpagego(user_id){
